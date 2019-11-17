@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: suncalc_development
+
+test:
+  <<: *default
+  database: suncalc_test
+
+production:
+  <<: *default
+  database: suncalc_production
