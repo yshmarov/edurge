@@ -1,23 +1,34 @@
-%h1 Listing categories
+%h1 Categories
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th Courses
-      %th
-      %th
+.card-deck
+  - @categories.each do |category|
+    .card
+      .card-header
+        = link_to category.name, category
+      .card-body
+        = category.description
+      .card-footer
+        = pluralize(category.courses_count, 'courses')
 
-  %tbody
-    - @categories.each do |category|
-      %tr
-        %td= link_to category.name, category
-        %td= category.description
-        %td= category.courses_count
-        %td= link_to 'Edit', edit_category_path(category)
-        %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Category', new_category_path
+/%table
+/  %thead
+/    %tr
+/      %th Name
+/      %th Description
+/      %th Courses
+/      %th
+/      %th
+/
+/  %tbody
+/    - @categories.each do |category|
+/      %tr
+/        %td= link_to category.name, category
+/        %td= category.description
+/        %td= category.courses_count
+/        %td= link_to 'Edit', edit_category_path(category)
+/        %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+/
+/%br
+/
+/= link_to 'New Category', new_category_path
+/
