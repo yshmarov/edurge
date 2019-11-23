@@ -7,18 +7,18 @@
       %th Name
       %th Description
       %th User
-      %th
+      %th Tasks
       %th
       %th
 
   %tbody
     - @courses.each do |course|
       %tr
-        %td= course.category
-        %td= course.name
+        %td= link_to course.category, category_path(course.category)
+        %td= link_to course.name, course
         %td= course.description
         %td= course.user
-        %td= link_to 'Show', course
+        %td= course.tasks_count
         %td= link_to 'Edit', edit_course_path(course)
         %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
 

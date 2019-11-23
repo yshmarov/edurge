@@ -11,4 +11,8 @@ class User < ApplicationRecord
       self.email.split(/@/).first
     end
   end
+  
+  def to_s
+    username
+  end
 end
