@@ -1,3 +1,13 @@
+
+rails g scaffold category
+rails g scaffold course name descroption:text user:references category:references 
+rails g scaffold chapter name number:integer course:references
+rails g scaffold task name descroption:text video_url:text chapter:references
+
+rails g scaffold marathon course:references start:datetime end:datetime price:integer
+rails g scaffold marathon_users marathon:references user:references
+rails g scaffold feedback*
+
 # README
 
 This README would normally document whatever steps are necessary to get the
