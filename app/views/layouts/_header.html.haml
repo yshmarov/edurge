@@ -1,0 +1,13 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-warning
+  %a.navbar-brand{:href => "/"} Suncalc
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      .nav-link= link_to 'Categories', categories_path
+      .nav-link= link_to 'Courses', courses_path
+      .nav-link= link_to 'Chapters', chapters_path
+      .nav-link= link_to 'Tasks', tasks_path
+
+    - if current_user
+      = current_user.email
