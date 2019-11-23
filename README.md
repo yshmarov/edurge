@@ -1,5 +1,5 @@
 
-rails g scaffold category
+rails g scaffold category name descroption:text
 rails g scaffold course name descroption:text user:references category:references 
 rails g scaffold chapter name number:integer course:references
 rails g scaffold task name descroption:text video_url:text chapter:references
