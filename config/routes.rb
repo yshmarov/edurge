@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :chapters
   resources :courses
   resources :categories
   devise_for :users
