@@ -3,11 +3,15 @@
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
-    %ul.navbar-nav.mr-auto
-      .nav-link= link_to 'Categories', categories_path
-      .nav-link= link_to 'Courses', courses_path
-      .nav-link= link_to 'Chapters', chapters_path
-      .nav-link= link_to 'Tasks', tasks_path
-
     - if current_user
-      = current_user.email
+      %ul.navbar-nav.mr-auto
+        .nav-link= link_to 'Categories', categories_path
+        .nav-link= link_to 'Courses', courses_path
+        .nav-link= link_to 'Chapters', chapters_path
+        .nav-link= link_to 'Tasks', tasks_path
+      .nav-link= link_to current_user.username, edit_user_registration_path
+      .nav-link= link_to 'Sign out', destroy_user_session_path, method: :delete
+    - else
+      %ul.navbar-nav.mr-auto
+      .nav-link= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-dark'
+      .nav-link= link_to 'Log In', new_user_session_path, class: 'btn btn-outline-dark'
