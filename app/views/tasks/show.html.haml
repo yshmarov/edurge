@@ -4,14 +4,17 @@
   %b Name:
   = @task.name
 %p
-  %b Descroption:
-  = @task.descroption
+  %b Description:
+  = @task.description
 %p
   %b Video url:
   = @task.video_url
 %p
   %b Chapter:
   = @task.chapter
+%p
+  %b Course:
+  = @task.course
 
 = link_to 'Edit', edit_task_path(@task)
 \|

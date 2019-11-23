@@ -1,3 +1,6 @@
 class Task < ApplicationRecord
-  belongs_to :chapter
+  belongs_to :course
+  def to_s
+    name
+  end
 end

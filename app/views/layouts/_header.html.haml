@@ -7,7 +7,6 @@
       %ul.navbar-nav.mr-auto
         .nav-link= link_to 'Categories', categories_path
         .nav-link= link_to 'Courses', courses_path
-        .nav-link= link_to 'Chapters', chapters_path
         .nav-link= link_to 'Tasks', tasks_path
       .nav-link= link_to current_user.username, edit_user_registration_path
       .nav-link= link_to 'Sign out', destroy_user_session_path, method: :delete

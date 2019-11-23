@@ -5,9 +5,10 @@
 
   .form-inputs
     = f.input :name
-    = f.input :descroption
+    = f.input :description
     = f.input :video_url
-    = f.association :chapter
+    = f.input :chapter
+    = f.association :course
 
   .form-actions
     = f.button :submit

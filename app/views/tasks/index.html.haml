@@ -3,10 +3,11 @@
 %table
   %thead
     %tr
-      %th Name
-      %th Descroption
-      %th Video url
+      %th Course
       %th Chapter
+      %th Name
+      %th Description
+      %th Video url
       %th
       %th
       %th
@@ -14,10 +15,11 @@
   %tbody
     - @tasks.each do |task|
       %tr
-        %td= task.name
-        %td= task.descroption
-        %td= task.video_url
+        %td= task.course
         %td= task.chapter
+        %td= task.name
+        %td= task.description
+        %td= task.video_url
         %td= link_to 'Show', task
         %td= link_to 'Edit', edit_task_path(task)
         %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }

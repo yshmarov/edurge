@@ -17,23 +17,14 @@ ActiveRecord::Schema.define(version: 2019_11_23_190813) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
-    t.text "descroption"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "chapters", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "number", null: false
-    t.bigint "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_chapters_on_course_id"
   end
 
   create_table "courses", force: :cascade do |t|
     t.string "name", null: false
-    t.text "descroption"
+    t.text "description"
     t.bigint "user_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false
@@ -44,12 +35,13 @@ ActiveRecord::Schema.define(version: 2019_11_23_190813) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name", null: false
-    t.text "descroption"
+    t.text "description"
     t.text "video_url"
-    t.bigint "chapter_id"
+    t.integer "chapter", null: false
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chapter_id"], name: "index_tasks_on_chapter_id"
+    t.index ["course_id"], name: "index_tasks_on_course_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,8 +56,7 @@ ActiveRecord::Schema.define(version: 2019_11_23_190813) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "chapters", "courses"
   add_foreign_key "courses", "categories"
   add_foreign_key "courses", "users"
-  add_foreign_key "tasks", "chapters"
+  add_foreign_key "tasks", "courses"
 end

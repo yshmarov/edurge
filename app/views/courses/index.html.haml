@@ -3,10 +3,10 @@
 %table
   %thead
     %tr
-      %th Name
-      %th Descroption
-      %th User
       %th Category
+      %th Name
+      %th Description
+      %th User
       %th
       %th
       %th
@@ -14,10 +14,10 @@
   %tbody
     - @courses.each do |course|
       %tr
-        %td= course.name
-        %td= course.descroption
-        %td= course.user
         %td= course.category
+        %td= course.name
+        %td= course.description
+        %td= course.user
         %td= link_to 'Show', course
         %td= link_to 'Edit', edit_course_path(course)
         %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
