@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @task.name
+%p
+  %b Descroption:
+  = @task.descroption
+%p
+  %b Video url:
+  = @task.video_url
+%p
+  %b Chapter:
+  = @task.chapter
+
+= link_to 'Edit', edit_task_path(@task)
+\|
+= link_to 'Back', tasks_path
