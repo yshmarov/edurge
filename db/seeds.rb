@@ -21,10 +21,8 @@ end
   Course.create!([{
     name: Faker::Job.title,
     description: Faker::Quote.famous_last_words,
-    user_id: 1,
-    category_id: 1,
-    #user_id: Faker::Number.between(1, 2),
-    #category_id: Faker::Number.between(1, 3),
+    user_id: Faker::Number.between(from: 1, to: 3),
+    category_id: Faker::Number.between(from: 1, to: 3),
   }])
 end
 
@@ -34,7 +32,6 @@ end
     description: Faker::Quote.famous_last_words,
     video_url: "https://www.youtube.com/watch?v=ojXjR33bPOY",
     chapter: Faker::Number.between(from: 1, to: 10),
-    course_id: 1
-    #course_id: Faker::Number.between(from = 1, to = 9),
+    course_id: Faker::Number.between(from: 1, to: 9),
   }])
 end
