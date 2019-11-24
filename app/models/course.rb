@@ -8,4 +8,6 @@ class Course < ApplicationRecord
   end
   scope :published, -> { where(published: true) }
   scope :approved, -> { where(approved: true) }
+  scope :unpublished, -> { where(published: false) }
+  scope :unapproved, -> { where(approved: false) }
 end

@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2019_11_24_105137) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "lessons_count", default: 0, null: false
-    t.boolean "published"
-    t.boolean "approved"
+    t.boolean "published", default: false
+    t.boolean "approved", default: false
     t.string "language", default: "English", null: false
     t.integer "duration", default: 0, null: false
     t.integer "price", default: 0, null: false

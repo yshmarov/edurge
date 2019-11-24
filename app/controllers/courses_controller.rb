@@ -1,8 +1,29 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :approve, :disapprove]
 
   def index
     @courses = Course.all
+  end
+  
+  def my
+    @courses = Course.where(user_id: current_user.id)
+    render 'index'
+  end
+
+  def unapproved
+    @courses = Course.where(approved: false)
+    render 'index'
+  end
+  
+  def approve
+		#@event.update_attribute(:status, 'planned')
+		@course.update_attribute(:approved, true)
+		redirect_to @course, notice: "Course '#{@course.name}' - approved"
+  end
+
+  def disapprove
+		@course.update_attribute(:approved, false)
+		redirect_to @course, alert: "Course '#{@course.name}' - disapproved"
   end
 
   def show

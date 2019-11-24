@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   resources :lessons
-  resources :courses
+  resources :courses do
+    get :my, :unapproved, on: :collection
+    member do
+  		patch :approve
+  		patch :disapprove
+    end
+  end
   resources :categories
   devise_for :users
   get 'home/index'
