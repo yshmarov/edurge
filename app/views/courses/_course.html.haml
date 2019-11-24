@@ -4,7 +4,7 @@
   .card-body
     %small= simple_format(course.description)
   .card-footer
-    = pluralize(course.tasks_count, 'tasks')
+    = pluralize(course.lessons_count, 'lessons')
     .row
     = course.user
     .float-right

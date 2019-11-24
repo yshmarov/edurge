@@ -1,4 +1,4 @@
-class Task < ApplicationRecord
+class Lesson < ApplicationRecord
   belongs_to :course, counter_cache: true
   validates :name, :description, :chapter, :course, :video_url, presence: true
   def to_s

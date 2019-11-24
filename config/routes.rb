@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tasks
+  resources :lessons
   resources :courses
   resources :categories
   devise_for :users

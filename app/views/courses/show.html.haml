@@ -19,8 +19,8 @@
 
 .text-center
   %h2
-    = pluralize(@course.tasks_count, 'task')
+    = pluralize(@course.lessons_count, 'lesson')
 
-- @tasks.each do |task|
-  = render 'tasks/task', task: task
+- @lessons.each do |lesson|
+  = render 'lessons/lesson', lesson: lesson
   %br

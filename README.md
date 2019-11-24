@@ -21,10 +21,57 @@ add_booleans_to_courses published:boolean approved:boolean
 
 pundit & rolify
 
-# README
+
+
+add language to course
+add duration to course
+add price to course
+
+
+slug & friendly_id
+
+ransack?
+
+
+OTHER COURSE FIELDS
+increments id
+string title
+text short_description
+text description
+text outcomes
+text section
+text requirements
+string language
+double price
+string level 50);
+string thumbnailnullable();
+string video_urlnullable();
+boolean visibility
+
+OTHER LESSON FIELDS
+            $table->increments('id');
+            $table->unsignedInteger('course_id');
+            $table->string('title');
+            $table->string('duration');
+            $table->string('video');
+            $table->timestamps();
+OTHER RATING FIELDS
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('course_id');
+            $table->integer('rating');
+            $table->text('review');
+            
+
+
+
+
+README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
+
+
+
 
 Things you may want to cover:
 
