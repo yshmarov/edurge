@@ -1,5 +1,7 @@
-%h1 New category
-
-= render 'form'
-
-= link_to 'Back', categories_path
+.card
+  .card-header
+    %h2 New category
+  .card-body
+    = render 'form'
+  .card-footer
+    = link_to 'Cancel', root_path
