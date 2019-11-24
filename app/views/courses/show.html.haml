@@ -1,8 +1,23 @@
 /course/show
-= link_to @course.category, category_path(@course.category)
->
-= @course.name
-
+/= link_to @course.category, category_path(@course.category)
+/>
+/= @course.name
+/
+/.jumbotron.bg-dark.text-white
+/  %h3
+/    %b= @course.name
+/  .row
+/  = @course.short_description
+/  .row
+/  Created by
+/  = @course.user
+/  .row
+/  Last updated
+/  = @course.updated_at.strftime('%m/%Y')
+/  .row
+/  .fa.fa-comment
+/  = @course.language
+  
 .text-center
   %h2
     .fa.fa-graduation-cap
@@ -23,7 +38,7 @@
     %b Description:
     %small= simple_format(@course.description)
   .card-footer
-    .fa.fa-language
+    .fa.fa-comment
     %b Language:
     = @course.language
   .card-footer
@@ -44,14 +59,14 @@
     = pluralize(@course.lessons_count, 'lessons')
   .card-footer
     .fa.fa-chalkboard-teacher
-    %b Lecturer:
+    %b Created by
     = @course.user
   .card-footer
     created
     = time_ago_in_words(@course.created_at)
     ago
   .card-footer
-    updated
+    Last updated
     = time_ago_in_words(@course.updated_at)
     ago
   .card-footer
