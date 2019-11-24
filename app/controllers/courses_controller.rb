@@ -3,7 +3,8 @@ class CoursesController < ApplicationController
 
   def index
     if params[:name]
-      @courses = Course.where('name LIKE ?', "%#{params[:name]}%")
+      #@courses = Course.where('name LIKE ?', "%#{params[:name]}%")
+      @courses = Course.where('LOWER(name) LIKE LOWER(?)', "%#{params[:name]}%")
     else
       @courses = Course.all
     end

@@ -1,3 +1,4 @@
+rake db:drop db:create db:migrate db:seed
 TODO
 
 rails g scaffold marathon course:references start:datetime end:datetime price:integer

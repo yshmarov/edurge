@@ -1,29 +1,38 @@
 .jumbotron
   .display-4
     What do you want to learn?
-  %p
+  %p.py-4
   = form_tag(courses_path, method: :get) do
-    Find a course #{text_field_tag :name, params[:name]}
+    = text_field_tag :name, params[:name], placeholder: "Find a course"
     = submit_tag 'Search', name: nil
 
 .row
   .col-4
-    = Course.published.approved.count
-    online courses
-    .row
-    Explore a variety of fresh topics
+    .card.card-body
+      .fa.fa-graduation-cap
+      = Course.published.approved.count
+      online courses
+      .row
+      Explore a variety of fresh topics
   .col-4
-    Expert instruction
-    .row
-    Find the right instructor for you
+    .card.card-body
+      .fa.fa-brain
+      Expert instruction
+      .row
+      Find the right instructor for you
   .col-4
-    Lifetime access
-    .row
-    Learn on your schedule
+    .card.card-body
+      .fa.fa-infinity
+      Lifetime access
+      .row
+      Learn on your schedule
 
 %hr
 .text-center
   %h2 Popular courses
+.text-right
+  = link_to courses_path do
+    More popular courses
 
 %hr
 .text-center
@@ -31,10 +40,16 @@
 .card-columns
   - @latest_courses.each do |course|
     = render 'courses/course', course: course
+.text-right
+  = link_to courses_path do
+    More latest courses
 
 %hr
 .text-center
   %h2 Top rated courses
+.text-right
+  = link_to courses_path do
+    More top rated courses
 
 %hr
 .text-center
@@ -42,9 +57,11 @@
 .card-columns
   - @popular_categories.each do |category|
     = render 'categories/category', category: category
+.text-right
+  = link_to categories_path do
+    More popular categories
 
 %hr
 .text-center
   %h2 What our students have to say
-  
 

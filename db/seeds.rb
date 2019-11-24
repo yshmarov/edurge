@@ -12,16 +12,16 @@ User.create!(email: 'admin@example.com', password: 'admin@example.com', password
 
 3.times do
   Category.create!([{
-    name: Faker::Job.title,
-    description: Faker::Quote.famous_last_words,
+    name: Faker::Educator.degree,
+    description: Faker::Lorem.paragraph,
   }])
 end
 
 9.times do
   Course.create!([{
-    name: Faker::Job.title,
-    short_description: Faker::Quote.famous_last_words,
-    description: Faker::Quote.famous_last_words,
+    name: Faker::Educator.course_name,
+    short_description: Faker::Lorem.paragraph,
+    description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
     user_id: Faker::Number.between(from: 1, to: 3),
     category_id: Faker::Number.between(from: 1, to: 3),
     duration: Faker::Number.between(from: 0, to: 600),
@@ -35,7 +35,7 @@ end
 90.times do
   Lesson.create!([{
     name: Faker::Address.unique.city,
-    description: Faker::Quote.famous_last_words,
+    description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
     video_url: "https://www.youtube.com/watch?v=ojXjR33bPOY",
     chapter: Faker::Number.between(from: 1, to: 10),
     course_id: Faker::Number.between(from: 1, to: 9),

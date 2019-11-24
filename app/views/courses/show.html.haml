@@ -31,6 +31,9 @@
     %b Price:
     = number_to_currency(@course.price)
   .card-footer
+    %b Approved?
+    = @course.approved?
+  .card-footer
     %b Published?
     = @course.published?
   .card-footer

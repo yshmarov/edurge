@@ -25,23 +25,25 @@
         created
         = time_ago_in_words(course.created_at)
         ago
-  .card-footer
-    - if course.published?
-      .badge.badge-success
-        published
-    - else
-      .badge.badge-danger
-        published
-    - if course.approved?
-      .badge.badge-success
-        approved
-    - else
-      .badge.badge-danger
-        approved
-  .card-footer
-    = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-primary'
-    = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary'
-    - if course.approved?
-      = link_to 'Disapprove', disapprove_course_path(course), method: :patch, class: 'btn btn-sm btn-primary'
-    - else
-      = link_to 'Approve', approve_course_path(course), method: :patch, class: 'btn btn-sm btn-primary'
+  - if current_user
+    - if course.user_id == current_user.id
+      .card-footer
+        - if course.published?
+          .badge.badge-success
+            published
+        - else
+          .badge.badge-danger
+            published
+        - if course.approved?
+          .badge.badge-success
+            approved
+        - else
+          .badge.badge-danger
+            approved
+      .card-footer
+        = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-primary'
+        = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary'
+        - if course.approved?
+          = link_to 'Disapprove', disapprove_course_path(course), method: :patch, class: 'btn btn-sm btn-primary'
+        - else
+          = link_to 'Approve', approve_course_path(course), method: :patch, class: 'btn btn-sm btn-primary'
