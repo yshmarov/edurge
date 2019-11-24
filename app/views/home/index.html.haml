@@ -1,2 +1,65 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+.jumbotron
+  %search
+  What do you want to learn?
+.row
+  .col-4
+    = Course.count
+    online courses
+    .row
+    Explore a variety of fresh topics
+  .col-4
+    Expert instruction
+    .row
+    Find the right instructor for you
+  .col-4
+    Lifetime access
+    .row
+    Learn on your schedule
+
+%hr
+Popular
+
+%hr
+New
+
+%hr
+Top rated
+
+%hr
+Top categories
+
+%hr
+What our students have to say
+
+%hr
+%footer
+Teach on EDURGE
+.row
+About us
+
+%footer.page-footer.font-small.blue.pt-4
+  .container-fluid.text-center.text-md-left
+    .row
+      .col-md-6.mt-md-0.mt-3
+        %h5.text-uppercase Footer Content
+        %p Here you can use rows and columns to organize your footer content.
+      %hr.clearfix.w-100.d-md-none.pb-3/
+      .col-md-3.mb-md-0.mb-3
+        %h5.text-uppercase Links
+        %ul.list-unstyled
+          %li
+            %a{:href => "#!"} Link 1
+          %li
+            %a{:href => "#!"} Link 2
+      .col-md-3.mb-md-0.mb-3
+        %h5.text-uppercase Links
+        %ul.list-unstyled
+          %li
+            %a{:href => "#!"} Link 1
+          %li
+            %a{:href => "#!"} Link 2
+  .text-center.py-3
+    Copyright
+    © 
+    = Time.now.year
+    EDURGE Sp. z o.o.

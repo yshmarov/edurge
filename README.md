@@ -14,6 +14,12 @@ only users that are marathon_users of this course can leave 1 review per course
 rails g scaffold review rating:integer comment:text user:references
 add TAGS to courses
 
+paginate tasks inside courses, mark tasks complete
+add_order_to_tasks (order inside chapter)
+
+add_booleans_to_courses published:boolean approved:boolean
+
+pundit & rolify
 
 # README
 
