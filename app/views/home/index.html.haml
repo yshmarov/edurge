@@ -3,7 +3,7 @@
   What do you want to learn?
 .row
   .col-4
-    = Course.count
+    = Course.published.approved.count
     online courses
     .row
     Explore a variety of fresh topics
@@ -17,51 +17,46 @@
     Learn on your schedule
 
 %hr
-Popular
+.text-center
+  %h2 Popular courses
 
 %hr
-New
+.text-center
+  %h2 Latest courses
+.card-columns
+  - @latest_courses.each do |course|
+    = render 'courses/course', course: course
 
 %hr
-Top rated
+.text-center
+  %h2 Top rated courses
 
 %hr
-Top categories
+.text-center
+  %h2 Popular categories
+.card-columns
+  - @popular_categories.each do |category|
+    = render 'categories/category', category: category
 
 %hr
-What our students have to say
+.text-center
+  %h2 What our students have to say
+  
 
 %hr
 %footer
-Teach on EDURGE
-.row
-About us
-Privacy policy
-Terms and conditions
-
-%footer.page-footer.font-small.blue.pt-4
-  .container-fluid.text-center.text-md-left
-    .row
-      .col-md-6.mt-md-0.mt-3
-        %h5.text-uppercase Footer Content
-        %p Here you can use rows and columns to organize your footer content.
-      %hr.clearfix.w-100.d-md-none.pb-3/
-      .col-md-3.mb-md-0.mb-3
-        %h5.text-uppercase Links
-        %ul.list-unstyled
-          %li
-            %a{:href => "#!"} Link 1
-          %li
-            %a{:href => "#!"} Link 2
-      .col-md-3.mb-md-0.mb-3
-        %h5.text-uppercase Links
-        %ul.list-unstyled
-          %li
-            %a{:href => "#!"} Link 1
-          %li
-            %a{:href => "#!"} Link 2
-  .text-center.py-3
-    Copyright
-    © 
-    = Time.now.year
-    EDURGE Sp. z o.o.
+  .row
+    .col-md-4
+      Copyright
+      © 
+      = Time.now.year
+      EDURGE Sp. z o.o.
+    .col-md-4
+      Privacy policy
+      .row
+      Terms and conditions
+    .col-md-4
+      About us
+      .row
+      Teach on EDURGE
+%p

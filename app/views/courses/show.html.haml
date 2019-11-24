@@ -5,20 +5,41 @@
 .card
   .card-header
     %b Category:
-    = @course.category
-    .row
+    = link_to @course.category, category_path(@course.category)
+  .card-header
     %b Name:
     = @course.name
   .card-body
+    %b Short description:
+    %small= simple_format(@course.short_description)
+  %hr
+  .card-body
+    %b Description:
     %small= simple_format(@course.description)
   .card-footer
-    %b User:
+    %b Language:
+    = @course.language
+  .card-footer
+    %b Duration:
+    = @course.duration 
+    min
+  .card-footer
+    %b Price:
+    = @course.price
+  .card-footer
+    %b Published?
+    = @course.published?
+  .card-footer
+    = pluralize(@course.lessons_count, 'lessons')
+  .card-footer
+    %b Lecturer:
     = @course.user
-    .float-right
-      = time_ago_in_words(@course.created_at)
+  .card-footer
+    published
+    = time_ago_in_words(@course.created_at)
+    ago
   .card-footer
     = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
-    = link_to 'Back to category', category_path(@course.category), class: 'btn btn-sm btn-primary'
 
 .text-center
   %h2

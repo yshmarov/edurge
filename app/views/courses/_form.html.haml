@@ -4,15 +4,14 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :name
     = f.association :category
+    = f.input :name
     = f.input :short_description
     = f.input :description
     = f.input :language
     = f.input :duration
     = f.input :price
     = f.input :published
-    = f.input :approved
 
   .form-actions
     = f.button :submit, class: 'btn btn-sm btn-primary'

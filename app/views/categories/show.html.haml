@@ -3,7 +3,9 @@
   %h2
     Category
 = render 'categories/category', category: @category
-%p
+.text-center
+  %h2
+    Courses:
 .card-columns
   - @courses.each do |course|
     = render 'courses/course', course: course
