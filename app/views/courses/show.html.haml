@@ -1,10 +1,13 @@
 /course/show
+.text-center
+  %h2
+    Course
 .card
   .card-header
     %b Category:
     = @course.category
     .row
-    %b Course name:
+    %b Name:
     = @course.name
   .card-body
     %small= simple_format(@course.description)

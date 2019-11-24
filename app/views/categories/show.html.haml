@@ -1,19 +1,9 @@
 /category/show
-/= render 'categories/category', category: @category
-.card
-  .card-header
-    %b Category:
-    = @category.name
-  .card-body
-    %small= simple_format(@category.description)
-  .card-footer
-    = link_to 'Edit', edit_category_path(@category), class: 'btn btn-sm btn-secondary'
-    = link_to 'All categories', categories_path, class: 'btn btn-sm btn-secondary'
-
 .text-center
   %h2
-    = pluralize(@category.courses_count, 'course')
-
+    Category
+= render 'categories/category', category: @category
+%p
 .card-columns
   - @courses.each do |course|
     = render 'courses/course', course: course

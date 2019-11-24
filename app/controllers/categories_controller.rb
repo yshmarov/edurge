@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @courses = @category.courses
+    @courses = @category.courses.published.approved
   end
 
   # GET /categories/new

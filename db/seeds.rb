@@ -20,14 +20,20 @@ end
 9.times do
   Course.create!([{
     name: Faker::Job.title,
+    short_description: Faker::Quote.famous_last_words,
     description: Faker::Quote.famous_last_words,
     user_id: Faker::Number.between(from: 1, to: 3),
     category_id: Faker::Number.between(from: 1, to: 3),
+    duration: Faker::Number.between(from: 0, to: 600),
+    price: Faker::Number.between(from: 0, to: 200),
+    published: true,
+    approved: true,
+    language: "English"
   }])
 end
 
 90.times do
-  Task.create!([{
+  Lesson.create!([{
     name: Faker::Address.unique.city,
     description: Faker::Quote.famous_last_words,
     video_url: "https://www.youtube.com/watch?v=ojXjR33bPOY",

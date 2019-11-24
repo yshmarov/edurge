@@ -2,13 +2,26 @@
   .card-header
     = link_to course.name, course
   .card-body
-    %small= simple_format(course.description)
+    %small= simple_format(course.short_description)
   .card-footer
-    = pluralize(course.lessons_count, 'lessons')
+    .text-right
+      = course.price
+  .card-footer
     .row
-    = course.user
-    .float-right
-      = time_ago_in_words(course.created_at)
+      .col-md-6
+        = course.duration 
+        min
+      .col-md-6.text-right
+        = pluralize(course.lessons_count, 'lessons')
+  .card-footer
+    .row
+      .col-md-6
+        by
+        = course.user
+      .col-md-6.text-right
+        published
+        = time_ago_in_words(course.created_at)
+        ago
   .card-footer
     = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-primary'
     = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary'

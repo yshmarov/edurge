@@ -4,7 +4,7 @@
   .card-body
     %small= simple_format(category.description)
   .card-footer
-    = pluralize(category.courses_count, 'course')
+    = pluralize(category.courses.approved.published.count, 'course')
   .card-footer
     = link_to 'Edit', edit_category_path(category), class: 'btn btn-sm btn-secondary'
     = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-secondary'

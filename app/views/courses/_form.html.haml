@@ -5,8 +5,14 @@
 
   .form-inputs
     = f.input :name
-    = f.input :description
     = f.association :category
+    = f.input :short_description
+    = f.input :description
+    = f.input :language
+    = f.input :duration
+    = f.input :price
+    = f.input :published
+    = f.input :approved
 
   .form-actions
     = f.button :submit, class: 'btn btn-sm btn-primary'
