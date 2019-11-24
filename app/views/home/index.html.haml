@@ -1,6 +1,12 @@
 .jumbotron
-  %search
-  What do you want to learn?
+  .display-4
+    What do you want to learn?
+  %p
+  = form_tag(courses_path, method: :get) do
+    Find a course #{text_field_tag :name, params[:name]}
+    = submit_tag 'Search', name: nil
+
+
 .row
   .col-4
     = Course.published.approved.count

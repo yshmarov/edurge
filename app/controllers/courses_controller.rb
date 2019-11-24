@@ -2,9 +2,13 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy, :approve, :disapprove]
 
   def index
-    @courses = Course.all
+    if params[:name]
+      @courses = Course.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @courses = Course.all
+    end
   end
-  
+
   def my
     @courses = Course.where(user_id: current_user.id)
     render 'index'

@@ -35,8 +35,12 @@
     %b Lecturer:
     = @course.user
   .card-footer
-    published
+    created
     = time_ago_in_words(@course.created_at)
+    ago
+  .card-footer
+    updated
+    = time_ago_in_words(@course.updated_at)
     ago
   .card-footer
     = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'

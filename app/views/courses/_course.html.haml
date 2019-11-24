@@ -23,6 +23,19 @@
         = time_ago_in_words(course.created_at)
         ago
   .card-footer
+    - if course.published?
+      .badge.badge-success
+        published
+    - else
+      .badge.badge-danger
+        published
+    - if course.approved?
+      .badge.badge-success
+        approved
+    - else
+      .badge.badge-danger
+        approved
+  .card-footer
     = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-primary'
     = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary'
     - if course.approved?

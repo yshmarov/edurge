@@ -1,17 +1,12 @@
-DONE
-rails g scaffold category name description:text
-rails g scaffold course name description:text user:references category:references 
-rails g scaffold lesson name description:text video_url:text chapter:references
 TODO
 
 rails g scaffold marathon course:references start:datetime end:datetime price:integer
 rails g scaffold marathon_users marathon:references user:references
-rails g scaffold feedback*
 
-rails g migration add_rating_to_course ratings_count:integer ratings_sum:integer rating:decimal
+rails g scaffold review rating:integer comment:text user:references
+rails g migration add_rating_counters_to_course ratings_count:integer ratings_sum:integer rating:decimal
 
 only users that are marathon_users of this course can leave 1 review per course
-rails g scaffold review rating:integer comment:text user:references
 add TAGS to courses
 
 paginate lessons inside courses, mark lessons complete
@@ -19,14 +14,6 @@ add_order_to_lessons (order inside chapter)
 pundit & rolify
 slug & friendly_id
 ransack?
-
-
-add_fields_to_courses 
-published:boolean approved:boolean language:string duration:integer price:integer short_description:text
-
-:published, :approved, :language, :duration, :price, :short_description, 
-
-
 
 OTHER COURSE FIELDS
 text outcomes (what you will learn)
@@ -40,16 +27,11 @@ OTHER LESSON FIELDS
             $table->string('title');
             $table->string('duration');
             $table->string('video');
-            $table->timestamps();
 OTHER RATING FIELDS
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('course_id');
             $table->integer('rating');
             $table->text('review');
-            
-
-
-
 
 README
 
