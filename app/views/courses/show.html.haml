@@ -1,18 +1,28 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @course.name
-%p
-  %b Description:
-  = @course.description
-%p
-  %b User:
-  = @course.user
-%p
-  %b Category:
-  = @course.category
+.card
+  .card-header
+    %p
+      %b Name:
+      = @course.name
+    %p
+      %b Description:
+      = @course.description
+    %p
+      %b User:
+      = @course.user
+    %p
+      %b Category:
+      = @course.category
+    
+    = link_to 'Edit', edit_course_path(@course)
+    \|
+    = link_to 'Back', courses_path
 
-= link_to 'Edit', edit_course_path(@course)
-\|
-= link_to 'Back', courses_path
+.text-center
+  %h2
+    = pluralize(@course.tasks_count, 'task')
+
+- @tasks.each do |task|
+  = render 'tasks/task', task: task
+  %br

@@ -1,0 +1,17 @@
+.card
+  .card-header
+    %b Chapter:
+    = task.chapter
+    .row
+    %b Name:
+    = task.name
+  .embed-responsive.embed-responsive-16by9
+    %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "#{task.embed_url}", :width => "560"}
+  .card-footer
+    %b Description:
+    = task.description
+  .card-footer
+    = link_to 'Edit', edit_task_path(task)
+    \|
+    = link_to 'Back', tasks_path
+
