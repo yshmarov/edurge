@@ -9,8 +9,7 @@
     %b Course name:
     = @course.name
   .card-body
-    %b Description:
-    = @course.description
+    %small= simple_format(@course.description)
   .card-footer
     %b User:
     = @course.user

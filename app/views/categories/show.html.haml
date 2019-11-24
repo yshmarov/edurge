@@ -6,8 +6,7 @@
     %b Category:
     = @category.name
   .card-body
-    %b Description:
-    = @category.description
+    %small= simple_format(@category.description)
   .card-footer
     = link_to 'Edit', edit_category_path(@category), class: 'btn btn-sm btn-secondary'
     = link_to 'Back', categories_path, class: 'btn btn-sm btn-secondary'
