@@ -9,7 +9,11 @@ rails g scaffold marathon_users marathon:references user:references
 rails g scaffold feedback*
 
 rails g migration add_rating_to_course ratings_count:integer ratings_sum:integer rating:decimal
-rails g scaffold rating rating:integer comment:text user:references
+
+only users that are marathon_users of this course can leave 1 review per course
+rails g scaffold review rating:integer comment:text user:references
+add TAGS to courses
+
 
 # README
 

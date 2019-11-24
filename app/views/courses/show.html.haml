@@ -15,7 +15,7 @@
       = time_ago_in_words(@course.created_at)
   .card-footer
     = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
-    = link_to 'Back', category_path(@course.category), class: 'btn btn-sm btn-primary'
+    = link_to 'Back to category', category_path(@course.category), class: 'btn btn-sm btn-primary'
 
 .text-center
   %h2
