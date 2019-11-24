@@ -7,19 +7,30 @@
   #navbarSupportedContent.collapse.navbar-collapse
     - if current_user
       %ul.navbar-nav.mr-auto
-        .nav-link= link_to 'Categories', categories_path
+        .nav-link
+          = link_to categories_path do
+            .fa.fa-bookmark
+            Categories
         .nav-link
           = link_to unapproved_courses_path do
+            .fa.fa-graduation-cap
             Unapproved courses
             .badge.badge-danger
               = Course.unapproved.count
         .nav-link
           = link_to my_courses_path do
+            .fa.fa-graduation-cap
             iTeach
             .badge.badge-danger
               = current_user.courses.count
-        .nav-link iLearn
-        .nav-link= link_to 'Add course', new_course_path
+        .nav-link
+          .fa.fa-graduation-cap
+          iLearn
+        .nav-link
+          = link_to new_course_path do
+            .fa.fa-graduation-cap
+            .fa.fa-plus
+            Add course
       .nav-link= link_to current_user.username, edit_user_registration_path
       .nav-link= link_to 'Sign out', destroy_user_session_path, method: :delete
     - else

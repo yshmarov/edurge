@@ -6,7 +6,6 @@
     Find a course #{text_field_tag :name, params[:name]}
     = submit_tag 'Search', name: nil
 
-
 .row
   .col-4
     = Course.published.approved.count

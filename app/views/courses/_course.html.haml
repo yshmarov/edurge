@@ -1,5 +1,6 @@
 .card
   .card-header
+    .fa.fa-graduation-cap
     = link_to course.name, course
   .card-body
     %small= simple_format(course.short_description)
@@ -9,6 +10,7 @@
   .card-footer
     .row
       .col-md-6
+        .fa.fa-clock
         = course.duration 
         min
       .col-md-6.text-right
@@ -16,6 +18,7 @@
   .card-footer
     .row
       .col-md-6
+        .fa.fa-chalkboard-teacher
         Lecturer:
         = course.user
       .col-md-6.text-right

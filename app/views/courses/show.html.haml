@@ -1,9 +1,11 @@
 /course/show
 .text-center
   %h2
+    .fa.fa-graduation-cap
     Course
 .card
   .card-header
+    .fa.fa-bookmark
     %b Category:
     = link_to @course.category, category_path(@course.category)
   .card-header
