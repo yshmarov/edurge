@@ -6,7 +6,7 @@
     %small= simple_format(course.short_description)
   .card-footer
     .text-right
-      = course.price
+      = number_to_currency(course.price)
   .card-footer
     .row
       .col-md-6

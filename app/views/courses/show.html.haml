@@ -19,21 +19,24 @@
     %b Description:
     %small= simple_format(@course.description)
   .card-footer
+    .fa.fa-language
     %b Language:
     = @course.language
   .card-footer
+    .fa.fa-clock
     %b Duration:
     = @course.duration 
     min
   .card-footer
     %b Price:
-    = @course.price
+    = number_to_currency(@course.price)
   .card-footer
     %b Published?
     = @course.published?
   .card-footer
     = pluralize(@course.lessons_count, 'lessons')
   .card-footer
+    .fa.fa-chalkboard-teacher
     %b Lecturer:
     = @course.user
   .card-footer
