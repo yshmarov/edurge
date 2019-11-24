@@ -1,23 +1,24 @@
+/course/show
 %p#notice= notice
 
 .card
   .card-header
-    %p
-      %b Name:
-      = @course.name
-    %p
-      %b Description:
-      = @course.description
-    %p
-      %b User:
-      = @course.user
-    %p
-      %b Category:
-      = @course.category
-    
-    = link_to 'Edit', edit_course_path(@course)
-    \|
-    = link_to 'Back', courses_path
+    %b Category:
+    = @course.category
+    .row
+    %b Course name:
+    = @course.name
+  .card-body
+    %b Description:
+    = @course.description
+  .card-footer
+    %b User:
+    = @course.user
+    .float-right
+      = time_ago_in_words(@course.created_at)
+  .card-footer
+    = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
+    = link_to 'Back', category_path(@course.category), class: 'btn btn-sm btn-primary'
 
 .text-center
   %h2

@@ -5,10 +5,10 @@
     %small= simple_format(course.description)
   .card-footer
     = pluralize(course.tasks_count, 'tasks')
-    .float-right
-      = course.user
-      .row
-      = time_ago_in_words(course.created_at)
     .row
-    = link_to 'Edit', edit_course_path(course)
-    = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
+    = course.user
+    .float-right
+      = time_ago_in_words(course.created_at)
+  .card-footer
+    = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-primary'
+    = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary'

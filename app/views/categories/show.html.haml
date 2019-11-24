@@ -1,17 +1,16 @@
 %p#notice= notice
+/= render 'categories/category', category: @category
 
 .card
   .card-header
-    %p
-      %b Name:
-      = @category.name
-    %p
-      %b Description:
-      = @category.description
-    
-    = link_to 'Edit', edit_category_path(@category)
-    \|
-    = link_to 'Back', categories_path
+    %b Category:
+    = @category.name
+  .card-body
+    %b Description:
+    = @category.description
+  .card-footer
+    = link_to 'Edit', edit_category_path(@category), class: 'btn btn-sm btn-secondary'
+    = link_to 'Back', categories_path, class: 'btn btn-sm btn-secondary'
 
 .text-center
   %h2
