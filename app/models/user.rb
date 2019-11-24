@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_many :courses
 
+  extend FriendlyId
+  friendly_id :email, use: :slugged
+
   def username
     if email.present?
       self.email.split(/@/).first
