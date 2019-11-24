@@ -1,35 +1,17 @@
 .text-center
   %h2 Categories
 
-.card-deck
+.card-columns
   - @categories.each do |category|
     .card
       .card-header
         = link_to category.name, category
       .card-body
-        = category.description
+        %small= simple_format(category.description)
       .card-footer
-        = pluralize(category.courses_count, 'courses')
-
-/%table
-/  %thead
-/    %tr
-/      %th Name
-/      %th Description
-/      %th Courses
-/      %th
-/      %th
-/
-/  %tbody
-/    - @categories.each do |category|
-/      %tr
-/        %td= link_to category.name, category
-/        %td= category.description
-/        %td= category.courses_count
-/        %td= link_to 'Edit', edit_category_path(category)
-/        %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
-/
-/%br
-/
-/= link_to 'New Category', new_category_path
-/
+        = pluralize(category.courses_count, 'course')
+        .row
+        = link_to 'Edit', edit_category_path(category)
+        = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+= link_to 'New Category', new_category_path

@@ -1,12 +1,22 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @category.name
-%p
-  %b Description:
-  = @category.description
+.card
+  .card-header
+    %p
+      %b Name:
+      = @category.name
+    %p
+      %b Description:
+      = @category.description
+    
+    = link_to 'Edit', edit_category_path(@category)
+    \|
+    = link_to 'Back', categories_path
 
-= link_to 'Edit', edit_category_path(@category)
-\|
-= link_to 'Back', categories_path
+.text-center
+  %h2
+    = pluralize(@category.courses_count, 'course')
+
+.card-columns
+  - @courses.each do |course|
+    = render 'courses/course', course: course

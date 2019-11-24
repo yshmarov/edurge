@@ -1,6 +1,14 @@
 .card
   .card-header
+    = link_to course.name, course
   .card-body
+    %small= simple_format(course.description)
   .card-footer
-  
-  
+    = pluralize(course.tasks_count, 'tasks')
+    .float-right
+      = course.user
+      .row
+      = time_ago_in_words(course.created_at)
+    .row
+    = link_to 'Edit', edit_course_path(course)
+    = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
