@@ -12,7 +12,6 @@ add TAGS to courses
 paginate lessons inside courses, mark lessons complete
 add_order_to_lessons (order inside chapter)
 pundit & rolify
-slug & friendly_id
 ransack?
 
 OTHER COURSE FIELDS
