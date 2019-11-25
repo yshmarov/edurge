@@ -17,16 +17,13 @@ class Course < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name, use: :slugged
-  
-  def reviews_count
-    reviews.count
+
+  def average_rating2
+    reviews.blank? ? 0 : reviews.average(:rating).round(2)
   end
 
-  def ratings_sum
-    reviews.map(&:rating).sum
+  def update_rating
+    update_column :average_rating, (reviews.average(:rating).round(2).to_f)
   end
 
-  def total_rating
-    ratings_sum.to_d / reviews_count.to_d
-  end
 end

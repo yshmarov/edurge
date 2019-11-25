@@ -30,6 +30,9 @@
 .text-right
   = link_to courses_path do
     More popular courses
+.card-columns
+  - @popular_courses.each do |course|
+    = render 'courses/course', course: course
 
 %hr.bg-light
 .text-center.text-white

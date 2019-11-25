@@ -5,8 +5,14 @@
   .card-body
     %small= simple_format(course.short_description)
   .card-footer
-    .text-right
-      = number_to_currency(course.price)
+    .text-center
+      %b.text-success= number_to_currency(course.price)
+  .card-footer
+    .fa.fa-star
+    = course.average_rating
+    .float-right
+      .fa.fa-user
+      = course.reviews_count
   .card-footer
     .row
       .col-md-6
