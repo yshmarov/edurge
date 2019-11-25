@@ -7,7 +7,7 @@
   = @course.name
 
 .row
-  .col-lg-8
+  .col-lg-8.order-1.order-lg-0
     .jumbotron
       %h3
         .fa.fa-graduation-cap
@@ -24,7 +24,7 @@
       = @course.average_rating
       .row
       .fa.fa-chalkboard-teacher
-      Created by
+      Lecturer:
       = @course.user
       .row
       .fa.fa-clock
@@ -58,6 +58,7 @@
       = render 'reviews/review', review: review
       %p
 
-  .col-lg-4
-    .d-none.d-lg-block.sticky-top
+  .col-lg-4.order-0.order-lg-1
+    .sticky-top
       = render 'courses/course', course: @course
+    %p
