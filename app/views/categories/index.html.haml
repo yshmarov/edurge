@@ -1,7 +1,6 @@
 .text-center.text-white
-  %h2
+  %h3
     = pluralize(Category.count, 'category')
-  = link_to 'New Category', new_category_path, class: 'btn btn-sm btn-secondary'
 %p
 .card-columns
   - @categories.each do |category|
