@@ -8,11 +8,11 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body.bg-light
+  %body.bg-dark
     = render 'layouts/header'
     = render 'layouts/messages'
     .container
       %br
       = yield
-    .bg-warning
+    .bg-success
       = render 'layouts/footer'    

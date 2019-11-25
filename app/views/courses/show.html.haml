@@ -27,7 +27,7 @@ total_rating
 
 .row
   .col-md-6
-    .text-center
+    .text-center.text-white
       %h2
         .fa.fa-graduation-cap
         = @course.name
@@ -82,7 +82,7 @@ total_rating
         .card-footer
           = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
   .col-md-6
-    .text-center
+    .text-center.text-white
       %h2
         = pluralize(@course.lessons_count, 'lesson')
     - @lessons.each do |lesson|

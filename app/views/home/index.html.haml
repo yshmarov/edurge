@@ -25,14 +25,14 @@
     Learn on your schedule
 
 %br
-.text-center
+.text-center.text-white
   %h2 Popular courses
 .text-right
   = link_to courses_path do
     More popular courses
 
 %hr
-.text-center
+.text-center.text-white
   %h2 Latest courses
 .card-columns
   - @latest_courses.each do |course|
@@ -42,14 +42,14 @@
     More latest courses
 
 %hr
-.text-center
+.text-center.text-white
   %h2 Top rated courses
 .text-right
   = link_to courses_path do
     More top rated courses
 
 %hr
-.text-center
+.text-center.text-white
   %h2 Popular categories
 .card-columns
   - @popular_categories.each do |category|
@@ -59,6 +59,6 @@
     More popular categories
 
 %hr
-.text-center
+.text-center.text-white
   %h2 What our students have to say
 
