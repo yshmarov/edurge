@@ -6,7 +6,10 @@
     %small= simple_format(course.short_description)
   .card-footer
     .text-center
-      %b.text-success= number_to_currency(course.price)
+      = link_to course_path(course), class: 'btn btn-md btn-success' do
+        .fa.fa-shopping-cart
+        = number_to_currency(course.price)
+
   .card-footer
     .fa.fa-star
     = course.average_rating

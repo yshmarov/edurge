@@ -1,9 +1,5 @@
-rails g migration add_rating_counters_to_course reviews_count:integer average_rating:integer
-
 rake db:drop db:create db:migrate db:seed
 TODO
-
-rails g scaffold review rating:integer comment:text user:references course:references
 
 rails g scaffold marathon course:references start:datetime end:datetime price:integer
 rails g scaffold marathon_users marathon:references user:references
@@ -15,12 +11,6 @@ paginate lessons inside courses, mark lessons complete
 add_order_to_lessons (order inside chapter)
 pundit & rolify
 ransack?
-
-OTHER COURSE FIELDS
-text outcomes (what you will learn)
-text requirements (what you need to know before, barriers to entry)
-string thumbnailnullable();
-string video_urlnullable();
 
 OTHER LESSON FIELDS
             $table->increments('id');

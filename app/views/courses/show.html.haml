@@ -1,91 +1,74 @@
 /course/show
-/= link_to @course.category, category_path(@course.category)
-/>
-/= @course.name
-/
-/.jumbotron.bg-dark.text-white
-/  %h3
-/    %b= @course.name
-/  .row
-/  = @course.short_description
-/  .row
-/  Created by
-/  = @course.user
-/  .row
-/  Last updated
-/  = @course.updated_at.strftime('%m/%Y')
-/  .row
-/  .fa.fa-comment
-/  = @course.language
+.text-white
+  .fa.fa-bookmark
+  = link_to @course.category, category_path(@course.category)
+  >
+  .fa.fa-graduation-cap
+  = @course.name
 
-reviews_count
-= @course.reviews_count
-.row
-.fa.fa-star
-average_rating
-= @course.average_rating
-average_rating2
-= @course.average_rating2
+.jumbotron.bg-light
+  %h3
+    .fa.fa-graduation-cap
+    %b= @course.name
+  %p
+  .row
+    .col-md-6
+      %small= simple_format(@course.short_description)
+      %p
+      .row
+      .fa.fa-user
+      = @course.reviews_count
+      students
+      .row
+      .fa.fa-star
+      = @course.average_rating
+      .row
+      .fa.fa-chalkboard-teacher
+      Created by
+      = @course.user
+      .row
+      .fa.fa-clock
+      Last updated
+      = @course.updated_at.strftime('%m/%Y')
+      .row
+      .fa.fa-comment
+      = @course.language
+    .col-md-6.text-right
+      %h4
+        = link_to course_path(@course), class: 'btn btn-lg btn-success' do
+          .fa.fa-shopping-cart
+          = number_to_currency(@course.price)
 
 .row
   .col-md-6
-    .text-center.text-white
-      %h2
-        .fa.fa-graduation-cap
-        = @course.name
     .card
-      .card-header
-        .fa.fa-bookmark
-        %b Category:
-        = link_to @course.category, category_path(@course.category)
-      .card-header
-        %b Name:
-        = @course.name
-      .card-body
-        %b Short description:
-        %small= simple_format(@course.short_description)
-      %hr
       .card-body
         %b Description:
         %small= simple_format(@course.description)
-      .card-footer
-        .fa.fa-comment
-        %b Language:
-        = @course.language
       .card-footer
         .fa.fa-clock
         %b Duration:
         = @course.duration 
         min
-      .card-footer
-        %b Price:
-        = number_to_currency(@course.price)
-      .card-footer
-        %b Approved?
-        = @course.approved?
-      .card-footer
-        %b Published?
-        = @course.published?
-      .card-footer
-        = pluralize(@course.lessons_count, 'lessons')
-      .card-footer
-        .fa.fa-chalkboard-teacher
-        %b Created by
-        = @course.user
-      .card-footer
-        created
-        = time_ago_in_words(@course.created_at)
-        ago
-      .card-footer
-        Last updated
-        = time_ago_in_words(@course.updated_at)
-        ago
       - if @course.user_id == current_user.id
+        .card-footer
+          - if @course.published?
+            .badge.badge-success
+              published
+          - else
+            .badge.badge-danger
+              published
+          - if @course.approved?
+            .badge.badge-success
+              approved
+          - else
+            .badge.badge-danger
+              approved
         .card-footer
           = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
   .col-md-6
     .text-center.text-white
-      %h2
+      %h4
         = pluralize(@course.lessons_count, 'lesson')
     - @lessons.each do |lesson|
       = render 'lessons/lesson_preview', lesson: lesson
