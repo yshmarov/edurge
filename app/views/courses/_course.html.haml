@@ -23,6 +23,7 @@
         = course.duration 
         min
       .col-md-6.text-right
+        .fa.fa-book
         = pluralize(course.lessons_count, 'lessons')
   .card-footer
     .row
@@ -31,9 +32,9 @@
         Lecturer:
         = course.user
       .col-md-6.text-right
-        created
-        = time_ago_in_words(course.created_at)
-        ago
+        .fa.fa-clock
+        Last updated
+        = course.updated_at.strftime('%m/%Y')
   - if current_user
     - if course.user_id == current_user.id
       .card-footer
