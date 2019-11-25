@@ -1,6 +1,6 @@
-class CreateTasks < ActiveRecord::Migration[5.2]
+class CreateLessons < ActiveRecord::Migration[5.2]
   def change
-    create_table :tasks do |t|
+    create_table :lessons do |t|
       t.string :name, null: false
       t.text :description, :limit => 500
       t.text :video_url
