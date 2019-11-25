@@ -6,28 +6,25 @@
     = text_field_tag :name, params[:name], placeholder: "Find a course"
     = submit_tag 'Search', name: nil
 
-.row
-  .col-4
-    .card.card-body
-      .fa.fa-graduation-cap
-      = Course.published.approved.count
-      online courses
-      .row
-      Explore a variety of fresh topics
-  .col-4
-    .card.card-body
-      .fa.fa-brain
-      Expert instruction
-      .row
-      Find the right instructor for you
-  .col-4
-    .card.card-body
-      .fa.fa-infinity
-      Lifetime access
-      .row
-      Learn on your schedule
+.card-group
+  .card.card-body
+    .fa.fa-graduation-cap
+    = Course.published.approved.count
+    online courses
+    .row
+    Explore a variety of fresh topics
+  .card.card-body
+    .fa.fa-brain
+    Expert instruction
+    .row
+    Find the right instructor for you
+  .card.card-body
+    .fa.fa-infinity
+    Lifetime access
+    .row
+    Learn on your schedule
 
-%hr
+%br
 .text-center
   %h2 Popular courses
 .text-right
