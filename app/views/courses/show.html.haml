@@ -33,6 +33,11 @@
       .row
       .fa.fa-comment
       = @course.language
+      .row
+      .fa.fa-clock
+      %b Duration:
+      = @course.duration 
+      min
     .col-md-6.text-right
       %h4
         = link_to course_path(@course), class: 'btn btn-lg btn-success' do
@@ -45,11 +50,6 @@
       .card-body
         %b Description:
         %small= simple_format(@course.description)
-      .card-footer
-        .fa.fa-clock
-        %b Duration:
-        = @course.duration 
-        min
       - if @course.user_id == current_user.id
         .card-footer
           - if @course.published?
@@ -66,6 +66,15 @@
               approved
         .card-footer
           = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
+    %p
+    %h4.text-white.text-center
+      Reviews:
+      = @course.reviews.count
+    .card-columns
+      - @reviews.each do |review|
+        = render 'reviews/review', review: review
+      %p
+
   .col-md-6
     .text-center.text-white
       %h4
