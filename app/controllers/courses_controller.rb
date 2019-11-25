@@ -19,7 +19,22 @@ class CoursesController < ApplicationController
     @courses = Course.where(approved: false)
     render 'index'
   end
-  
+
+  def latest
+    @courses = Course.all.published.approved.order(created_at: :desc)
+    render 'index'
+  end
+
+  def top_rated
+    @courses = Course.all.published.approved.order(average_rating: :desc, created_at: :desc)
+    render 'index'
+  end
+
+  def popular
+    @courses = Course.all.published.approved.order(reviews_count: :desc, created_at: :desc)
+    render 'index'
+  end
+
   def approve
 		#@event.update_attribute(:status, 'planned')
 		@course.update_attribute(:approved, true)

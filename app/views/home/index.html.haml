@@ -28,7 +28,7 @@
 .text-center.text-white
   %h2 Popular courses
 .text-right
-  = link_to courses_path do
+  = link_to popular_courses_path do
     More popular courses
 .card-columns
   - @popular_courses.each do |course|
@@ -41,7 +41,7 @@
   - @latest_courses.each do |course|
     = render 'courses/course', course: course
 .text-right
-  = link_to courses_path do
+  = link_to latest_courses_path do
     More latest courses
 
 %hr.bg-light
@@ -51,7 +51,7 @@
   - @top_rated_courses.each do |course|
     = render 'courses/course', course: course
 .text-right
-  = link_to courses_path do
+  = link_to top_rated_courses_path do
     More top rated courses
 
 %hr.bg-light

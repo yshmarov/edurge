@@ -1,7 +1,7 @@
 .text-center
   %h2.text-white
-    = action_name.capitalize
-    Courses
+    = action_name.humanize
+    courses
 
 .card-columns
   - @courses.each do |course|
