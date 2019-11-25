@@ -1,15 +1,16 @@
-.card.card-body
-  .fa.fa-user
-  = review.user
-  .row
-  .fa.fa-star
-  = review.rating
-  .row
-  .fa.fa-comment
-  = review.comment
-  .row
-  .fa.fa-graduation-cap
-  = link_to review.course, course_path(review.course)
-  .row
-  .fa.fa-clock
-  = review.created_at.strftime('%d/%b/%Y')
+.card
+  .card-body
+    .fa.fa-user
+    = review.user
+    .row
+    .fa.fa-star
+    = review.rating
+    .row
+    .fa.fa-comment
+    %small= review.comment
+    .row
+    .fa.fa-graduation-cap
+    = link_to review.course, course_path(review.course)
+    .row
+    .fa.fa-clock
+    = review.created_at.strftime('%d/%b/%Y')

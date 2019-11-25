@@ -68,11 +68,11 @@
           = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
     %p
     %h4.text-white.text-center
+      .fa.fa-comment
       Reviews:
       = @course.reviews.count
-    .card-columns
-      - @reviews.each do |review|
-        = render 'reviews/review', review: review
+    - @reviews.each do |review|
+      = render 'reviews/review', review: review
       %p
 
   .col-md-6

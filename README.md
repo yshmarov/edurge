@@ -1,6 +1,12 @@
 rake db:drop db:create db:migrate db:seed
 TODO
 
+add_level_to_course level:string 
+beginner
+intermediate
+advanced
+
+
 rails g scaffold marathon course:references start:datetime end:datetime price:integer
 rails g scaffold marathon_users marathon:references user:references
 
