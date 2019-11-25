@@ -17,65 +17,73 @@
 /  .row
 /  .fa.fa-comment
 /  = @course.language
-  
-.text-center
-  %h2
-    .fa.fa-graduation-cap
-    = @course.name
-.card
-  .card-header
-    .fa.fa-bookmark
-    %b Category:
-    = link_to @course.category, category_path(@course.category)
-  .card-header
-    %b Name:
-    = @course.name
-  .card-body
-    %b Short description:
-    %small= simple_format(@course.short_description)
-  %hr
-  .card-body
-    %b Description:
-    %small= simple_format(@course.description)
-  .card-footer
-    .fa.fa-comment
-    %b Language:
-    = @course.language
-  .card-footer
-    .fa.fa-clock
-    %b Duration:
-    = @course.duration 
-    min
-  .card-footer
-    %b Price:
-    = number_to_currency(@course.price)
-  .card-footer
-    %b Approved?
-    = @course.approved?
-  .card-footer
-    %b Published?
-    = @course.published?
-  .card-footer
-    = pluralize(@course.lessons_count, 'lessons')
-  .card-footer
-    .fa.fa-chalkboard-teacher
-    %b Created by
-    = @course.user
-  .card-footer
-    created
-    = time_ago_in_words(@course.created_at)
-    ago
-  .card-footer
-    Last updated
-    = time_ago_in_words(@course.updated_at)
-    ago
-  .card-footer
-    = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
 
-.text-center
-  %h2
-    = pluralize(@course.lessons_count, 'lesson')
+reviews_count
+= @course.reviews_count
+.row
+.fa.fa-star
+total_rating
+= @course.total_rating
 
-- @lessons.each do |lesson|
-  = render 'lessons/lesson', lesson: lesson
-  %br
+.row
+  .col-md-6
+    .text-center
+      %h2
+        .fa.fa-graduation-cap
+        = @course.name
+    .card
+      .card-header
+        .fa.fa-bookmark
+        %b Category:
+        = link_to @course.category, category_path(@course.category)
+      .card-header
+        %b Name:
+        = @course.name
+      .card-body
+        %b Short description:
+        %small= simple_format(@course.short_description)
+      %hr
+      .card-body
+        %b Description:
+        %small= simple_format(@course.description)
+      .card-footer
+        .fa.fa-comment
+        %b Language:
+        = @course.language
+      .card-footer
+        .fa.fa-clock
+        %b Duration:
+        = @course.duration 
+        min
+      .card-footer
+        %b Price:
+        = number_to_currency(@course.price)
+      .card-footer
+        %b Approved?
+        = @course.approved?
+      .card-footer
+        %b Published?
+        = @course.published?
+      .card-footer
+        = pluralize(@course.lessons_count, 'lessons')
+      .card-footer
+        .fa.fa-chalkboard-teacher
+        %b Created by
+        = @course.user
+      .card-footer
+        created
+        = time_ago_in_words(@course.created_at)
+        ago
+      .card-footer
+        Last updated
+        = time_ago_in_words(@course.updated_at)
+        ago
+      - if @course.user_id == current_user.id
+        .card-footer
+          = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
+  .col-md-6
+    .text-center
+      %h2
+        = pluralize(@course.lessons_count, 'lesson')
+    - @lessons.each do |lesson|
+      = render 'lessons/lesson_preview', lesson: lesson

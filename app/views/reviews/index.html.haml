@@ -1,0 +1,27 @@
+%h1 Listing reviews
+
+%table
+  %thead
+    %tr
+      %th Rating
+      %th Comment
+      %th User
+      %th Course
+      %th
+      %th
+      %th
+
+  %tbody
+    - @reviews.each do |review|
+      %tr
+        %td= review.rating
+        %td= review.comment
+        %td= review.user
+        %td= review.course
+        %td= link_to 'Show', review
+        %td= link_to 'Edit', edit_review_path(review)
+        %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Review', new_review_path

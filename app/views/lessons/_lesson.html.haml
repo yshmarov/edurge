@@ -10,8 +10,7 @@
   .card-footer
     %b Description:
     = lesson.description
-  .card-footer
-    = link_to 'Edit', edit_lesson_path(lesson)
-    \|
-    = link_to 'Back', lessons_path
-
+  - if lesson.course.user_id == current_user.id
+    .card-footer
+      = link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-primary'
+      = link_to 'Back', lessons_path, class: 'btn btn-sm btn-primary'

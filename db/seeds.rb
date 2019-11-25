@@ -41,3 +41,12 @@ end
     course_id: Faker::Number.between(from: 1, to: 9),
   }])
 end
+
+90.times do
+  Review.create!([{
+    rating: Faker::Number.between(from: 1, to: 5),
+    comment: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+    user_id: Faker::Number.between(from: 1, to: 3),
+    course_id: Faker::Number.between(from: 1, to: 9),
+  }])
+end

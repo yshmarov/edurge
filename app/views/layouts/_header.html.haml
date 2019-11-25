@@ -13,7 +13,7 @@
           = link_to categories_path do
             .fa.fa-bookmark
             Categories
-        %li.nav-item.dropdown
+        .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Admin
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
@@ -23,7 +23,7 @@
                 Unapproved courses
                 .badge.badge-danger
                   = Course.unapproved.count
-        %li.nav-item.dropdown
+        .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Instructor
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   resources :lessons
   resources :courses do
     get :my, :unapproved, on: :collection

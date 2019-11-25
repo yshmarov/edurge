@@ -1,11 +1,11 @@
 rake db:drop db:create db:migrate db:seed
 TODO
 
+rails g scaffold review rating:integer comment:text user:references course:references
+rails g migration add_rating_counters_to_course ratings_count:integer ratings_sum:integer rating:decimal
+
 rails g scaffold marathon course:references start:datetime end:datetime price:integer
 rails g scaffold marathon_users marathon:references user:references
-
-rails g scaffold review rating:integer comment:text user:references
-rails g migration add_rating_counters_to_course ratings_count:integer ratings_sum:integer rating:decimal
 
 only users that are marathon_users of this course can leave 1 review per course
 add TAGS to courses
