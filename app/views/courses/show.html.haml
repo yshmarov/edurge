@@ -6,13 +6,13 @@
   .fa.fa-graduation-cap
   = @course.name
 
-.jumbotron.bg-light
-  %h3
-    .fa.fa-graduation-cap
-    %b= @course.name
-  %p
-  .row
-    .col-md-6
+.row
+  .col-lg-8
+    .jumbotron
+      %h3
+        .fa.fa-graduation-cap
+        %b= @course.name
+      %p
       %small= simple_format(@course.short_description)
       %p
       .row
@@ -38,47 +38,26 @@
       %b Duration:
       = @course.duration 
       min
-    .col-md-6.text-right
-      %h4
-        = link_to course_path(@course), class: 'btn btn-lg btn-success' do
-          .fa.fa-shopping-cart
-          = number_to_currency(@course.price)
+      .row
+      %b Description:
+      %small= simple_format(@course.description)
 
-.row
-  .col-md-6
-    .card
-      .card-body
-        %b Description:
-        %small= simple_format(@course.description)
-      - if @course.user_id == current_user.id
-        .card-footer
-          - if @course.published?
-            .badge.badge-success
-              published
-          - else
-            .badge.badge-danger
-              published
-          - if @course.approved?
-            .badge.badge-success
-              approved
-          - else
-            .badge.badge-danger
-              approved
-        .card-footer
-          = link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-primary'
-    %p
-    %h4.text-white.text-center
-      .fa.fa-comment
-      Reviews:
-      = @course.reviews.count
-    - @reviews.each do |review|
-      = render 'reviews/review', review: review
-      %p
-
-  .col-md-6
-    .text-center.text-white
+    .text-white
       %h4
         .fa.fa-book
         = pluralize(@course.lessons_count, 'lesson')
     - @lessons.each do |lesson|
       = render 'lessons/lesson_preview', lesson: lesson
+
+    %p
+    .text-white
+      %h4
+        .fa.fa-comment
+        = pluralize(@course.reviews.count, 'review')
+    - @reviews.each do |review|
+      = render 'reviews/review', review: review
+      %p
+
+  .col-lg-4
+    .d-none.d-lg-block.sticky-top
+      = render 'courses/course', course: @course
