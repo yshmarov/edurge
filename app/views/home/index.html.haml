@@ -31,7 +31,7 @@
   = link_to courses_path do
     More popular courses
 
-%hr
+%hr.bg-light
 .text-center.text-white
   %h2 Latest courses
 .card-columns
@@ -41,14 +41,17 @@
   = link_to courses_path do
     More latest courses
 
-%hr
+%hr.bg-light
 .text-center.text-white
   %h2 Top rated courses
+.card-columns
+  - @top_rated_courses.each do |course|
+    = render 'courses/course', course: course
 .text-right
   = link_to courses_path do
     More top rated courses
 
-%hr
+%hr.bg-light
 .text-center.text-white
   %h2 Popular categories
 .card-columns
@@ -58,7 +61,10 @@
   = link_to categories_path do
     More popular categories
 
-%hr
+%hr.bg-light
 .text-center.text-white
   %h2 What our students have to say
+.card-columns
+  - @latest_good_reviews.each do |review|
+    = render 'reviews/review', review: review
 
