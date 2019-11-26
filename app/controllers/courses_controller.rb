@@ -49,7 +49,7 @@ class CoursesController < ApplicationController
 
   def show
     @lessons = @course.lessons.order(chapter: :asc)
-    @user_courses = @course.user_courses.order(created_at: :desc)
+    @user_courses = @course.user_courses.where.not(rating: 0, comment: nil).order(created_at: :desc)
   end
 
   def new

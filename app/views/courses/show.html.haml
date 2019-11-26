@@ -53,7 +53,7 @@
     .text-white
       %h4
         .fa.fa-comment
-        = pluralize(@course.user_courses.count, 'review')
+        = pluralize(@user_courses.count, 'review')
     - @user_courses.each do |user_course|
       = render 'user_courses/user_course', user_course: user_course
       %p
