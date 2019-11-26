@@ -5,7 +5,7 @@
 = render 'categories/category', category: @category
 .text-center.text-white
   %h3
-    Courses:
+    = pluralize(@courses.count, 'course')
 .card-columns
   - @courses.each do |course|
     = render 'courses/course', course: course

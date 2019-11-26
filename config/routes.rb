@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :lessons
   resources :courses do
-    get :my, :unapproved, :latest, :top_rated, :popular, on: :collection
+    get :my, :published_unapproved, :latest, :top_rated, :popular, on: :collection
     member do
   		patch :approve
   		patch :disapprove

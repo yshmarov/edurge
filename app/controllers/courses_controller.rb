@@ -16,8 +16,8 @@ class CoursesController < ApplicationController
     render 'index'
   end
 
-  def unapproved
-    @courses = Course.where(approved: false)
+  def published_unapproved
+    @courses = Course.published.unapproved
     render 'index'
   end
 

@@ -18,11 +18,11 @@
             .fa.fa-cogs
             %b Admin
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to unapproved_courses_path, class: "dropdown-item" do
+            = link_to published_unapproved_courses_path, class: "dropdown-item" do
               .fa.fa-graduation-cap
               %b Unapproved courses
               .badge.badge-danger
-                = Course.unapproved.count
+                = Course.published.unapproved.count
             = link_to new_category_path, class: "dropdown-item" do
               .fa.fa-bookmark
               .fa.fa-plus
