@@ -2,6 +2,7 @@ class UserCoursesController < ApplicationController
   before_action :set_user_course, only: [:show, :edit, :update, :destroy]
 
   def index
+    @user_courses = UserCourse.all
   end
 
   def show

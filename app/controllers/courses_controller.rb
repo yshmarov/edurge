@@ -11,6 +11,11 @@ class CoursesController < ApplicationController
     end
   end
 
+  def purchases
+    @courses = Course.user_courses.where(user_id: current_user.id)
+    render 'index'
+  end
+
   def my
     @courses = Course.where(user_id: current_user.id)
     render 'index'

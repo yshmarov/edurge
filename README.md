@@ -7,6 +7,11 @@ intermediate
 advanced
 
 
+course analytics::::
+user_courses.count per time
+user_courses.rating per time
+earnings per time
+
 rails g scaffold marathon course:references start:datetime end:datetime price:integer
 rails g scaffold marathon_users marathon:references user:references
 

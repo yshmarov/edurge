@@ -24,7 +24,7 @@ class Course < ApplicationRecord
   #end
 
   def update_rating
-    update_column :average_rating, (user_courses.average(:rating).round(2).to_f)
+    update_column :average_rating, (user_courses.where.not(rating: nil).average(:rating).round(2).to_f)
   end
 
 end
