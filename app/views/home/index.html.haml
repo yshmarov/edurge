@@ -78,6 +78,6 @@
     .fa.fa-comment
     What our students have to say
 .card-columns
-  - @latest_good_reviews.each do |review|
-    = render 'reviews/review', review: review
+  - @latest_good_user_courses.each do |user_course|
+    = render 'user_courses/user_course', user_course: user_course
 

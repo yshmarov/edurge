@@ -17,7 +17,7 @@
       %p
       .row
       .fa.fa-user
-      = @course.reviews_count
+      = @course.user_courses_count
       students
       .row
       .fa.fa-star
@@ -53,9 +53,9 @@
     .text-white
       %h4
         .fa.fa-comment
-        = pluralize(@course.reviews.count, 'review')
-    - @reviews.each do |review|
-      = render 'reviews/review', review: review
+        = pluralize(@course.user_courses.count, 'review')
+    - @user_courses.each do |user_course|
+      = render 'user_courses/user_course', user_course: user_course
       %p
 
   .col-lg-4.order-0.order-lg-1

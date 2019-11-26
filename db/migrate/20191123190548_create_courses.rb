@@ -5,7 +5,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.text :description
       t.references :user, foreign_key: true
       t.references :category, foreign_key: true
-      t.integer :reviews_count, default: 0, null: false
+      t.integer :user_courses_count, default: 0, null: false
       t.float :average_rating, default: 0, null: false
       t.boolean :published, default: false
       t.boolean :approved, default: false

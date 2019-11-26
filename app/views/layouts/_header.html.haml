@@ -47,16 +47,16 @@
             .fa.fa-graduation-cap
             %b Learn
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to reviews_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
-              %b Pending review
-              .badge.badge-danger
-                = current_user.reviews.where(rating: 0, comment: nil).count
-            = link_to reviews_path, class: "dropdown-item" do
+            = link_to user_courses_path, class: "dropdown-item" do
               .fa.fa-graduation-cap
               %b My courses
               .badge.badge-danger
-                = current_user.reviews.count
+                = current_user.user_courses.count
+            = link_to user_courses_path, class: "dropdown-item" do
+              .fa.fa-graduation-cap
+              %b Pending reviews
+              .badge.badge-danger
+                = current_user.user_courses.where(rating: 0, comment: nil).count
       %ul.navbar-nav.mr-right
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

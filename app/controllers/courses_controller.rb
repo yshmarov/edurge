@@ -32,7 +32,7 @@ class CoursesController < ApplicationController
   end
 
   def popular
-    @courses = Course.all.published.approved.order(reviews_count: :desc, created_at: :desc)
+    @courses = Course.all.published.approved.order(user_courses_count: :desc, created_at: :desc)
     render 'index'
   end
 
@@ -49,7 +49,7 @@ class CoursesController < ApplicationController
 
   def show
     @lessons = @course.lessons.order(chapter: :asc)
-    @reviews = @course.reviews.order(created_at: :desc)
+    @user_courses = @course.user_courses.order(created_at: :desc)
   end
 
   def new
