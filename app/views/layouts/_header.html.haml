@@ -33,18 +33,30 @@
             .fa.fa-chalkboard-teacher
             %b Teach
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to new_course_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
-              .fa.fa-plus
-              %b Add course
             = link_to my_courses_path, class: "dropdown-item" do
               .fa.fa-graduation-cap
               %b My courses
               .badge.badge-danger
                 = current_user.courses.count
-        .nav-link
-          .fa.fa-graduation-cap
-          %b Learn
+            = link_to new_course_path, class: "dropdown-item" do
+              .fa.fa-graduation-cap
+              .fa.fa-plus
+              %b Add course
+        .nav-item.dropdown
+          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            .fa.fa-graduation-cap
+            %b Learn
+          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            = link_to reviews_path, class: "dropdown-item" do
+              .fa.fa-graduation-cap
+              %b Pending review
+              .badge.badge-danger
+                = current_user.reviews.where(rating: 0, comment: nil).count
+            = link_to reviews_path, class: "dropdown-item" do
+              .fa.fa-graduation-cap
+              %b My courses
+              .badge.badge-danger
+                = current_user.reviews.count
       %ul.navbar-nav.mr-right
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
