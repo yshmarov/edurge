@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :categories
   resources :courses do
-    get :my, :published_unapproved, :latest, :top_rated, :popular, on: :collection
+    get :created, :purchased, :published_unapproved, :latest, :top_rated, :popular, on: :collection
     member do
   		patch :approve
   		patch :disapprove

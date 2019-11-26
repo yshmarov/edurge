@@ -11,12 +11,12 @@ class CoursesController < ApplicationController
     end
   end
 
-  def purchases
-    @courses = Course.user_courses.where(user_id: current_user.id)
+  def purchased
+    @courses = Course.joins(:user_courses).where(user_courses: {user: current_user})
     render 'index'
   end
 
-  def my
+  def created
     @courses = Course.where(user_id: current_user.id)
     render 'index'
   end

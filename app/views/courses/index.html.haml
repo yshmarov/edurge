@@ -2,6 +2,7 @@
   %h3.text-white
     = action_name.humanize
     courses
+    .badge.badge-danger= @courses.count
 
 .card-columns
   - @courses.each do |course|

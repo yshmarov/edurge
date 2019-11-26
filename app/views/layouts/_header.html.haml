@@ -33,9 +33,9 @@
             .fa.fa-chalkboard-teacher
             %b Teach
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to my_courses_path, class: "dropdown-item" do
+            = link_to created_courses_path, class: "dropdown-item" do
               .fa.fa-graduation-cap
-              %b My courses
+              %b Created courses
               .badge.badge-danger
                 = current_user.courses.count
             = link_to new_course_path, class: "dropdown-item" do
@@ -47,9 +47,10 @@
             .fa.fa-graduation-cap
             %b Learn
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to user_courses_path, class: "dropdown-item" do
+            /= link_to user_courses_path, class: "dropdown-item" do
+            = link_to purchased_courses_path, class: "dropdown-item" do
               .fa.fa-graduation-cap
-              %b My courses
+              %b Purchased courses
               .badge.badge-danger
                 = current_user.user_courses.count
             = link_to user_courses_path, class: "dropdown-item" do
