@@ -15,9 +15,21 @@
         = course.user
   .card-footer
     .text-center
-      = link_to course_path(course), class: 'btn btn-md btn-success' do
-        .fa.fa-shopping-cart
-        = number_to_currency(course.price)
+      - if current_user 
+        - if course.user_id == current_user.id
+          = link_to course_path(course) do
+            You've created this course. View analytics
+        - elsif course.user_courses.where(user: current_user).any?
+          = link_to course_path(course) do
+            You own this course. Now, learn
+        - else
+          = link_to course_path(course), class: 'btn btn-md btn-success' do
+            .fa.fa-shopping-cart
+            = number_to_currency(course.price)
+      - else
+        = link_to course_path(course), class: 'btn btn-md btn-success' do
+          .fa.fa-shopping-cart
+          = number_to_currency(course.price)
   - if current_user
     - if course.user_id == current_user.id
       .card-footer

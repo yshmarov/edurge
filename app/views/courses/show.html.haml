@@ -13,20 +13,6 @@
         .fa.fa-graduation-cap
         %b= @course.name
       %p
-      %small= simple_format(@course.short_description)
-      %p
-      .row
-      .fa.fa-user
-      = @course.user_courses_count
-      students
-      .row
-      .fa.fa-star
-      = @course.average_rating
-      .row
-      .fa.fa-chalkboard-teacher
-      Lecturer:
-      = @course.user
-      .row
       .fa.fa-clock
       Last updated
       = @course.updated_at.strftime('%m/%Y')

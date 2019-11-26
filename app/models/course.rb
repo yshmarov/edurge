@@ -3,6 +3,7 @@ class Course < ApplicationRecord
   belongs_to :category, counter_cache: true
   has_many :lessons, dependent: :destroy
   has_many :user_courses, dependent: :destroy
+  has_many :users, through: :user_courses
 
   validates :name, :category, :short_description, :description, :language, :duration, :price, :user, presence: true
 

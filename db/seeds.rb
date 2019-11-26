@@ -17,7 +17,7 @@ User.create!(email: 'admin@example.com', password: 'admin@example.com', password
   }])
 end
 
-9.times do
+50.times do
   Course.create!([{
     name: Faker::Educator.course_name,
     short_description: Faker::Lorem.paragraph,
@@ -42,7 +42,7 @@ end
   }])
 end
 
-90.times do
+30.times do
   UserCourse.create!([{
     rating: Faker::Number.between(from: 1, to: 5),
     comment: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
