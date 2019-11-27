@@ -17,12 +17,12 @@ class CoursesController < ApplicationController
   end
 
   def created
-    @courses = Course.where(user_id: current_user.id)
+    @courses = Course.where(user_id: current_user.id).order(created_at: :desc)
     render 'index'
   end
 
   def published_unapproved
-    @courses = Course.published.unapproved
+    @courses = Course.published.unapproved.order(updated_at: :desc)
     render 'index'
   end
 

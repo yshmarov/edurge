@@ -16,6 +16,12 @@
       .col-md-6.text-right
         .fa.fa-chalkboard-teacher
         = course.user
+  /.card-footer
+  /  %h6
+  /    - if course.bought(current_user) == false
+  /      Bought
+  /    - else
+  /      Buy
   .card-footer
     .text-center
       - if current_user 
