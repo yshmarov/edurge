@@ -1,9 +1,12 @@
-.card
-  .card-header
-    %h3
-      .fa.fa-graduation-cap
-      New course
-  .card-body
-    = render 'form'
-  .card-footer
-    = link_to 'Cancel', root_path
+.row
+  .col-lg-3
+  .col-lg-6
+    .card
+      .card-header
+        %h3
+          .fa.fa-graduation-cap
+          New course
+      .card-body
+        = render 'form'
+      .card-footer
+        = link_to 'Cancel', root_path

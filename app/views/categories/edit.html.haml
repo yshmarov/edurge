@@ -1,9 +1,12 @@
-.card
-  .card-header
-    %h3
-      .fa.fa-bookmark
-      Editing category
-  .card-body
-    = render 'form'
-  .card-footer
-    = link_to 'Cancel', @category
+.row
+  .col-lg-3
+  .col-lg-6
+    .card
+      .card-header
+        %h3
+          .fa.fa-bookmark
+          Editing category
+      .card-body
+        = render 'form'
+      .card-footer
+        = link_to 'Cancel', @category

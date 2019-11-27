@@ -1,11 +1,14 @@
-.card
-  .card-header
-    %h3 
-      .fa.fa-graduation-cap
-      Editing subscription
-  .card-body
-    = render 'form'
-  .card-footer
-    = link_to 'Show', @subscription
-    \|
-    = link_to 'Cancel', subscriptions_path
+.row
+  .col-lg-3
+  .col-lg-6
+    .card
+      .card-header
+        %h3 
+          .fa.fa-graduation-cap
+          Editing subscription
+      .card-body
+        = render 'form'
+      .card-footer
+        = link_to 'Show', @subscription
+        \|
+        = link_to 'Cancel', subscriptions_path
