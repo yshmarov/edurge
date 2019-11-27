@@ -7,6 +7,7 @@ class Subscription < ApplicationRecord
   validates_presence_of :rating, if: :comment?
   validates_presence_of :comment, if: :rating?
 
+  #course can have many many users. user can have many courses. user cant be subscribed to the same course twice
   #validates_uniqueness_of :user_id, scope: :course_id
   #validates_uniqueness_of :course_id, scope: :user_id
   #user can't create a subscription if course.user == current_user.id

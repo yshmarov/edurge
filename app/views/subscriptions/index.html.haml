@@ -5,37 +5,38 @@
     .fa.fa-lock-open
     /.fa.fa-unlock
     /.fa.fa-key
-    = pluralize(Subscription.count, 'subscription')
+    = action_name.humanize
+    = pluralize(@subscriptions.count, 'subscription')
 %p
 %table#table1
   %thead
     %tr
       %th
+        .fa.fa-clock
+        .fa.fa-lock-open
+      %th
         .fa.fa-user
       %th
         .fa.fa-graduation-cap
       %th
+        .fa.fa-clock
+        .text-warning.fa.fa-star
+      %th
         .text-warning.fa.fa-star
       %th
         .fa.fa-comment
-      %th
-        .fa.fa-clock
-      %th
-        .fa.fa-clock
-      %th
       %th
       %th
 
   %tbody
     - @subscriptions.each do |subscription|
       %tr
+        %td= subscription.created_at.strftime('%d/%b/%Y')
         %td= subscription.user
         %td= link_to subscription.course, course_path(subscription.course)
+        %td= subscription.updated_at.strftime('%d/%b/%Y')
         %td= subscription.rating
         %td= subscription.comment
-        %td= subscription.created_at.strftime('%d/%b/%Y')
-        %td= subscription.updated_at.strftime('%d/%b/%Y')
-        %td= link_to 'Show', subscription
-        %td= link_to 'Edit', edit_subscription_path(subscription)
+        %td= link_to 'Review', edit_subscription_path(subscription)
         %td= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' }
 %p

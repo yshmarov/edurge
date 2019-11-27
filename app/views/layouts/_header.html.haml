@@ -38,6 +38,8 @@
             = link_to subscriptions_path, class: "dropdown-item" do
               .fa.fa-lock-open
               %b All Subscriptions
+              .badge.badge-danger
+                = Subscription.count
 
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -48,7 +50,7 @@
               .fa.fa-graduation-cap
               %b Created courses
               .badge.badge-danger
-                = current_user.courses.count
+                = Course.where(user: current_user).count
             = link_to new_course_path, class: "dropdown-item" do
               .fa.fa-graduation-cap
               .fa.fa-plus
@@ -65,7 +67,7 @@
               %b Purchased courses
               .badge.badge-danger
                 = current_user.subscriptions.count
-            = link_to subscriptions_path, class: "dropdown-item" do
+            = link_to pending_review_subscriptions_path, class: "dropdown-item" do
               .fa.fa-star
               %b Pending reviews
               .badge.badge-danger

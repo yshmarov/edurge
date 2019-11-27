@@ -5,6 +5,11 @@ class SubscriptionsController < ApplicationController
     @subscriptions = Subscription.all.order(created_at: :desc)
   end
 
+  def pending_review
+    @subscriptions = Subscription.all.pending_review.where(user: current_user).order(created_at: :desc)
+    render 'index'
+  end
+
   def show
   end
 

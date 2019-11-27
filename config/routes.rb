@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   		patch :disapprove
     end
   end
-  resources :subscriptions
+  resources :subscriptions do
+    get :pending_review, on: :collection
+  end
   resources :lessons
   get 'home/index'
   root to: 'home#index'
