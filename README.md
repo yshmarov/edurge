@@ -1,36 +1,3 @@
-*TODO*
-
-add_level_to_courses level:string 
-
-course analytics::::
-user_courses.count per time
-user_courses.rating per time
-earnings per time
-
-rails g scaffold marathon course:references start:datetime end:datetime price:integer
-rails g scaffold marathon_users marathon:references user:references
-
-add TAGS to courses
-
-paginate lessons inside courses, mark lessons complete
-add_order_to_lessons (order inside chapter)
-
-pundit & rolify
-roles [:admin, :teacher, :student]
-
-ransack?
-
-OTHER LESSON FIELDS
-            $table->increments('id');
-            $table->unsignedInteger('course_id');
-            $table->string('title');
-            $table->string('duration');
-            $table->string('video');
-
-Devise mailer
-
----
-
 README
 
 Best Udemy Clone on the market. Set up your online school in minutes!
@@ -52,25 +19,57 @@ Create a course:
 
 ---
 
-Models:
-User
-Category
-Course
-Subscription (user_course + rating + review)
-Lesson
+*TODO*
 
-Functions:
-* Users can log in. +
-* Users can browse courses. +
-* Users can buy courses. -
-* Users can review and rate courses that they bought. -
-* Users can see the lesson content only of courses that they bought. -
-* 
+*gem pagy*
+* paginate lessons inside courses, mark lessons complete
+* paginate Course.all in CoursesController
+
+*pundit & rolify*
+* roles [:admin, :teacher, :student]
+
+*devise mailer*
+* confirmable
+* sendgrid
+
+*omniauth with google & facebook*
+
+*add_fields_to_lessons order:string duration:integer*
+
+*teacher course analytics*
+* chartkick & groupdate
+* course.subscriptions.count per time
+* course.subscriptions.rating per time
+* course.subscriptions.price.sum per time
+
+*admin analytics*
+* chartkick & groupdate
+* subscriptions.count per time
+* subscriptions.rating per time
+* users.created.count per time
+* subscriptions.price.sum per time
+
+*add TAGS to courses*
+* rails g migration tags name
+* rails g migration course_tags course:references tag:references
+* Tags can be like ruby_on_rails, javascript, accounting, CEO, SMM, whatever
+
+---
+
+*Features:*
+* Users-Students can log in. +
+* Users-Students can browse courses. +
+* Users-Students can buy courses. -
+* Users-Students can review and rate courses that they bought. -
+* Users-Students can see the lesson content only of courses that they bought. -
+
 * Users-Teachers can create and manage their courses. +
-* 
+
 * Users-Admins can approved/unapprove courses (make courses available/unavailable)
 * Users-Admins can add categories
 * Users-Admins can view all subscriptions
+
+---
 
 * Ruby version
 
