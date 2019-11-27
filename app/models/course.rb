@@ -16,6 +16,8 @@ class Course < ApplicationRecord
   scope :unpublished, -> { where(published: false) }
   scope :unapproved, -> { where(approved: false) }
 
+  validates :level, inclusion: %w(beginner intermediate advanced)
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 

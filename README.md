@@ -1,8 +1,6 @@
+*TODO*
 
-add_level_to_course level:string 
-beginner
-intermediate
-advanced
+add_level_to_courses level:string 
 
 course analytics::::
 user_courses.count per time
