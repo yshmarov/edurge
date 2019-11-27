@@ -1,18 +1,2 @@
-%p#notice= notice
+= render 'subscriptions/subscription', subscription: @subscription
 
-%p
-  %b Rating:
-  = @subscription.rating
-%p
-  %b Comment:
-  = @subscription.comment
-%p
-  %b User:
-  = @subscription.user
-%p
-  %b Course:
-  = @subscription.course
-
-= link_to 'Edit', edit_subscription_path(@subscription)
-\|
-= link_to 'Back', subscriptions_path

@@ -1,7 +1,11 @@
-%h1 Editing subscription
-
-= render 'form'
-
-= link_to 'Show', @subscription
-\|
-= link_to 'Back', subscriptions_path
+.card
+  .card-header
+    %h3 
+      .fa.fa-graduation-cap
+      Editing subscription
+  .card-body
+    = render 'form'
+  .card-footer
+    = link_to 'Show', @subscription
+    \|
+    = link_to 'Cancel', subscriptions_path

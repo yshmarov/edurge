@@ -1,5 +1,5 @@
 .card
-  .card-body
+  .card-header
     .fa.fa-user
     = subscription.user
 
@@ -11,10 +11,13 @@
     .fa.fa-graduation-cap
     = link_to subscription.course, course_path(subscription.course)
 
-    .row
+  .card-footer
     .fa.fa-star
     = subscription.rating
-
-    .row
     .fa.fa-comment
     %small= subscription.comment
+
+  - if current_user
+    - if subscription.user_id == current_user.id
+      .card-footer
+        = link_to 'Edit', edit_subscription_path(subscription), class: 'btn btn-sm btn-primary'

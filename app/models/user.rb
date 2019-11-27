@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :courses, dependent: :nullify
   has_many :subscriptions, dependent: :nullify
+  has_many :courses, through: :subscriptions
 
   extend FriendlyId
   friendly_id :email, use: :slugged
@@ -18,5 +19,9 @@ class User < ApplicationRecord
   
   def to_s
     username
+  end
+
+  def buy_course(course)
+    self.subscriptions.create(course: course)
   end
 end

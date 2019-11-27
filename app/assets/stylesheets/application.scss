@@ -14,3 +14,7 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+#table1 {
+  @extend .table, .table-hover, .table-responsive-xl, .table-bordered, .table-sm, .bg-white
+}

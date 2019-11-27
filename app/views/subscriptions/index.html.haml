@@ -1,12 +1,21 @@
-%h1 Listing subscriptions
-
-%table
+.text-center.text-white
+  %h3
+    .fa.fa-star
+    /.fa.fa-lock
+    /.fa.fa-lock-open
+    /.fa.fa-unlock
+    /.fa.fa-key
+    = pluralize(Subscription.count, 'subscription')
+%p
+%table#table1
   %thead
     %tr
-      %th Rating
-      %th Comment
       %th User
       %th Course
+      %th Rating
+      %th Comment
+      %th Created
+      %th Updated
       %th
       %th
       %th
@@ -14,14 +23,13 @@
   %tbody
     - @subscriptions.each do |subscription|
       %tr
+        %td= subscription.user
+        %td= link_to subscription.course, course_path(subscription.course)
         %td= subscription.rating
         %td= subscription.comment
-        %td= subscription.user
-        %td= subscription.course
+        %td= subscription.created_at.strftime('%d/%b/%Y')
+        %td= subscription.updated_at.strftime('%d/%b/%Y')
         %td= link_to 'Show', subscription
         %td= link_to 'Edit', edit_subscription_path(subscription)
         %td= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' }
-
 %br
-
-= link_to 'New User course', new_subscription_path
