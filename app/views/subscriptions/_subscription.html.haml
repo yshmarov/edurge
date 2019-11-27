@@ -2,15 +2,19 @@
   .card-body
     .fa.fa-user
     = subscription.user
+
+    .fa.fa-clock
+    = time_ago_in_words(subscription.created_at)
+    ago
+    /= subscription.created_at.strftime('%d/%b/%Y')
+
+    .fa.fa-graduation-cap
+    = link_to subscription.course, course_path(subscription.course)
+
     .row
     .fa.fa-star
     = subscription.rating
+
     .row
     .fa.fa-comment
     %small= subscription.comment
-    .row
-    .fa.fa-graduation-cap
-    = link_to subscription.course, course_path(subscription.course)
-    .row
-    .fa.fa-clock
-    = subscription.created_at.strftime('%d/%b/%Y')
