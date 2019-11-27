@@ -1,3 +1,4 @@
+
 add_level_to_course level:string 
 beginner
 intermediate
@@ -30,9 +31,29 @@ OTHER LESSON FIELDS
 
 Devise mailer
 
+---
+
 README
 
 Best Udemy Clone on the market. Set up your online school in minutes!
+
+---
+
+Homepage
+
+<img src="https://imgur.com/QJvjyJb"/>
+
+!(image)[https://imgur.com/QJvjyJb]
+
+---
+
+Create a course
+
+<img src="https://imgur.com/e3AyIZO"/>
+
+!(image)[https://imgur.com/e3AyIZO]
+
+---
 
 Models:
 User
