@@ -1,6 +1,6 @@
 class CreateUserCourses < ActiveRecord::Migration[5.2]
   def change
-    create_table :user_courses do |t|
+    create_table :subscriptions do |t|
       t.integer :rating
       t.text :comment
       t.belongs_to :user, foreign_key: true

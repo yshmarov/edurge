@@ -1,0 +1,16 @@
+.card
+  .card-body
+    .fa.fa-user
+    = subscription.user
+    .row
+    .fa.fa-star
+    = subscription.rating
+    .row
+    .fa.fa-comment
+    %small= subscription.comment
+    .row
+    .fa.fa-graduation-cap
+    = link_to subscription.course, course_path(subscription.course)
+    .row
+    .fa.fa-clock
+    = subscription.created_at.strftime('%d/%b/%Y')

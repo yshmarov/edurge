@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   		patch :disapprove
     end
   end
-  resources :user_courses
+  resources :subscriptions
   resources :lessons
   get 'home/index'
   root to: 'home#index'

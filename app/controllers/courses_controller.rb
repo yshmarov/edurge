@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
   end
 
   def purchased
-    @courses = Course.joins(:user_courses).where(user_courses: {user: current_user})
+    @courses = Course.joins(:subscriptions).where(subscriptions: {user: current_user})
     render 'index'
   end
 
@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
   end
 
   def popular
-    @courses = Course.all.published.approved.order(user_courses_count: :desc, created_at: :desc)
+    @courses = Course.all.published.approved.order(subscriptions_count: :desc, created_at: :desc)
     render 'index'
   end
 
@@ -54,7 +54,7 @@ class CoursesController < ApplicationController
 
   def show
     @lessons = @course.lessons.order(chapter: :asc)
-    @user_courses = @course.user_courses.where.not(rating: 0, comment: nil).order(created_at: :desc)
+    @subscriptions = @course.subscriptions.where.not(rating: 0, comment: nil).order(created_at: :desc)
   end
 
   def new

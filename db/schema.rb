@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_171043) do
     t.text "description"
     t.bigint "user_id"
     t.bigint "category_id"
-    t.integer "user_courses_count", default: 0, null: false
+    t.integer "subscriptions_count", default: 0, null: false
     t.float "average_rating", default: 0.0, null: false
     t.boolean "published", default: false
     t.boolean "approved", default: false
@@ -71,15 +71,15 @@ ActiveRecord::Schema.define(version: 2019_11_26_171043) do
     t.index ["slug"], name: "index_lessons_on_slug", unique: true
   end
 
-  create_table "user_courses", force: :cascade do |t|
+  create_table "subscriptions", force: :cascade do |t|
     t.integer "rating"
     t.text "comment"
     t.bigint "user_id"
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_user_courses_on_course_id"
-    t.index ["user_id"], name: "index_user_courses_on_user_id"
+    t.index ["course_id"], name: "index_subscriptions_on_course_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,6 +99,6 @@ ActiveRecord::Schema.define(version: 2019_11_26_171043) do
   add_foreign_key "courses", "categories"
   add_foreign_key "courses", "users"
   add_foreign_key "lessons", "courses"
-  add_foreign_key "user_courses", "courses"
-  add_foreign_key "user_courses", "users"
+  add_foreign_key "subscriptions", "courses"
+  add_foreign_key "subscriptions", "users"
 end

@@ -39,9 +39,9 @@
     .text-white
       %h4
         .fa.fa-comment
-        = pluralize(@user_courses.count, 'review')
-    - @user_courses.each do |user_course|
-      = render 'user_courses/user_course', user_course: user_course
+        = pluralize(@subscriptions.count, 'review')
+    - @subscriptions.each do |subscription|
+      = render 'subscriptions/subscription', subscription: subscription
       %p
 
   .col-lg-4.order-0.order-lg-1

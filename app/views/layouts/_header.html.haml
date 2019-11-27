@@ -34,7 +34,7 @@
               .fa.fa-bookmark
               .fa.fa-plus
               %b Add Category
-            = link_to user_courses_path, class: "dropdown-item" do
+            = link_to subscriptions_path, class: "dropdown-item" do
               .fa.fa-star
               %b All reviews
 
@@ -57,17 +57,17 @@
             .fa.fa-graduation-cap
             %b Learn
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            /= link_to user_courses_path, class: "dropdown-item" do
+            /= link_to subscriptions_path, class: "dropdown-item" do
             = link_to purchased_courses_path, class: "dropdown-item" do
               .fa.fa-graduation-cap
               %b Purchased courses
               .badge.badge-danger
-                = current_user.user_courses.count
-            = link_to user_courses_path, class: "dropdown-item" do
+                = current_user.subscriptions.count
+            = link_to subscriptions_path, class: "dropdown-item" do
               .fa.fa-star
               %b Pending reviews
               .badge.badge-danger
-                = current_user.user_courses.where(rating: 0, comment: nil).count
+                = current_user.subscriptions.where(rating: 0, comment: nil).count
       %ul.navbar-nav.mr-right
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

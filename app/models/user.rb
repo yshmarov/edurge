@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :courses, dependent: :nullify
-  has_many :user_courses, dependent: :nullify
+  has_many :subscriptions, dependent: :nullify
 
   extend FriendlyId
   friendly_id :email, use: :slugged

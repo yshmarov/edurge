@@ -1,4 +1,4 @@
-class UserCourse < ApplicationRecord
+class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :course, counter_cache: true
 
@@ -9,7 +9,7 @@ class UserCourse < ApplicationRecord
 
   #validates_uniqueness_of :user_id, scope: :course_id
   #validates_uniqueness_of :course_id, scope: :user_id
-  #user can't create a user_course if course.user == current_user.id
+  #user can't create a subscription if course.user == current_user.id
 
   after_save do
     course.update_rating
