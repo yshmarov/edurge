@@ -44,19 +44,8 @@ Homepage:
 
 ---
 
-Homepage
-
-<img src="https://imgur.com/QJvjyJb.png"/>
-
-!(image)[https://imgur.com/QJvjyJb.png]
-
----
-
-Create a course
-
-<img src="https://imgur.com/e3AyIZO.png"/>
-
-!(image)[https://imgur.com/e3AyIZO.png]
+Create a course:
+![alt text](https://imgur.com/e3AyIZO.png "Create a course")
 
 ---
 
