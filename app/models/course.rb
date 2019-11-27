@@ -26,7 +26,7 @@ class Course < ApplicationRecord
   #end
 
   def update_rating
-    update_column :average_rating, (subscriptions.where.not(rating: nil).average(:rating).round(2).to_f)
+    update_column :average_rating, (subscriptions.average(:rating).round(2).to_f)
   end
 
   def bought(user)

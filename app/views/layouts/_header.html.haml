@@ -20,6 +20,7 @@
               %span.input-group-append
                 %button.btn.btn-primary.btn-sm{:type => "submit"}
                   %span.fa.fa-search{"aria-hidden" => "true"}
+
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             .fa.fa-cogs
@@ -52,6 +53,7 @@
               .fa.fa-graduation-cap
               .fa.fa-plus
               %b Add course
+
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             .fa.fa-graduation-cap
@@ -67,7 +69,8 @@
               .fa.fa-star
               %b Pending reviews
               .badge.badge-danger
-                = current_user.subscriptions.where(rating: 0, comment: nil).count
+                = current_user.subscriptions.pending_reviews.count
+
       %ul.navbar-nav.mr-right
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

@@ -16,11 +16,15 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    @subscription = Subscription.new(subscription_params)
+    #@subscription = current_user.buy_course(@course)
+    #respond_to do |format|
+    #  format.html {redirect_to course_path(@course), notice: 'You bought the course!'}
+    #end
 
+    @subscription = Subscription.new(subscription_params)
     respond_to do |format|
       if @subscription.save
-        format.html { redirect_to @subscription, notice: 'User course was successfully created.' }
+        format.html { redirect_to @subscription.course, notice: 'User course was successfully created.' }
         format.json { render :show, status: :created, location: @subscription }
       else
         format.html { render :new }

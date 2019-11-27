@@ -2,6 +2,9 @@ README
 
 Best Udemy Clone on the market. Set up your online school in minutes!
 
+Source: https://github.com/yshmarov/edurge
+Demo: https://edurge.herokuapp.com/
+
 ---
 
 Schema: 
@@ -20,6 +23,14 @@ Create a course:
 ---
 
 *TODO*
+
+*update to rails 6*
+
+*make it a PWA*
+
+*rich text editing for course/description*
+
+*recatcha for creating a user*
 
 *gem pagy*
 * paginate lessons inside courses, mark lessons complete
