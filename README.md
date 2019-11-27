@@ -39,19 +39,24 @@ Best Udemy Clone on the market. Set up your online school in minutes!
 
 ---
 
+Homepage: 
+![alt text](https://imgur.com/QJvjyJb.png "Homepage")
+
+---
+
 Homepage
 
-<img src="https://imgur.com/QJvjyJb"/>
+<img src="https://imgur.com/QJvjyJb.png"/>
 
-!(image)[https://imgur.com/QJvjyJb]
+!(image)[https://imgur.com/QJvjyJb.png]
 
 ---
 
 Create a course
 
-<img src="https://imgur.com/e3AyIZO"/>
+<img src="https://imgur.com/e3AyIZO.png"/>
 
-!(image)[https://imgur.com/e3AyIZO]
+!(image)[https://imgur.com/e3AyIZO.png]
 
 ---
 
