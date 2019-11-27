@@ -34,6 +34,9 @@
               .fa.fa-bookmark
               .fa.fa-plus
               %b Add Category
+            = link_to user_courses_path, class: "dropdown-item" do
+              .fa.fa-star
+              %b All reviews
 
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

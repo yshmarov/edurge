@@ -2,9 +2,13 @@
   .display-4
     What do you want to learn?
   %p.py-4
-  = form_tag(courses_path, method: :get) do
-    = text_field_tag :name, params[:name], placeholder: "Find a course"
-    = submit_tag 'Search', name: nil
+  .form-inline.my-2.my-lg-0
+    = form_tag(courses_path, method: :get) do
+      .input-group
+        = text_field_tag :name, params[:name], placeholder: "Find a course", class: 'form-control-sm'
+        %span.input-group-append
+          %button.btn.btn-primary.btn-sm{:type => "submit"}
+            %span.fa.fa-search{"aria-hidden" => "true"}
 
 .card-group
   .card.card-body

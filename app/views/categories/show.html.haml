@@ -1,10 +1,12 @@
 /category/show
 .text-center.text-white
   %h3
+    .fa.fa-bookmark
     Category
 = render 'categories/category', category: @category
 .text-center.text-white
   %h3
+    .fa.fa-graduation-cap
     = pluralize(@courses.count, 'course')
 .card-columns
   - @courses.each do |course|
