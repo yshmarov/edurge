@@ -13,6 +13,13 @@
           = link_to categories_path, class: 'nav-link' do
             .fa.fa-bookmark
             %b Categories
+        .form-inline.my-2.my-lg-0
+          = form_tag(courses_path, method: :get) do
+            .input-group
+              = text_field_tag :name, params[:name], placeholder: "Find a course", class: 'form-control-sm'
+              %span.input-group-append
+                %button.btn.btn-primary.btn-sm{:type => "submit"}
+                  %span.fa.fa-search{"aria-hidden" => "true"}
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             .fa.fa-cogs
@@ -54,7 +61,7 @@
               .badge.badge-danger
                 = current_user.user_courses.count
             = link_to user_courses_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
+              .fa.fa-star
               %b Pending reviews
               .badge.badge-danger
                 = current_user.user_courses.where(rating: 0, comment: nil).count
