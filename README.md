@@ -1,11 +1,7 @@
-rake db:drop db:create db:migrate db:seed
-TODO
-
 add_level_to_course level:string 
 beginner
 intermediate
 advanced
-
 
 course analytics::::
 user_courses.count per time
@@ -15,12 +11,14 @@ earnings per time
 rails g scaffold marathon course:references start:datetime end:datetime price:integer
 rails g scaffold marathon_users marathon:references user:references
 
-only users that are marathon_users of this course can leave 1 review per course
 add TAGS to courses
 
 paginate lessons inside courses, mark lessons complete
 add_order_to_lessons (order inside chapter)
+
 pundit & rolify
+roles [:admin, :teacher, :student]
+
 ransack?
 
 OTHER LESSON FIELDS
@@ -29,33 +27,44 @@ OTHER LESSON FIELDS
             $table->string('title');
             $table->string('duration');
             $table->string('video');
-OTHER RATING FIELDS
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('course_id');
-            $table->integer('rating');
-            $table->text('review');
+
+Devise mailer
 
 README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Best Udemy Clone on the market. Set up your online school in minutes!
+
+Models:
+User
+Category
+Course
+Subscription (user_course + rating + review)
+Lesson
 
 
-
-
-Things you may want to cover:
 
 * Ruby version
 
+6+
+
 * System dependencies
 
+database: postgresql
+
 * Configuration
+
+git clone https://github.com/yshmarov/edurge
+bundle install
+rake db:drop db:create db:migrate db:seed
+rails s
 
 * Database creation
 
 * Database initialization
 
 * How to run the test suite
+
+No tests yet. Help needed
 
 * Services (job queues, cache servers, search engines, etc.)
 
