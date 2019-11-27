@@ -11,9 +11,6 @@ class Subscription < ApplicationRecord
   #validates_uniqueness_of :course_id, scope: :user_id
   #user can't create a subscription if course.user == current_user.id
 
-  #validates_presence_of :user_id
-  #validates_presence_of :course_id
-
   after_save do
     course.update_rating
   end 

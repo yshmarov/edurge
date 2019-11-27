@@ -41,7 +41,18 @@ Course
 Subscription (user_course + rating + review)
 Lesson
 
-
+Functions:
+* Users can log in. +
+* Users can browse courses. +
+* Users can buy courses. -
+* Users can review and rate courses that they bought. -
+* Users can see the lesson content only of courses that they bought. -
+* 
+* Users-Teachers can create and manage their courses. +
+* 
+* Users-Admins can approved/unapprove courses (make courses available/unavailable)
+* Users-Admins can add categories
+* Users-Admins can view all subscriptions
 
 * Ruby version
 

@@ -8,8 +8,11 @@
     .row
       .col-md-6
         .text-warning.fa.fa-star
-        = course.average_rating
-        (#{course.subscriptions_count})
+        %b= course.average_rating
+        (#{course.subscriptions_count}
+        .fa.fa-user-graduate
+        )
+  
       .col-md-6.text-right
         .fa.fa-chalkboard-teacher
         = course.user
