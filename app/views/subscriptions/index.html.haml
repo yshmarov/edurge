@@ -1,8 +1,8 @@
 .text-center.text-white
   %h3
-    .fa.fa-star
+    /.fa.fa-star
     /.fa.fa-lock
-    /.fa.fa-lock-open
+    .fa.fa-lock-open
     /.fa.fa-unlock
     /.fa.fa-key
     = pluralize(Subscription.count, 'subscription')
@@ -10,12 +10,18 @@
 %table#table1
   %thead
     %tr
-      %th User
-      %th Course
-      %th Rating
-      %th Comment
-      %th Created
-      %th Updated
+      %th
+        .fa.fa-user
+      %th
+        .fa.fa-graduation-cap
+      %th
+        .text-warning.fa.fa-star
+      %th
+        .fa.fa-comment
+      %th
+        .fa.fa-clock
+      %th
+        .fa.fa-clock
       %th
       %th
       %th
@@ -32,4 +38,4 @@
         %td= link_to 'Show', subscription
         %td= link_to 'Edit', edit_subscription_path(subscription)
         %td= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' }
-%br
+%p
