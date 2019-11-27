@@ -28,6 +28,10 @@ Create a course:
 
 *make it a PWA*
 
+*home/index - "continue learning"*
+
+*home/index - "featured courses"*
+
 *rich text editing for course/description*
 
 *recatcha for creating a user*

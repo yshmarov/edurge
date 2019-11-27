@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
 
   def index
-    @subscriptions = Subscription.all
+    @subscriptions = Subscription.all.order(created_at: :desc)
   end
 
   def show
@@ -24,7 +24,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(subscription_params)
     respond_to do |format|
       if @subscription.save
-        format.html { redirect_to @subscription.course, notice: 'User course was successfully created.' }
+        format.html { redirect_to @subscription.course, notice: 'Subscription was successfully created.' }
         format.json { render :show, status: :created, location: @subscription }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class SubscriptionsController < ApplicationController
   def update
     respond_to do |format|
       if @subscription.update(subscription_params)
-        format.html { redirect_to @subscription, notice: 'User course was successfully updated.' }
+        format.html { redirect_to @subscription, notice: 'Review was successfully posted. Thank you!' }
         format.json { render :show, status: :ok, location: @subscription }
       else
         format.html { render :edit }
