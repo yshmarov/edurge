@@ -39,6 +39,11 @@ Best Udemy Clone on the market. Set up your online school in minutes!
 
 ---
 
+Schema: 
+![alt text](https://imgur.com/PmwESin.png "Schema")
+
+---
+
 Homepage: 
 ![alt text](https://imgur.com/QJvjyJb.png "Homepage")
 
