@@ -22,22 +22,22 @@
   /      Bought
   /    - else
   /      Buy
+
   .card-footer
     .text-center
+      /= action_buttons(course)
       - if current_user
         - if course.user == current_user
           .row
           /OWNER
           = link_to course_path(course) do
             You've created this course. View analytics
-
         - elsif course.subscriptions.where(user: current_user).any?
           .row
           /SUBSCRIBER
           /- if current_user.subscriptions.where(course: course).any?
           = link_to course_path(course) do
             You've bought this course. Now, learn!!!!
-
           - if course.subscriptions.pending_review.where(user: current_user).any?
             .row
             /SUBSCRIBER did not review
@@ -51,14 +51,12 @@
             /SUBSCRIBER reviewed
             .text-warning.fa.fa-star
             .fa.fa-check
-
         - else
           .row
           /BUYER
           = link_to course_path(course), class: 'btn btn-md btn-success' do
             .fa.fa-shopping-cart
             = number_to_currency(course.price)
-            
           /= link_to 'Subscribe', Subscription.create(course: course, user:current_user)
       - else
         .row

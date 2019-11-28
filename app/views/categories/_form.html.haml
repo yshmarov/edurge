@@ -4,8 +4,8 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :name
-    = f.input :description
+    = f.input :name, input_html: { autocomplete: 'nope' }
+    = f.input :description, input_html: { autocomplete: 'nope' }
 
   .form-actions
     = f.button :submit, class: 'btn btn-sm btn-secondary'

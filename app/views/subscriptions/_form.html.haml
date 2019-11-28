@@ -8,7 +8,7 @@
     = f.association :course
 
     = f.input :rating, collection: 1..5, as: :radio_buttons
-    = f.input :comment
+    = f.input :comment, input_html: { autocomplete: 'nope' }
 
   .form-actions
     = f.button :submit, class: 'btn btn-sm btn-primary'
