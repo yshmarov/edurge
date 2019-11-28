@@ -38,5 +38,5 @@
         %td= subscription.rating
         %td= subscription.comment
         %td= link_to 'Review', edit_subscription_path(subscription)
-        %td= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Unsubscribe', subscription, method: :delete, data: { confirm: 'Are you sure?' }
 %p

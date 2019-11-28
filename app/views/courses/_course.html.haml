@@ -58,6 +58,8 @@
           = link_to course_path(course), class: 'btn btn-md btn-success' do
             .fa.fa-shopping-cart
             = number_to_currency(course.price)
+            
+          /= link_to 'Subscribe', Subscription.create(course: course, user:current_user)
       - else
         .row
         /TEASER
