@@ -98,7 +98,7 @@ database: postgresql
 
 git clone https://github.com/yshmarov/edurge
 bundle install
-rake db:drop db:create db:migrate db:seed
+rails db:drop db:create db:migrate db:seed
 rails s
 
 * Database creation

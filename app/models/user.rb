@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :courses, dependent: :nullify
   has_many :subscriptions, dependent: :nullify
-  has_many :courses, through: :subscriptions
+  #has_many :courses, through: :subscriptions
 
   extend FriendlyId
   friendly_id :email, use: :slugged

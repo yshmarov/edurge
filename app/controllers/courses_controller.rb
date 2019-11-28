@@ -4,10 +4,10 @@ class CoursesController < ApplicationController
   def index
     if params[:name]
       #@courses = Course.where('name LIKE ?', "%#{params[:name]}%") #case-sensitive
-      @courses = Course.where('name ILIKE ?', "%#{params[:name]}%") #Case-insensitive
+      @courses = Course.published.approved.where('name ILIKE ?', "%#{params[:name]}%") #Case-insensitive
       #@courses = Course.where('LOWER(name) LIKE LOWER(?)', "%#{params[:name]}%") #make lowercase
     else
-      @courses = Course.all
+      @courses = Course.published.approved.all
     end
   end
 

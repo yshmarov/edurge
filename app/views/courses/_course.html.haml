@@ -24,32 +24,46 @@
   /      Buy
   .card-footer
     .text-center
-      - if current_user 
-        - if course.user_id == current_user.id
+      - if current_user
+        - if course.user == current_user
+          .row
+          /OWNER
           = link_to course_path(course) do
             You've created this course. View analytics
+
         - elsif course.subscriptions.where(user: current_user).any?
+          .row
+          /SUBSCRIBER
+          /- if current_user.subscriptions.where(course: course).any?
           = link_to course_path(course) do
-            You own this course. Now, learn
+            You've bought this course. Now, learn!!!!
+
           - if course.subscriptions.pending_review.where(user: current_user).any?
             .row
-            - course.subscriptions.pending_review.each do |sub|
-              = link_to edit_subscription_path(sub) do
+            /SUBSCRIBER did not review
+            /- if current_user.subscriptions.pending_review.where(course: course).any?
+            - course.subscriptions.pending_review.where(user: current_user).each do |subscription|
+              = link_to edit_subscription_path(subscription) do
                 .text-warning.fa.fa-star
                 Review
           - else
             .row
+            /SUBSCRIBER reviewed
             .text-warning.fa.fa-star
             .fa.fa-check
 
         - else
+          .row
+          /BUYER
           = link_to course_path(course), class: 'btn btn-md btn-success' do
             .fa.fa-shopping-cart
             = number_to_currency(course.price)
       - else
+        .row
+        /TEASER
         = link_to course_path(course), class: 'btn btn-md btn-success' do
           .fa.fa-shopping-cart
-          = number_to_currency(course.price)
+          Check price
   - if current_user
     - if course.user_id == current_user.id
       .card-footer

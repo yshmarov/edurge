@@ -9,10 +9,12 @@
   #navbarSupportedContent.collapse.navbar-collapse
     - if current_user
       %ul.navbar-nav.mr-auto
+
         %li.nav-item
           = link_to categories_path, class: 'nav-link' do
             .fa.fa-bookmark
             %b Categories
+
         .form-inline.my-2.my-lg-0
           = form_tag(courses_path, method: :get) do
             .input-group
@@ -26,15 +28,15 @@
             .fa.fa-cogs
             %b Admin
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            = link_to new_category_path, class: "dropdown-item" do
+              .fa.fa-bookmark
+              .fa.fa-plus
+              %b Add Category
             = link_to published_unapproved_courses_path, class: "dropdown-item" do
               .fa.fa-graduation-cap
               %b Unapproved courses
               .badge.badge-danger
                 = Course.published.unapproved.count
-            = link_to new_category_path, class: "dropdown-item" do
-              .fa.fa-bookmark
-              .fa.fa-plus
-              %b Add Category
             = link_to subscriptions_path, class: "dropdown-item" do
               .fa.fa-lock-open
               %b All Subscriptions
@@ -46,15 +48,15 @@
             .fa.fa-chalkboard-teacher
             %b Teach
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to created_courses_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
-              %b Created courses
-              .badge.badge-danger
-                = Course.where(user: current_user).count
             = link_to new_course_path, class: "dropdown-item" do
               .fa.fa-graduation-cap
               .fa.fa-plus
               %b Add course
+            = link_to created_courses_path, class: "dropdown-item" do
+              .fa.fa-graduation-cap
+              %b Created courses
+              .badge.badge-danger
+                = current_user.courses.count
 
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
