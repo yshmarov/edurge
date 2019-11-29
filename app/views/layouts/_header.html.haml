@@ -23,6 +23,39 @@
                 %button.btn.btn-primary.btn-sm{:type => "submit"}
                   %span.fa.fa-search{"aria-hidden" => "true"}
 
+        .ml-5
+        .nav-item.dropdown
+          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            .fa.fa-graduation-cap
+            %b Learn
+          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            /= link_to subscriptions_path, class: "dropdown-item" do
+            = link_to purchased_courses_path, class: "dropdown-item" do
+              .fa.fa-graduation-cap
+              %b Purchased courses
+              .badge.badge-danger
+                = current_user.subscriptions.count
+            = link_to pending_review_subscriptions_path, class: "dropdown-item" do
+              .fa.fa-star
+              %b Pending reviews
+              .badge.badge-danger
+                = current_user.subscriptions.pending_review.count
+
+        .nav-item.dropdown
+          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            .fa.fa-chalkboard-teacher
+            %b Teach
+          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            = link_to new_course_path, class: "dropdown-item" do
+              .fa.fa-graduation-cap
+              .fa.fa-plus
+              %b Add course
+            = link_to created_courses_path, class: "dropdown-item" do
+              .fa.fa-graduation-cap
+              %b Created courses
+              .badge.badge-danger
+                = current_user.courses.count
+
         .nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             .fa.fa-cogs
@@ -42,38 +75,6 @@
               %b All Subscriptions
               .badge.badge-danger
                 = Subscription.count
-
-        .nav-item.dropdown
-          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            .fa.fa-chalkboard-teacher
-            %b Teach
-          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to new_course_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
-              .fa.fa-plus
-              %b Add course
-            = link_to created_courses_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
-              %b Created courses
-              .badge.badge-danger
-                = current_user.courses.count
-
-        .nav-item.dropdown
-          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            .fa.fa-graduation-cap
-            %b Learn
-          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            /= link_to subscriptions_path, class: "dropdown-item" do
-            = link_to purchased_courses_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
-              %b Purchased courses
-              .badge.badge-danger
-                = current_user.subscriptions.count
-            = link_to pending_review_subscriptions_path, class: "dropdown-item" do
-              .fa.fa-star
-              %b Pending reviews
-              .badge.badge-danger
-                = current_user.subscriptions.pending_review.count
 
       %ul.navbar-nav.mr-right
         .nav-item.dropdown

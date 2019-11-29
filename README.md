@@ -28,7 +28,7 @@ Create a course:
 
 *make it a PWA*
 
-*home/index - "continue learning"*
+*home/index - do not show current_user courses that he has already subscribed to*
 
 *home/index - "featured courses"*
 

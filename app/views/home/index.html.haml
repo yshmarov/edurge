@@ -46,6 +46,20 @@
     Learn on your schedule
 
 %br
+
+- if current_user
+  .text-white
+    %h3
+      .fa.fa-user-graduate
+      Continue learning
+  .card-columns
+    - @purchased_courses.each do |course|
+      = render 'courses/course', course: course
+  .text-right
+    = link_to purchased_courses_path do
+      All my courses
+  %hr.bg-light
+
 .text-white
   %h3
     .fa.fa-chart-line
@@ -60,18 +74,6 @@
 %hr.bg-light
 .text-white
   %h3
-    .fa.fa-clock
-    Latest courses
-.card-columns
-  - @latest_courses.each do |course|
-    = render 'courses/course', course: course
-.text-right
-  = link_to latest_courses_path do
-    More latest courses
-
-%hr.bg-light
-.text-white
-  %h3
     .fa.fa-star
     Top rated courses
 .card-columns
@@ -80,6 +82,18 @@
 .text-right
   = link_to top_rated_courses_path do
     More top rated courses
+
+%hr.bg-light
+.text-white
+  %h3
+    .fa.fa-clock
+    Latest courses
+.card-columns
+  - @latest_courses.each do |course|
+    = render 'courses/course', course: course
+.text-right
+  = link_to latest_courses_path do
+    More latest courses
 
 %hr.bg-light
 .text-white
