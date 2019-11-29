@@ -5,8 +5,13 @@ module CoursesHelper
         link_to "You have created this course. View analytics", course_path(course)
       elsif course.subscriptions.where(user: current_user).any?
         link_to "You have bought this course. Now, learn", course_path(course)
-      else
+      elsif course.price > 0
         link_to number_to_currency(course.price), course_path(course), class: 'btn btn-md btn-success'
+      else
+        link_to course_path(course), class: 'btn btn-md btn-success' do
+          number_to_currency(course.price) + " " +
+          "Free"
+        end
       end
     else
       link_to "Check price", course_path(course), class: 'btn btn-md btn-success'
@@ -17,8 +22,14 @@ module CoursesHelper
     if current_user
       if course.subscriptions.where(user: current_user).any?
         if course.subscriptions.pending_review.where(user: current_user).any?
-          link_to "Review", edit_subscription_path(course.subscriptions.pending_review.where(user: current_user).first), class: 'btn btn-md btn-success'
+          link_to edit_subscription_path(course.subscriptions.pending_review.where(user: current_user).first) do
+            "<i class='text-warning fa fa-star'></i>".html_safe + " " +
+            "<i class='text-dark fa fa-question'></i>".html_safe + " " +
+            "Review"
+          end
         else
+          "<i class='text-warning fa fa-star'></i>".html_safe + " " +
+          "<i class='fa fa-check'></i>".html_safe + " " +
           "You have reviewed"
         end
       end
