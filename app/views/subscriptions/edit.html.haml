@@ -6,12 +6,10 @@
         %h4
           .fa.fa-graduation-cap
           = link_to @subscription.course.name, course_path(@subscription.course)
-          .row
+          %hr
           .text-warning.fa.fa-star
           Add a Review
       .card-body
         = render 'form'
       .card-footer
-        = link_to 'Show', @subscription
-        \|
-        = link_to 'Cancel', subscriptions_path
+        = link_to 'Cancel', course_path(@course)

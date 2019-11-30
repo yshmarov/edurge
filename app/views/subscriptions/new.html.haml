@@ -4,9 +4,13 @@
     .card
       .card-header
         %h4
-          .fa.fa-star
-          New subscription
+          .fa.fa-graduation-cap
+          = link_to @course.name, course_path(@course)
+          %hr
+          .fa.fa-lock-open
+          Buy course
       .card-body
-        = render 'form'
+        = form_tag course_subscriptions_path(@course) do
+          = submit_tag "Pay #{@course.price} &euro;".html_safe, class: "btn btn-success btn-md btn-block"
       .card-footer
-        = link_to 'Cancel', root_path
+        = link_to 'Cancel', course_path(@course)

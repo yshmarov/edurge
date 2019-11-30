@@ -4,11 +4,13 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.association :user
-    = f.association :course
 
-    = f.input :rating, collection: 1..5, as: :radio_buttons
-    = f.input :comment, input_html: { autocomplete: 'nope' }
+    - unless f.object.new_record?
+      = f.input :rating, collection: 1..5, as: :radio_buttons
+      = f.input :comment, input_html: { autocomplete: 'nope' }
+    - else
+      %h4= number_to_currency(@course.price)
 
   .form-actions
-    = f.button :submit, class: 'btn btn-sm btn-primary'
+    = f.button :submit, class: 'btn btn-md btn-primary'
+    /= f.submit 'Subscribe', class: 'btn btn-md btn-primary'

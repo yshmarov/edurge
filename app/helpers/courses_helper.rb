@@ -6,9 +6,9 @@ module CoursesHelper
       elsif course.subscriptions.where(user: current_user).any?
         link_to "You have bought this course. Now, learn", course_path(course)
       elsif course.price > 0
-        link_to number_to_currency(course.price), course_path(course), class: 'btn btn-md btn-success'
+        link_to number_to_currency(course.price), new_course_subscription_path(course), class: "btn btn-danger"
       else
-        link_to course_path(course), class: 'btn btn-md btn-success' do
+        link_to new_course_subscription_path(course), class: 'btn btn-md btn-success' do
           number_to_currency(course.price) + " " +
           "Free"
         end
@@ -36,21 +36,24 @@ module CoursesHelper
     end
   end
 
-  #if current_user
-  #  if course.bought(current_user) && current_user.admin == false
+  #def action_buttons(course)
+  #  if current_user
+  #    if course.bought(current_user) && current_user.admin == false
+  #      if course.price > 0
+  #        link_to "Buy for &euro; ".html_safe+course.price.to_s, new_course_trade_path(course), class: "btn btn-danger"
+  #      else
+  #        link_to "FREE",course_trades_path(course), method: :post, class: "btn btn-success"
+  #      end
+  #    else
+  #      link_to "Bought", course_path(course), class: "btn btn-success btn"
+  #    end
+  #  else
   #    if course.price > 0
   #      link_to "Buy for &euro; ".html_safe+course.price.to_s, new_course_trade_path(course), class: "btn btn-danger"
   #    else
   #      link_to "FREE",course_trades_path(course), method: :post, class: "btn btn-success"
   #    end
-  #  else
-  #    link_to "Bought", course_path(course), class: "btn btn-success btn"
-  #  end
-  #else
-  #  if course.price > 0
-  #    link_to "Buy for &euro; ".html_safe+course.price.to_s, new_course_trade_path(course), class: "btn btn-danger"
-  #  else
-  #    link_to "FREE",course_trades_path(course), method: :post, class: "btn btn-success"
   #  end
   #end
+
 end

@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:new, :create]
 
   def index
     @subscriptions = Subscription.all.order(created_at: :desc)
@@ -14,28 +15,37 @@ class SubscriptionsController < ApplicationController
   end
 
   def new
-    @subscription = Subscription.new
+    #@subscription = Subscription.new
   end
 
   def edit
   end
 
   def create
+    if @course.price > 0
+      flash[:alert] = "You can not access paid courses yet."
+      redirect_to new_course_subscription_path(@course)
+    else
+      @subscription = current_user.buy_course(@course)
+      redirect_to course_path(@course), notice: 'You bought the course!'
+    end
+
     #@subscription = current_user.buy_course(@course)
     #respond_to do |format|
     #  format.html {redirect_to course_path(@course), notice: 'You bought the course!'}
     #end
 
-    @subscription = Subscription.new(subscription_params)
-    respond_to do |format|
-      if @subscription.save
-        format.html { redirect_to @subscription.course, notice: 'Subscription was successfully created.' }
-        format.json { render :show, status: :created, location: @subscription }
-      else
-        format.html { render :new }
-        format.json { render json: @subscription.errors, status: :unprocessable_entity }
-      end
-    end
+    #@subscription = Subscription.new(subscription_params)
+    #respond_to do |format|
+    #  if @subscription.save
+    #    format.html { redirect_to @subscription.course, notice: 'Subscription was successfully created.' }
+    #    #format.html { redirect_to subscriptions_url, notice: 'Subscription was successfully created.' }
+    #    format.json { render :show, status: :created, location: @subscription }
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @subscription.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   def update
@@ -63,7 +73,11 @@ class SubscriptionsController < ApplicationController
       @subscription = Subscription.find(params[:id])
     end
 
+    def set_course
+      @course = Course.friendly.find(params[:course_id])
+    end
+
     def subscription_params
-      params.require(:subscription).permit(:rating, :comment, :user_id, :course_id)
+      params.require(:subscription).permit(:rating, :comment)
     end
 end
