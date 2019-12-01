@@ -4,10 +4,10 @@
       %b 
         .fa.fa-graduation-cap
         EDURGE
-  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
-  #navbarSupportedContent.collapse.navbar-collapse
-    - if current_user
+  - if current_user
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
       %ul.navbar-nav.mr-auto
 
         %li.nav-item
@@ -88,7 +88,7 @@
             = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
               .fa.fa-sign-out-alt
               %b Sign out
-    - else
-      %ul.navbar-nav.mr-auto.navbar-right
-      .nav-link= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-dark'
-      .nav-link= link_to 'Log In', new_user_session_path, class: 'btn btn-outline-dark'
+  - else
+    %ul.navbar-nav.mr-auto.navbar-right
+    .nav-link= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-dark'
+    .nav-link= link_to 'Log In', new_user_session_path, class: 'btn btn-outline-dark'
