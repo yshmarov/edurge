@@ -21,10 +21,6 @@ class Course < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  #def average_rating2
-  #  subscriptions.blank? ? 0 : subscriptions.average(:rating).round(2)
-  #end
-
   def update_rating
     update_column :average_rating, (subscriptions.average(:rating).round(2).to_f)
   end
