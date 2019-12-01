@@ -35,9 +35,9 @@
               %b Purchased courses
               .badge.badge-danger
                 = current_user.subscriptions.count
-            = link_to pending_review_subscriptions_path, class: "dropdown-item" do
+            = link_to pending_review_courses_path, class: "dropdown-item" do
               .fa.fa-star
-              %b Pending reviews
+              %b Pending review
               .badge.badge-danger
                 = current_user.subscriptions.pending_review.count
 

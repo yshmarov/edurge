@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :courses do
-    get :created, :purchased, :published_unapproved, :latest, :top_rated, :popular, on: :collection
+    get :created, :purchased, :published_unapproved, :pending_review, :latest, :top_rated, :popular, on: :collection
     member do
   		patch :approve
   		patch :disapprove
@@ -15,9 +15,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:new, :create]
   end
 
-  resources :subscriptions do
-    get :pending_review, on: :collection
-  end
+  resources :subscriptions
 
   resources :lessons
 

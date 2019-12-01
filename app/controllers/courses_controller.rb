@@ -15,6 +15,11 @@ class CoursesController < ApplicationController
     @courses = Course.joins(:subscriptions).where(subscriptions: {user: current_user})
     render 'index'
   end
+  
+  def pending_review
+    @courses = Course.joins(:subscriptions).merge(Subscription.pending_review.where(user: current_user))
+    render 'index'
+  end
 
   def created
     @courses = Course.where(user_id: current_user.id).order(created_at: :desc)
