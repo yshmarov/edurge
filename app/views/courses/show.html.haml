@@ -1,4 +1,8 @@
 /course/show
+- content_for :title do
+  EDURGE |
+  = @course.name
+
 .text-white
   .fa.fa-bookmark
   = link_to @course.category, category_path(@course.category)
