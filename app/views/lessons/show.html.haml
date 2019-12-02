@@ -1,2 +1,9 @@
 /lesson/show
+- content_for :title do
+  EDURGE
+  |
+  = @course.name
+  | 
+  = @lesson.name
+  
 = render 'lessons/lesson', lesson: @lesson

@@ -1,4 +1,11 @@
 /category/show
+- content_for :title do
+  EDURGE
+  |
+  Categories
+  |
+  = @category.name
+
 .text-center.text-white
   %h3
     .fa.fa-bookmark
