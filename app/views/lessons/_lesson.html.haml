@@ -1,16 +1,32 @@
 .card
   .card-header
-    %b Chapter:
-    = lesson.chapter
-    .row
-    %b Name:
-    = lesson.name
+    .fa.fa-graduation-cap
+    = link_to @course.name, course_path(@course)
+  .card-header
+    %b
+      #{@lesson.seq_number}:
+    = @lesson.name
   .embed-responsive.embed-responsive-16by9
-    %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "#{lesson.embed_url}", :width => "560"}
+    %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "#{@lesson.embed_url}", :width => "560"}
+  .card-body
+    %p
+      %b Video url:
+      = @lesson.video_url
+    %p
+      %b Chapter:
+      = @lesson.chapter
+    %p
+      %b Description:
+      = @lesson.description
+  /.card-footer
+  /  - if lesson.course.user_id == current_user.id
+  /    .card-footer
+  /      = link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-primary'
   .card-footer
-    %b Description:
-    = lesson.description
-  - if lesson.course.user_id == current_user.id
-    .card-footer
-      = link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-primary'
-      = link_to 'Back', lessons_path, class: 'btn btn-sm btn-primary'
+    .row
+    - unless @plesson.nil?
+      .pull-left
+        = link_to ('<i class="fa fa-arrow-left"></i> Previous lesson').html_safe, course_lesson_path(@plesson.course, @plesson), class: "btn btn-danger"
+    - unless @nlesson.nil?
+      .pull-right
+        = link_to ('Next lesson <i class="fa fa-arrow-right"></i>').html_safe, course_lesson_path(@nlesson.course, @nlesson), class: "btn btn-danger"

@@ -1,7 +1,8 @@
 class Lesson < ApplicationRecord
   belongs_to :course, counter_cache: true
 
-  validates :name, :description, :chapter, :course, :video_url, presence: true
+  validates :name, :description, :chapter, :course, :video_url, :seq_number, presence: true
+  validates_uniqueness_of :seq_number, scope: :course_id
 
   def to_s
     name
@@ -13,4 +14,12 @@ class Lesson < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  def prev
+    course.lessons.where("seq_number < ?", seq_number).order(:seq_number).last
+  end
+
+  def next
+    course.lessons.where("seq_number > ?", seq_number).order(:seq_number).first
+  end
 end

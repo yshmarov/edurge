@@ -58,7 +58,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @lessons = @course.lessons.order(chapter: :asc)
+    @lessons = @course.lessons.all.order(chapter: :asc, seq_number: :asc)
     @subscriptions = @course.subscriptions.where.not(rating: 0, comment: nil).order(created_at: :desc)
   end
 

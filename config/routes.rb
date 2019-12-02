@@ -13,10 +13,8 @@ Rails.application.routes.draw do
   		patch :disapprove
     end
     resources :subscriptions, only: [:new, :create]
+    resources :lessons
   end
 
   resources :subscriptions
-
-  resources :lessons
-
 end

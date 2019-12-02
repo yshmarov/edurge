@@ -35,8 +35,9 @@
       %h4
         .fa.fa-book
         = pluralize(@course.lessons_count, 'lesson')
-    - @lessons.each do |lesson|
-      = render 'lessons/lesson_preview', lesson: lesson
+    .list-group
+      - @lessons.each do |lesson|
+        = render 'lessons/lesson_preview', lesson: lesson
 
     %p
     .text-white

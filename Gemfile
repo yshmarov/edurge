@@ -66,4 +66,4 @@ gem 'simple_form'
 gem 'devise'
 gem 'faker'
 gem 'font-awesome-sass', '~> 5.11.2'
-gem 'friendly_id', '~> 5.2.4' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+gem 'friendly_id', '~> 5.2.4'
