@@ -9,7 +9,8 @@
     ago
     .row
     - @user.roles.each do |role|
-      = role.id
+      .badge.badge-info
+        = role.name
   .card-footer
     %b Learning:
     = @user.subscriptions.count

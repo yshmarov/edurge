@@ -24,10 +24,10 @@ class User < ApplicationRecord
   after_create :assign_default_role
 
   def assign_default_role
-    if User.any?
-      self.add_role(:student) if self.roles.blank?
-    else
+    if User.count == 1
       self.add_role(:admin) if self.roles.blank?
+    else
+      self.add_role(:student) if self.roles.blank?
     end
   end
 
