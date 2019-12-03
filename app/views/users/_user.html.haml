@@ -1,0 +1,16 @@
+.card
+  .card-header
+    .fa.fa-user
+    /= link_to @user.username, user_path(@user)
+    = @user.username
+  .card-footer
+    Registered
+    = time_ago_in_words(@user.created_at)
+    ago
+  .card-footer
+    Learns:
+    = @user.subscriptions.count
+  .card-footer
+    Teaches:
+    = @user.courses.count
+    

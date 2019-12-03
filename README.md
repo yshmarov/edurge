@@ -28,13 +28,7 @@ Create a course:
 
 *home/index - "featured courses"*
 
-*update to rails 6*
-
-*make it a PWA*
-
-*rich text editing for course/description*
-
-*recatcha for creating a user*
+*admin can see all users*
 
 *gem pagy*
 * paginate lessons inside courses, mark lessons complete
@@ -48,8 +42,6 @@ Create a course:
 *devise mailer*
 * confirmable
 * sendgrid
-
-*omniauth with google & facebook*
 
 *add_fields_to_lessons duration:integer*
 
@@ -70,6 +62,18 @@ Create a course:
 * rails g migration tags name
 * rails g migration course_tags course:references tag:references
 * Tags can be like ruby_on_rails, javascript, accounting, CEO, SMM, whatever
+
+*HELP NEEDED*
+
+*update to rails 6*
+
+*make it a PWA*
+
+*rich text editing for course/description*
+
+*omniauth with google & facebook*
+
+*recatcha for creating a user (if not oAuth)*
 
 ---
 
