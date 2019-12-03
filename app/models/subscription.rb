@@ -1,5 +1,6 @@
 class Subscription < ApplicationRecord
   belongs_to :user
+  #belongs_to :user, counter_cache: true #counter_cache not working here for some reason
   belongs_to :course, counter_cache: true
 
   scope :pending_review, -> { where(rating: [0, nil, ""], comment: [nil, ""]) }

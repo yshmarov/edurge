@@ -1,5 +1,5 @@
 class Course < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   belongs_to :category, counter_cache: true
   has_many :lessons, dependent: :destroy
   has_many :subscriptions, dependent: :restrict_with_error
