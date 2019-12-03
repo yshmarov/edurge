@@ -28,6 +28,7 @@
       /  Buy
 
   - if current_user
+    /- if policy(course).edit?
     - if course.user_id == current_user.id
       .card-footer
         - if course.published?

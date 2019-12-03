@@ -11,14 +11,16 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def edit
+    authorize @category
   end
 
   def create
     @category = Category.new(category_params)
-
+    authorize @category
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
@@ -31,6 +33,7 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    authorize @category
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
@@ -43,6 +46,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    authorize @category
     @category.destroy
     if @category.errors.present?
       redirect_to categories_url, alert: 'Category has associated courses. Can not delete.'

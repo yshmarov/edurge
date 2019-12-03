@@ -24,26 +24,38 @@ Create a course:
 
 *TODO*
 
+*pundit & rolify*
+* roles [:admin, :teacher, :student]
+
 *home/index - do not show current_user courses that he has already subscribed to*
 
 *home/index - "featured courses"*
 
 *admin can see all users*
 
-*gem pagy*
-* paginate lessons inside courses, mark lessons complete
-* paginate Course.all in CoursesController
-
-*pundit & rolify*
-* roles [:admin, :teacher, :student]
-
 *track completion of lesson by user (user_lesson=completion) user_id lesson_id seen:boolean unique lesson-user pair*
+
+*add_fields_to_lessons duration:integer*
 
 *devise mailer*
 * confirmable
 * sendgrid
 
-*add_fields_to_lessons duration:integer*
+*gem pagy*
+* paginate lessons inside courses, mark lessons complete
+* paginate Course.all in CoursesController
+
+*HELP NEEDED*
+
+*update to rails 6*
+
+*make it a PWA*
+
+*rich text editing for course/description*
+
+*omniauth with google & facebook*
+
+*recatcha for creating a user (if not oAuth)*
 
 *teacher course analytics*
 * chartkick & groupdate
@@ -63,18 +75,6 @@ Create a course:
 * rails g migration course_tags course:references tag:references
 * Tags can be like ruby_on_rails, javascript, accounting, CEO, SMM, whatever
 
-*HELP NEEDED*
-
-*update to rails 6*
-
-*make it a PWA*
-
-*rich text editing for course/description*
-
-*omniauth with google & facebook*
-
-*recatcha for creating a user (if not oAuth)*
-
 ---
 
 *Features:*
@@ -91,6 +91,7 @@ Create a course:
 * Users-Admins can approve/unapprove courses (make courses available/unavailable) +
 * Users-Admins can add categories +
 * Users-Admins can view all subscriptions +
+* Users-Admins can view all users -
 
 ---
 
@@ -123,3 +124,10 @@ No tests yet. Help needed
 * Deployment instructions
 
 * ...
+
+        	    Create	        Show	    Edit	Destroy
+User	        Owner	        All	        Owner	Admin, Owner
+Category	    Admin	        All	        Admin	Admin
+Course	        All	            All	        Owner	Admin, Owner
+Lesson	        Course owner	Subscriber	Owner	Owner
+Subscription	Owner	        Admin	    Owner	Admin, Owner

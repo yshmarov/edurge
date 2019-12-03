@@ -7,10 +7,13 @@
     Registered
     = time_ago_in_words(@user.created_at)
     ago
+    .row
+    - @user.roles.each do |role|
+      = role.id
   .card-footer
-    Learns:
+    %b Learning:
     = @user.subscriptions.count
   .card-footer
-    Teaches:
+    %b Teaching:
     = @user.courses_count
     

@@ -8,7 +8,9 @@
     .fa.fa-graduation-cap
     = pluralize(category.courses.approved.published.count, 'course')
   - if current_user
-    .card-footer
-      = link_to 'Edit', edit_category_path(category), class: 'btn btn-sm btn-secondary'
-      - unless category.courses.any?
-        = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-secondary'
+    - if policy(category).edit?
+      .card-footer
+        = link_to 'Edit', edit_category_path(category), class: 'btn btn-sm btn-secondary'
+        - unless category.courses.any?
+          - if policy(category).destroy?
+            = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-secondary'
