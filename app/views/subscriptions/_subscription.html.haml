@@ -1,7 +1,7 @@
 .card
   .card-header
     .fa.fa-user
-    = subscription.user
+    = link_to subscription.user.username, user_path(subscription.user)
 
     .fa.fa-clock
     = time_ago_in_words(subscription.created_at)

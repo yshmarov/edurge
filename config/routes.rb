@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :subscriptions
+
+  resources :users, only: [:show]
+
 end

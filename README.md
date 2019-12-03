@@ -51,7 +51,7 @@ Create a course:
 
 *omniauth with google & facebook*
 
-*add_fields_to_lessons order:string duration:integer*
+*add_fields_to_lessons duration:integer*
 
 *teacher course analytics*
 * chartkick & groupdate
@@ -76,15 +76,17 @@ Create a course:
 *Features:*
 * Users-Students can log in. +
 * Users-Students can browse courses. +
+* Users-Students can subscribe to free courses. +
 * Users-Students can buy courses. -
-* Users-Students can review and rate courses that they bought. -
+* Users-Students can review and rate courses that they bought. +
 * Users-Students can see the lesson content only of courses that they bought. -
 
 * Users-Teachers can create and manage their courses. +
+* Users-Teachers can earn money on  their courses. -
 
-* Users-Admins can approved/unapprove courses (make courses available/unavailable)
-* Users-Admins can add categories
-* Users-Admins can view all subscriptions
+* Users-Admins can approve/unapprove courses (make courses available/unavailable) +
+* Users-Admins can add categories +
+* Users-Admins can view all subscriptions +
 
 ---
 
