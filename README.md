@@ -24,13 +24,13 @@ Create a course:
 
 *TODO*
 
-*update to rails 6*
-
-*make it a PWA*
-
 *home/index - do not show current_user courses that he has already subscribed to*
 
 *home/index - "featured courses"*
+
+*update to rails 6*
+
+*make it a PWA*
 
 *rich text editing for course/description*
 
@@ -42,6 +42,8 @@ Create a course:
 
 *pundit & rolify*
 * roles [:admin, :teacher, :student]
+
+*track completion of lesson by user (user_lesson=completion) user_id lesson_id seen:boolean unique lesson-user pair*
 
 *devise mailer*
 * confirmable
@@ -99,6 +101,7 @@ database: postgresql
 git clone https://github.com/yshmarov/edurge
 bundle install
 rails db:drop db:create db:migrate db:seed
+rails db:drop db:create db:migrate
 rails s
 
 * Database creation

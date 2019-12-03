@@ -23,6 +23,10 @@ class Subscription < ApplicationRecord
     end
   end
 
+  after_destroy do
+    course.update_rating
+  end
+
   after_save do
     unless rating.nil? || rating.zero?
       course.update_rating

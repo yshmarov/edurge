@@ -3,7 +3,6 @@ class Course < ApplicationRecord
   belongs_to :category, counter_cache: true
   has_many :lessons, dependent: :destroy
   has_many :subscriptions, dependent: :restrict_with_error
-  #has_many :users, through: :subscriptions
 
   validates :name, :category, :short_description, :description, :language, :duration, :price, :user, presence: true
 
@@ -22,7 +21,11 @@ class Course < ApplicationRecord
   friendly_id :name, use: :slugged
 
   def update_rating
-    update_column :average_rating, (subscriptions.average(:rating).round(2).to_f)
+    if subscriptions.any?
+      update_column :average_rating, (subscriptions.average(:rating).round(2).to_f)
+    else
+      update_column :average_rating, (0)
+    end
   end
 
   def bought(user)

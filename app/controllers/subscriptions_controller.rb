@@ -51,7 +51,7 @@ class SubscriptionsController < ApplicationController
   def update
     respond_to do |format|
       if @subscription.update(subscription_params)
-        format.html { redirect_to @subscription, notice: 'Review was successfully posted. Thank you!' }
+        format.html { redirect_to course_path(@subscription.course), notice: 'Review was successfully posted. Thank you!' }
         format.json { render :show, status: :ok, location: @subscription }
       else
         format.html { render :edit }
