@@ -27,6 +27,7 @@ class User < ApplicationRecord
     if User.count == 1
       self.add_role(:admin) if self.roles.blank?
       self.add_role(:teacher)
+      self.add_role(:student)
     else
       self.add_role(:student) if self.roles.blank?
       self.add_role(:teacher) #if you want any user to be able to create own courses

@@ -40,8 +40,9 @@
               %b Pending review
               .badge.badge-danger
                 = current_user.subscriptions.pending_review.count
+            /.dropdown-divider
 
-        - if current_user.has_role?(:admin) || current_user.has_role?(:teacher)
+        - if current_user.has_role?(:teacher)
           .nav-item.dropdown
             %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               .fa.fa-chalkboard-teacher

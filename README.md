@@ -24,14 +24,7 @@ Create a course:
 
 *TODO*
 
-*pundit & rolify*
-* roles [:admin, :teacher, :student]
-
 *home/index - do not show current_user courses that he has already subscribed to*
-
-*home/index - "featured courses"*
-
-*admin can see all users*
 
 *track completion of lesson by user (user_lesson=completion) user_id lesson_id seen:boolean unique lesson-user pair*
 
@@ -130,9 +123,12 @@ No tests yet. Help needed
 
 * ...
 
+* roles [:admin, :teacher, :student]
+
         	    Create	        Show	    Edit	Destroy
 User	        Owner	        All	        Owner	Admin, Owner
 Category	    Admin	        All	        Admin	Admin
 Course	        All	            All	        Owner	Admin, Owner
 Lesson	        Course owner	Subscriber	Owner	Owner
 Subscription	Owner	        Admin	    Owner	Admin, Owner
+
