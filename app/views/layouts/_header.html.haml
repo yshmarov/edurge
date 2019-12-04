@@ -76,6 +76,11 @@
                 %b All Subscriptions
                 .badge.badge-danger
                   = Subscription.count
+              = link_to users_path, class: "dropdown-item" do
+                .fa.fa-users
+                %b All Users
+                .badge.badge-danger
+                  = User.count
 
       %ul.navbar-nav.mr-right
         .nav-item.dropdown

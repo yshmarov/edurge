@@ -18,6 +18,6 @@ Rails.application.routes.draw do
 
   resources :subscriptions
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
 
 end

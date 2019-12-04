@@ -1,25 +1,25 @@
 .card
   .card-header
     .fa.fa-user
-    /= link_to @user.username, user_path(@user)
-    = @user.username
-    - if @user == current_user
+    /= link_to user.username, user_path(user)
+    = user.username
+    - if user == current_user
       .float-right
         = link_to edit_user_registration_path, class: "btn btn-sm btn-warning" do
           .fa.fa-cog
           %b Account settings
   .card-footer
     Signed up
-    = time_ago_in_words(@user.created_at)
+    = time_ago_in_words(user.created_at)
     ago
     .row
-    - @user.roles.each do |role|
+    - user.roles.each do |role|
       .badge.badge-info
         = role.name
   .card-footer
     %b Learning:
-    = @user.subscriptions.count
+    = user.subscriptions.count
   .card-footer
     %b Teaching:
-    = @user.courses_count
+    = user.courses_count
     
