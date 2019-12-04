@@ -47,12 +47,14 @@ class CoursesController < ApplicationController
   end
 
   def approve
+    authorize @course, :approve?
 		#@event.update_attribute(:status, 'planned')
 		@course.update_attribute(:approved, true)
 		redirect_to @course, notice: "Course '#{@course.name}' - approved"
   end
 
   def disapprove
+    authorize @course, :approve?
 		@course.update_attribute(:approved, false)
 		redirect_to @course, alert: "Course '#{@course.name}' - disapproved"
   end
@@ -64,14 +66,17 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    authorize @course
   end
 
   def edit
+    authorize @course
   end
 
   def create
     @course = Course.new(course_params)
     @course.user_id = current_user.id
+    authorize @course
 
     respond_to do |format|
       if @course.save
@@ -85,6 +90,7 @@ class CoursesController < ApplicationController
   end
 
   def update
+    authorize @course
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
@@ -97,6 +103,7 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    authorize @course
     @course.destroy
     respond_to do |format|
       format.html { redirect_to root_url, notice: 'Course was successfully destroyed.' }

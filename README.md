@@ -111,6 +111,11 @@ rails db:drop db:create db:migrate db:seed
 rails db:drop db:create db:migrate
 rails s
 
+If you don't want any user to be able to create own courses, you should comment the field in `user.rb`:
+  `self.add_role(:teacher)`
+to be like this
+  `#self.add_role(:teacher)`
+
 * Database creation
 
 * Database initialization

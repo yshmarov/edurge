@@ -28,8 +28,11 @@
       /  Buy
 
   - if current_user
-    /- if policy(course).edit?
-    - if course.user_id == current_user.id
+    - if policy(course).edit?
+      .card-footer
+        = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-primary'
+        = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary'
+    - if policy(course).destroy?
       .card-footer
         - if course.published?
           .badge.badge-success
@@ -43,9 +46,8 @@
         - else
           .badge.badge-danger
             approved
+    - if policy(course).approve?
       .card-footer
-        = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-primary'
-        = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary'
         - if course.approved?
           = link_to 'Disapprove', disapprove_course_path(course), method: :patch, class: 'btn btn-sm btn-primary'
         - else

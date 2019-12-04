@@ -3,8 +3,13 @@
     .fa.fa-user
     /= link_to @user.username, user_path(@user)
     = @user.username
+    - if @user == current_user
+      .float-right
+        = link_to edit_user_registration_path, class: "btn btn-sm btn-warning" do
+          .fa.fa-cog
+          %b Account settings
   .card-footer
-    Registered
+    Signed up
     = time_ago_in_words(@user.created_at)
     ago
     .row
