@@ -41,41 +41,41 @@
               .badge.badge-danger
                 = current_user.subscriptions.pending_review.count
 
-        /- if current_user.has_role?(:admin) || current_user.has_role?(:teacher)
-        .nav-item.dropdown
-          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            .fa.fa-chalkboard-teacher
-            %b Teach
-          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to new_course_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
-              .fa.fa-plus
-              %b Add course
-            = link_to created_courses_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
-              %b Created courses
-              .badge.badge-danger
-                = current_user.courses.count
-        /- if current_user.has_role?(:admin)
-        .nav-item.dropdown
-          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            .fa.fa-cogs
-            %b Admin
-          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to new_category_path, class: "dropdown-item" do
-              .fa.fa-bookmark
-              .fa.fa-plus
-              %b Add Category
-            = link_to published_unapproved_courses_path, class: "dropdown-item" do
-              .fa.fa-graduation-cap
-              %b Unapproved courses
-              .badge.badge-danger
-                = Course.published.unapproved.count
-            = link_to subscriptions_path, class: "dropdown-item" do
-              .fa.fa-lock-open
-              %b All Subscriptions
-              .badge.badge-danger
-                = Subscription.count
+        - if current_user.has_role?(:admin) || current_user.has_role?(:teacher)
+          .nav-item.dropdown
+            %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              .fa.fa-chalkboard-teacher
+              %b Teach
+            .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+              = link_to new_course_path, class: "dropdown-item" do
+                .fa.fa-graduation-cap
+                .fa.fa-plus
+                %b Add course
+              = link_to created_courses_path, class: "dropdown-item" do
+                .fa.fa-graduation-cap
+                %b Created courses
+                .badge.badge-danger
+                  = current_user.courses.count
+        - if current_user.has_role?(:admin)
+          .nav-item.dropdown
+            %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              .fa.fa-cogs
+              %b Admin
+            .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+              = link_to new_category_path, class: "dropdown-item" do
+                .fa.fa-bookmark
+                .fa.fa-plus
+                %b Add Category
+              = link_to published_unapproved_courses_path, class: "dropdown-item" do
+                .fa.fa-graduation-cap
+                %b Unapproved courses
+                .badge.badge-danger
+                  = Course.published.unapproved.count
+              = link_to subscriptions_path, class: "dropdown-item" do
+                .fa.fa-lock-open
+                %b All Subscriptions
+                .badge.badge-danger
+                  = Subscription.count
 
       %ul.navbar-nav.mr-right
         .nav-item.dropdown

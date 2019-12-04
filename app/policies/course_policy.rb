@@ -4,17 +4,17 @@ class CoursePolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
   def approve?
     @user.has_role?(:admin)
   end
 
   def create?
-    @user.has_role?(:admin) || @user.has_role?(:teacher)
+    @user.has_role?(:teacher)
   end
 
   def new?
-    @user.has_role?(:admin) || @user.has_role?(:teacher)
+    @user.has_role?(:teacher)
   end
 
   def update?

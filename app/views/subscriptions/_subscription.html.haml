@@ -18,6 +18,6 @@
     %small= subscription.comment
 
   - if current_user
-    - if subscription.user_id == current_user.id
+    - if policy(subscription).edit?
       .card-footer
         = link_to 'Edit', edit_subscription_path(subscription), class: 'btn btn-sm btn-primary'

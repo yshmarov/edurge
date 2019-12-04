@@ -28,6 +28,7 @@ class CoursesController < ApplicationController
 
   def published_unapproved
     @courses = Course.published.unapproved.order(updated_at: :desc)
+    authorize @courses, :approve?
     render 'index'
   end
 

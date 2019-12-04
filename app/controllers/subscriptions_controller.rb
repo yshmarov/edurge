@@ -4,6 +4,7 @@ class SubscriptionsController < ApplicationController
 
   def index
     @subscriptions = Subscription.all.order(created_at: :desc)
+    authorize @subscriptions
   end
 
   def pending_review
@@ -19,6 +20,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def edit
+    authorize @subscription
   end
 
   def create
@@ -49,6 +51,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def update
+    authorize @subscription
     respond_to do |format|
       if @subscription.update(subscription_params)
         format.html { redirect_to course_path(@subscription.course), notice: 'Review was successfully posted. Thank you!' }
@@ -61,6 +64,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
+    authorize @subscription
     @subscription.destroy
     respond_to do |format|
       format.html { redirect_to subscriptions_url, notice: 'User course was successfully destroyed.' }

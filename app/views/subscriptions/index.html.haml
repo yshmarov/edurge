@@ -37,6 +37,10 @@
         %td= subscription.updated_at.strftime('%d/%b/%Y')
         %td= subscription.rating
         %td= subscription.comment
-        %td= link_to 'Review', edit_subscription_path(subscription)
-        %td= link_to 'Unsubscribe', subscription, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          - if policy(subscription).edit?
+            = link_to 'Review', edit_subscription_path(subscription)
+        %td
+          - if policy(subscription).destroy?
+            = link_to 'Unsubscribe', subscription, method: :delete, data: { confirm: 'Are you sure?' }
 %p
