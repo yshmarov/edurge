@@ -40,6 +40,8 @@ class User < ApplicationRecord
   end
 
   def view_lesson(lesson)
-    self.user_lessons.create(lesson: lesson)
+    unless self.user_lessons.where(lesson: lesson).any?
+      self.user_lessons.create(lesson: lesson)
+    end
   end
 end

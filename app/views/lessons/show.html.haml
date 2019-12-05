@@ -5,5 +5,8 @@
   = @course.name
   | 
   = @lesson.name
-  
-= render 'lessons/lesson', lesson: @lesson
+
+.row
+  .col-lg-2
+  .col-lg-8
+    = render 'lessons/lesson', lesson: @lesson

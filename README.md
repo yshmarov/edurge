@@ -79,10 +79,6 @@ Roles `[:admin, :teacher, :student]`
 
 *home/index - do not show current_user courses that he has already subscribed to*
 
-*track completion of lesson by user
-* (user_lesson=completion) rails g migration create_user_lesson user:references lesson:references unique lesson-user pair
-* when a user views a lesson for the first time, user_lesson value pair is added to the table, showing that the user has seen this lesson
-
 *course duration*
 * use youtube api, or whatever the video provider is to fetch video duration
 * add_fields_to_lessons duration:integer
