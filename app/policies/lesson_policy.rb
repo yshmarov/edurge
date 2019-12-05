@@ -6,7 +6,7 @@ class LessonPolicy < ApplicationPolicy
   end
 
   def show?
-    @user.subscriptions.where(course_id: @record.course_id) || current_user.has_role?(:admin) || @record.course.user_id == @user.id
+    @record.course.bought(@user) == false || @user.has_role?(:admin) || @record.course.user_id == @user.id
   end
 
   def update?

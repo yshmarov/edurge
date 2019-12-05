@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    authorize @lesson
+    authorize @lesson, :show?
   end
 
   def new
@@ -25,7 +25,7 @@ class LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to course_path(@lesson.course), notice: 'Lesson was successfully created.' }
+        format.html { redirect_to course_lesson_path(@course, @lesson), notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new }
@@ -38,7 +38,7 @@ class LessonsController < ApplicationController
     authorize @lesson
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to course_path(@lesson.course), notice: 'Lesson was successfully updated.' }
+        format.html { redirect_to course_lesson_path(@course, @lesson), notice: 'Lesson was successfully updated.' }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit }
