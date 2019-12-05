@@ -59,8 +59,6 @@ class LessonsController < ApplicationController
     def set_lesson
       @course = Course.friendly.find(params[:course_id])
       @lesson = Lesson.friendly.find(params[:id])
-      @nlecture = @lesson.next
-      @plecture = @lesson.prev
     end
 
     def lesson_params

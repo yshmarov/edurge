@@ -23,9 +23,9 @@
       = lesson.description
   .card-footer
     .row
-    - unless @plesson.nil?
-      .pull-left
-        = link_to ('<i class="fa fa-arrow-left"></i> Previous lesson').html_safe, course_lesson_path(@plesson.course, @plesson), class: "btn btn-danger"
-    - unless @nlesson.nil?
-      .pull-right
-        = link_to ('Next lesson <i class="fa fa-arrow-right"></i>').html_safe, course_lesson_path(@nlesson.course, @nlesson), class: "btn btn-danger"
+    - unless lesson.prev.nil?
+      .float-left
+        = link_to ('<i class="fa fa-arrow-left"></i> Previous lesson').html_safe, course_lesson_path(@course, lesson.prev), class: "btn btn-sm btn-info"
+    - unless lesson.next.nil?
+      .float-right
+        = link_to ('Next lesson <i class="fa fa-arrow-right"></i>').html_safe, course_lesson_path(@course, lesson.next), class: "btn btn-sm btn-info"
