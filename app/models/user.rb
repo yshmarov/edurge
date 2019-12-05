@@ -39,7 +39,7 @@ class User < ApplicationRecord
     self.subscriptions.create(course: course)
   end
 
-  def viewed_lesson(lesson)
+  def view_lesson(lesson)
     self.user_lessons.create(lesson: lesson)
   end
 end

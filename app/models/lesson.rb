@@ -23,4 +23,9 @@ class Lesson < ApplicationRecord
   def next
     course.lessons.where("seq_number > ?", seq_number).order(:seq_number).first
   end
+
+  def viewed(user)
+    self.user_lessons.where(user_id: [user.id], lesson_id: [self.id]).empty?
+  end
+
 end
