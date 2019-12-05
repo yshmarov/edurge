@@ -43,7 +43,10 @@
     .list-group
       - @lessons.each do |lesson|
         = render 'lessons/lesson_preview', lesson: lesson
-
+        /- if current_user.subscriptions.where(course_id: lesson.course_id) || current_user.has_role?(:admin) || current_user.courses.where(course_id: lesson.course_id)
+        /  = render 'lessons/lesson', lesson: lesson
+        /- else
+        /  = render 'lessons/lesson_preview', lesson: lesson
     %p
     .text-white
       %h4

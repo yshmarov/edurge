@@ -1,5 +1,5 @@
 -# frozen_string_literal: true
-= simple_form_for(@lesson) do |f|
+= simple_form_for([@course, @lesson]) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
@@ -8,7 +8,7 @@
     = f.input :description
     = f.input :video_url
     = f.input :chapter
-    = f.association :course
+    = f.input :seq_number
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-md btn-primary'

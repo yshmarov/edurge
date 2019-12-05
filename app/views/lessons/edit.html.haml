@@ -1,7 +1,15 @@
-%h1 Editing lesson
-
-= render 'form'
-
-= link_to 'Show', @lesson
-\|
-= link_to 'Back', lessons_path
+.row
+  .col-lg-3
+  .col-lg-6
+    .card
+      .card-header
+        .fa.fa-graduation-cap
+        = link_to @course.name, course_path(@course)
+      .card-header
+        %h4
+          .fa.fa-book
+          Editing lesson
+      .card-body
+        = render 'form'
+      .card-footer
+        = link_to 'Cancel', course_path(@course)

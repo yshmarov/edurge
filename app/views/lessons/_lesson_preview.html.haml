@@ -1,8 +1,8 @@
-= link_to course_lesson_path(@course, lesson), class: "list-group-item" do
-  %b
-    #{lesson.seq_number}:
-  = lesson.name
-  /= lesson.chapter
-  /  - if lesson.course.user_id == current_user.id
-  /    .card-footer
-  /      = link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-primary'
+.list-group-item
+  = link_to course_lesson_path(@course, lesson) do
+    %b
+      #{lesson.seq_number}:
+    = lesson.name
+    /= lesson.chapter
+    .float-right
+      = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'

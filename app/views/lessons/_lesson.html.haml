@@ -4,24 +4,24 @@
     = link_to @course.name, course_path(@course)
   .card-header
     %b
-      #{@lesson.seq_number}:
-    = @lesson.name
+      #{lesson.seq_number}:
+    = lesson.name
+    .float-right
+      = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
+    .row
+
   .embed-responsive.embed-responsive-16by9
-    %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "#{@lesson.embed_url}", :width => "560"}
+    %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "#{lesson.embed_url}", :width => "560"}
   .card-body
     %p
       %b Video url:
-      = @lesson.video_url
+      = lesson.video_url
     %p
       %b Chapter:
-      = @lesson.chapter
+      = lesson.chapter
     %p
       %b Description:
-      = @lesson.description
-  /.card-footer
-  /  - if lesson.course.user_id == current_user.id
-  /    .card-footer
-  /      = link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-primary'
+      = lesson.description
   .card-footer
     .row
     - unless @plesson.nil?
