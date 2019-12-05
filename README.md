@@ -24,7 +24,7 @@ Create a course:
 ---
 
 View course:
-![alt text](https://i.imgur.com/CLWfiT3.png "View course")
+![alt text](https://i.imgur.com/vCalc35.png "View course")
 
 ---
 
@@ -40,17 +40,18 @@ Leave a review to a course:
 
 # Features
 
-* Users can log in. +
+* Users can log in +
 
-* Users can browse courses. +
-* Users can subscribe to free courses. +
-* Users can see the lesson content only of courses that they bought (subscribed to). +
-* Users can review and rate courses that they bought. +
-* Users can buy courses. -
+* Users can browse courses +
+* Users can subscribe to free courses +
+* Users can see the lesson content only of courses that they bought (subscribed to) +
+* Users can review and rate courses that they bought +
+* Users can see their progress in a course +
+* Users can pay for courses (no payment system connected yet) -
 
-* Users-Teachers can create courses & lectures inside them. +
-* Users-Teachers can see users that subscribed to their courses. +
-* Users-Teachers can earn money on  their courses. -
+* Users-Teachers can create courses & lectures inside them +
+* Users-Teachers can see users that subscribed to their courses +
+* Users-Teachers can earn money on  their courses (no payment system connected yet) -
 
 * Users-Admins can add categories +
 * Users-Admins can approve/unapprove courses (make courses available/unavailable) +
