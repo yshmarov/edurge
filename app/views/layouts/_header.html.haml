@@ -57,6 +57,11 @@
                 %b Created courses
                 .badge.badge-danger
                   = current_user.courses.count
+              = link_to my_subscriptions_path, class: "dropdown-item" do
+                .fa.fa-user
+                %b My subscribers
+                .badge.badge-danger
+                  = Subscription.joins(:course).where(courses: {user: current_user}).count
         - if current_user.has_role?(:admin)
           .nav-item.dropdown
             %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

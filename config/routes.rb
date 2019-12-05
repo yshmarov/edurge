@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     resources :lessons
   end
 
-  resources :subscriptions
+  resources :subscriptions do
+    get :my, on: :collection
+  end
 
   resources :users, only: [:show, :index]
 

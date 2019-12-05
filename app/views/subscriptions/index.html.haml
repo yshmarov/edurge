@@ -13,6 +13,8 @@
       %th
         .fa.fa-user
       %th
+        .fa.fa-envelope
+      %th
         .fa.fa-graduation-cap
       %th
         .fa.fa-dollar-sign
@@ -30,6 +32,7 @@
       %tr
         %td= subscription.created_at.strftime('%d/%b/%Y')
         %td= subscription.user
+        %td= subscription.user.email
         %td= link_to subscription.course, course_path(subscription.course)
         %td= number_to_currency(subscription.course.price)
         %td
