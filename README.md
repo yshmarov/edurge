@@ -42,13 +42,13 @@ Create a course:
 
 *update to rails 6*
 
-*make it a PWA*
+*make it a PWA (with rails 6)*
 
-*rich text editing for course/description*
+*rich text editing for course/description (with rails 6)*
 
 *omniauth with google & facebook*
 
-*recatcha for creating a user (if not oAuth)*
+*recatcha for creating a user (if not oAuth) & devise confirmable*
 
 *teacher course analytics*
 * chartkick & groupdate
@@ -76,7 +76,7 @@ Create a course:
 * Users-Students can subscribe to free courses. +
 * Users-Students can buy courses. -
 * Users-Students can review and rate courses that they bought. +
-* Users-Students can see the lesson content only of courses that they bought. -
+* Users-Students can see the lesson content only of courses that they bought. +
 
 * Users-Teachers can create and manage their courses. +
 * Users-Teachers can earn money on  their courses. -
@@ -84,7 +84,7 @@ Create a course:
 * Users-Admins can approve/unapprove courses (make courses available/unavailable) +
 * Users-Admins can add categories +
 * Users-Admins can view all subscriptions +
-* Users-Admins can view all users -
+* Users-Admins can view all users +
 
 ---
 

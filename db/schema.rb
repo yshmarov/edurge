@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_084008) do
+ActiveRecord::Schema.define(version: 2019_12_05_091356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2019_12_05_084008) do
     t.string "name", null: false
     t.text "description"
     t.text "video_url"
-    t.integer "chapter", null: false
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
