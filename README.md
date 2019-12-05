@@ -22,23 +22,70 @@ Create a course:
 
 ---
 
+View course:
+![alt text](https://i.imgur.com/CLWfiT3.png "View course")
+
+---
+
+View lesson:
+![alt text](https://i.imgur.com/hf01SnA.png "View lesson")
+
+---
+
+Leave a review to a course:
+![alt text](https://i.imgur.com/rUMqBDO.png "Leave a review to a course")
+
+---
+
+*Features:*
+* Users can log in. +
+
+* Users can browse courses. +
+* Users can subscribe to free courses. +
+* Users can see the lesson content only of courses that they bought (subscribed to). +
+* Users can review and rate courses that they bought. +
+* Users can buy courses. -
+
+* Users-Teachers can create courses & lectures inside them. +
+* Users-Teachers can see users that subscribed to their courses. +
+* Users-Teachers can earn money on  their courses. -
+
+* Users-Admins can add categories +
+* Users-Admins can approve/unapprove courses (make courses available/unavailable) +
+* Users-Admins can view all subscriptions +
+* Users-Admins can view all users +
+
+Roles `[:admin, :teacher, :student]`
+
+`        	    Create	        Show	    Edit	Destroy`
+`User	        Owner	        All	        Owner	Admin, Owner`
+`Category	    Admin	        All	        Admin	Admin`
+`Course	      All	          All	        Owner	Admin, Owner`
+`Lesson	      Course owner	Subscriber	Owner	Owner`
+`Subscription	Owner	        Admin	      Owner	Admin, Owner`
+
+---
+
 *TODO*
+
+*integrate a payments provider to actually pay for courses*
 
 *home/index - do not show current_user courses that he has already subscribed to*
 
-*track completion of lesson by user (user_lesson=completion) user_id lesson_id seen:boolean unique lesson-user pair*
+*track completion of lesson by user
+* (user_lesson=completion) rails g migration create_user_lesson user:references lesson:references unique lesson-user pair
+* when a user views a lesson for the first time, user_lesson value pair is added to the table, showing that the user has seen this lesson
 
-*add_fields_to_lessons duration:integer*
-
-*devise mailer*
-* confirmable
-* sendgrid
+*course duration*
+* use youtube api, or whatever the video provider is to fetch video duration
+* add_fields_to_lessons duration:integer
 
 *gem pagy*
 * paginate lessons inside courses, mark lessons complete
 * paginate Course.all in CoursesController
 
-*HELP NEEDED*
+*gem ranked-model*
+* order lessons inside course (seq_number)
 
 *update to rails 6*
 
@@ -48,7 +95,10 @@ Create a course:
 
 *omniauth with google & facebook*
 
-*recatcha for creating a user (if not oAuth) & devise confirmable*
+*devise fixes (if no oauth)*
+* confirmable
+* sendgrid
+* recaptcha
 
 *teacher course analytics*
 * chartkick & groupdate
@@ -68,67 +118,43 @@ Create a course:
 * rails g migration course_tags course:references tag:references
 * Tags can be like ruby_on_rails, javascript, accounting, CEO, SMM, whatever
 
----
-
-*Features:*
-* Users-Students can log in. +
-* Users-Students can browse courses. +
-* Users-Students can subscribe to free courses. +
-* Users-Students can buy courses. -
-* Users-Students can review and rate courses that they bought. +
-* Users-Students can see the lesson content only of courses that they bought. +
-
-* Users-Teachers can create and manage their courses. +
-* Users-Teachers can earn money on  their courses. -
-
-* Users-Admins can approve/unapprove courses (make courses available/unavailable) +
-* Users-Admins can add categories +
-* Users-Admins can view all subscriptions +
-* Users-Admins can view all users +
+*write tests! No tests have been written for the app*
 
 ---
 
-* Ruby version
-
-6+
+INSTALLATION
 
 * System dependencies
 
-database: postgresql
+`ruby '2.6.5'`
+
+`gem 'rails', '~> 5.2.3'`
+
+`database: postgresql`
 
 * Configuration
 
-git clone https://github.com/yshmarov/edurge
-bundle install
-rails db:drop db:create db:migrate db:seed
-rails db:drop db:create db:migrate
-rails s
+`git clone https://github.com/yshmarov/edurge`
+
+`bundle install`
+
+Empty database
+`rails db:drop db:create db:migrate`
+
+Or database with sample data
+`rails db:drop db:create db:migrate db:seed`
+
+Run the app
+`rails s`
+
+---
 
 If you don't want any user to be able to create own courses, you should comment the field in `user.rb`:
   `self.add_role(:teacher)`
 to be like this
   `#self.add_role(:teacher)`
 
-* Database creation
+---
 
-* Database initialization
-
-* How to run the test suite
-
-No tests yet. Help needed
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-* roles [:admin, :teacher, :student]
-
-        	    Create	        Show	    Edit	Destroy
-User	        Owner	        All	        Owner	Admin, Owner
-Category	    Admin	        All	        Admin	Admin
-Course	        All	            All	        Owner	Admin, Owner
-Lesson	        Course owner	Subscriber	Owner	Owner
-Subscription	Owner	        Admin	    Owner	Admin, Owner
+Contact: yashm@outlook.com
 
