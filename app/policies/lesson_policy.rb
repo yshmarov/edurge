@@ -4,4 +4,22 @@ class LessonPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def show?
+    @user.subscriptions.where(course_id: @record.course_id) || current_user.has_role?(:admin) || @record.course.user_id == @user.id
+  end
+
+  def update?
+    @record.course.user_id == @user.id
+    #@user.has_role?(:admin) || @record.course.user_id == @user.id
+  end
+
+  def edit?
+    @record.course.user_id == @user.id
+  end
+
+  def destroy?
+    @record.course.user_id == @user.id
+  end
+
 end

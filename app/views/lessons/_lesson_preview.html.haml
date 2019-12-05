@@ -1,8 +1,15 @@
 .list-group-item
-  = link_to course_lesson_path(@course, lesson) do
+  - if policy(lesson).show?
+    = link_to course_lesson_path(@course, lesson) do
+      %b
+        #{lesson.seq_number}:
+      = lesson.name
+      /= lesson.chapter
+      - if policy(lesson).edit?
+        .float-right
+          = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
+  - else
     %b
       #{lesson.seq_number}:
     = lesson.name
-    /= lesson.chapter
-    .float-right
-      = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
+  

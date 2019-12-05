@@ -6,6 +6,7 @@ class LessonsController < ApplicationController
   end
 
   def show
+    authorize @lesson
   end
 
   def new
@@ -14,6 +15,7 @@ class LessonsController < ApplicationController
   end
 
   def edit
+    authorize @lesson
   end
 
   def create
@@ -33,6 +35,7 @@ class LessonsController < ApplicationController
   end
 
   def update
+    authorize @lesson
     respond_to do |format|
       if @lesson.update(lesson_params)
         format.html { redirect_to course_path(@lesson.course), notice: 'Lesson was successfully updated.' }

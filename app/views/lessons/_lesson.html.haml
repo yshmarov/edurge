@@ -6,8 +6,10 @@
     %b
       #{lesson.seq_number}:
     = lesson.name
-    .float-right
-      = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
+
+    - if policy(lesson).edit?
+      .float-right
+        = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
     .row
 
   .embed-responsive.embed-responsive-16by9
