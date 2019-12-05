@@ -7,6 +7,9 @@ class LessonsController < ApplicationController
 
   def show
     authorize @lesson, :show?
+    current_user.viewed_lesson(@lesson)
+    #current_user.user_lessons.create(lesson: lesson)
+    #current_user.user_lessons.create(@lesson)
   end
 
   def new

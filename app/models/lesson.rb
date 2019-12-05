@@ -1,5 +1,6 @@
 class Lesson < ApplicationRecord
   belongs_to :course, counter_cache: true
+  has_many :user_lessons, dependent: :nullify
 
   validates :name, :description, :course, :seq_number, presence: true
   validates_uniqueness_of :seq_number, scope: :course_id
