@@ -11,16 +11,11 @@
       .float-right
         = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
     .row
-
-  .embed-responsive.embed-responsive-16by9
-    %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "#{lesson.embed_url}", :width => "560"}
+  - if lesson.video_url.present?
+    .embed-responsive.embed-responsive-16by9
+      %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "#{lesson.embed_url}", :width => "560"}
   .card-body
-    %p
-      %b Video url:
-      = lesson.video_url
-    %p
-      %b Description:
-      = lesson.description
+    = simple_format(lesson.description)
   .card-footer
     .row
     - unless lesson.prev.nil?

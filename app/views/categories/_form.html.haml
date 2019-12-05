@@ -5,7 +5,7 @@
 
   .form-inputs
     = f.input :name, input_html: { autocomplete: 'nope' }
-    = f.input :description, input_html: { autocomplete: 'nope' }
+    = f.input :description, input_html: { autocomplete: 'nope' }, :input_html => {:rows => 7}
 
   .form-actions
     = f.button :submit, class: 'btn btn-md btn-secondary'
