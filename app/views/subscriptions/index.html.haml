@@ -1,10 +1,6 @@
 .text-center.text-white
   %h3
-    /.fa.fa-star
-    /.fa.fa-lock
     .fa.fa-lock-open
-    /.fa.fa-unlock
-    /.fa.fa-key
     = action_name.humanize
     = pluralize(@subscriptions.count, 'subscription')
 %p
@@ -19,12 +15,13 @@
       %th
         .fa.fa-graduation-cap
       %th
-        .fa.fa-clock
-        .text-warning.fa.fa-star
+        .fa.fa-dollar-sign
+      %th
+        .text-warning.fa.fa-clock
       %th
         .text-warning.fa.fa-star
       %th
-        .fa.fa-comment
+        .text-warning.fa.fa-comment
       %th
       %th
 
@@ -34,7 +31,10 @@
         %td= subscription.created_at.strftime('%d/%b/%Y')
         %td= subscription.user
         %td= link_to subscription.course, course_path(subscription.course)
-        %td= subscription.updated_at.strftime('%d/%b/%Y')
+        %td= number_to_currency(subscription.course.price)
+        %td
+          - if subscription.rating.present?
+            = subscription.updated_at.strftime('%d/%b/%Y')
         %td= subscription.rating
         %td= subscription.comment
         %td

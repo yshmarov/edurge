@@ -2,9 +2,9 @@ module CoursesHelper
   def subscription_buttons(course)
     if current_user
       if course.user == current_user
-        link_to "You have created this course. View analytics", course_path(course)
+        link_to "You created this course. View analytics", course_path(course)
       elsif course.subscriptions.where(user: current_user).any?
-        link_to "You have bought this course. Now, learn", course_path(course)
+        link_to "You bought this course. Now, learn", course_path(course)
       elsif course.price > 0
         link_to number_to_currency(course.price), new_course_subscription_path(course), class: "btn btn-success"
       else
