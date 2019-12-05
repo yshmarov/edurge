@@ -1,8 +1,9 @@
 README
 
-Best Udemy Clone on the market. Set up your online school in minutes!
+# Best Udemy Clone on the market. Set up your online school in minutes!
 
 Source: https://github.com/yshmarov/edurge
+
 Demo: https://edurge.herokuapp.com/
 
 ---
@@ -37,7 +38,8 @@ Leave a review to a course:
 
 ---
 
-*Features:*
+# Features
+
 * Users can log in. +
 
 * Users can browse courses. +
@@ -58,15 +60,20 @@ Leave a review to a course:
 Roles `[:admin, :teacher, :student]`
 
 `        	    Create	        Show	    Edit	Destroy`
+
 `User	        Owner	        All	        Owner	Admin, Owner`
+
 `Category	    Admin	        All	        Admin	Admin`
+
 `Course	      All	          All	        Owner	Admin, Owner`
+
 `Lesson	      Course owner	Subscriber	Owner	Owner`
+
 `Subscription	Owner	        Admin	      Owner	Admin, Owner`
 
 ---
 
-*TODO*
+# TO DO
 
 *integrate a payments provider to actually pay for courses*
 
@@ -122,9 +129,9 @@ Roles `[:admin, :teacher, :student]`
 
 ---
 
-INSTALLATION
+# INSTALLATION
 
-* System dependencies
+### System dependencies
 
 `ruby '2.6.5'`
 
@@ -132,26 +139,32 @@ INSTALLATION
 
 `database: postgresql`
 
-* Configuration
+### Configuration
 
 `git clone https://github.com/yshmarov/edurge`
 
 `bundle install`
 
-Empty database
+### Empty database
+
 `rails db:drop db:create db:migrate`
 
-Or database with sample data
+###  database with sample data
+
 `rails db:drop db:create db:migrate db:seed`
 
-Run the app
+### Run the app
+
 `rails s`
 
 ---
 
 If you don't want any user to be able to create own courses, you should comment the field in `user.rb`:
+
   `self.add_role(:teacher)`
+
 to be like this
+
   `#self.add_role(:teacher)`
 
 ---
