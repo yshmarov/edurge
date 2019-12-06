@@ -76,6 +76,8 @@ Roles `[:admin, :teacher, :student]`
 
 # TO DO
 
+*exception_notification gem*
+
 *integrate a payments provider to actually pay for courses*
 
 *home/index - do not show current_user courses that he has already subscribed to*

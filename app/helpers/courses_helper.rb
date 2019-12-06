@@ -14,7 +14,7 @@ module CoursesHelper
         end
       end
     else
-      link_to "Check price", course_path(course), class: 'btn btn-md btn-success'
+      link_to "Check price", new_course_subscription_path(course), class: 'btn btn-md btn-success'
     end
   end
 
