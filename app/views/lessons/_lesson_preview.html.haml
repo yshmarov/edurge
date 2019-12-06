@@ -11,6 +11,9 @@
         .text-success.fa.fa-check
       - if policy(lesson).edit?
         = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
+      - if policy(lesson).destroy?
+        = link_to 'Destroy', [@course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+
   - else
     = link_to course_lesson_path(@course, lesson) do
       %b

@@ -7,9 +7,11 @@
       #{lesson.seq_number}:
     = lesson.name
 
-    - if policy(lesson).edit?
-      .float-right
+    .float-right
+      - if policy(lesson).edit?
         = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
+      - if policy(lesson).destroy?
+        = link_to 'Destroy', [@course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
     .row
   - if lesson.video_url.present?
     .embed-responsive.embed-responsive-16by9
