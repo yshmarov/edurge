@@ -6,7 +6,8 @@ class LessonPolicy < ApplicationPolicy
   end
 
   def show?
-    @record.course.bought(@user) == false || @user.has_role?(:admin) || @record.course.user_id == @user.id
+    @record.course.bought(@user) == false || @user.has_role?(:admin) || @record.course.user_id == @user.id #admin needs to validate lesson quality
+    #@record.course.bought(@user) == false || @record.course.user_id == @user.id
   end
 
   def update?

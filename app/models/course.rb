@@ -6,6 +6,7 @@ class Course < ApplicationRecord
   has_many :user_lessons, through: :lessons
 
   validates :name, :category, :short_description, :description, :language, :duration, :price, :user, presence: true
+  validates_uniqueness_of :name
 
   def to_s
     name
