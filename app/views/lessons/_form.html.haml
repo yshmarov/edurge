@@ -4,10 +4,10 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :name
+    = f.input :name, input_html: { autocomplete: 'nope' }
+    = f.input :video_url, :input_html => {:rows => 1}
     = f.input :description, :input_html => {:rows => 7}
-    = f.input :video_url
-    = f.input :seq_number
+    /= f.input :row_order
 
   .form-actions
     = f.button :submit, class: 'btn btn-md btn-primary'

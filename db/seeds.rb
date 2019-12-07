@@ -37,9 +37,8 @@ end
     name: Faker::Address.unique.city,
     description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
     video_url: "https://www.youtube.com/watch?v=ojXjR33bPOY",
-    chapter: Faker::Number.between(from: 1, to: 10),
     course_id: Faker::Number.between(from: 1, to: 9),
-    seq_number: Faker::Number.between(from: 1, to: 50),
+    row_order: Faker::Number.between(from: -50000, to: 50000),
   }])
 end
 

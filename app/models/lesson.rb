@@ -2,8 +2,9 @@ class Lesson < ApplicationRecord
   belongs_to :course, counter_cache: true
   has_many :user_lessons, dependent: :nullify
 
-  validates :name, :description, :course, :seq_number, presence: true
-  validates_uniqueness_of :seq_number, scope: :course_id
+  validates :name, :description, :course, presence: true
+  #validates :name, :description, :course, :row_order, presence: true
+  #validates_uniqueness_of :row_order, scope: :course_id
 
   def to_s
     name
@@ -17,11 +18,11 @@ class Lesson < ApplicationRecord
   friendly_id :name, use: :slugged
 
   def prev
-    course.lessons.where("seq_number < ?", seq_number).order(:seq_number).last
+    course.lessons.where("row_order < ?", row_order).order(:row_order).last
   end
 
   def next
-    course.lessons.where("seq_number > ?", seq_number).order(:seq_number).first
+    course.lessons.where("row_order > ?", row_order).order(:row_order).first
   end
 
   def viewed(user)
