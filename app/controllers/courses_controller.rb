@@ -62,6 +62,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    authorize @course, :show?
     @lessons = @course.lessons.all.order(seq_number: :asc)
     @subscriptions = @course.subscriptions.where.not(rating: 0, comment: nil).order(created_at: :desc)
   end

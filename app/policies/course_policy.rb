@@ -8,6 +8,10 @@ class CoursePolicy < ApplicationPolicy
   def approve?
     @user.has_role?(:admin)
   end
+  
+  def show?
+    @record.published && @record.approved || @user.present? && @user.has_role?(:admin) || @user.present? && @record.user_id == @user.id
+  end
 
   def create?
     @user.has_role?(:teacher)
