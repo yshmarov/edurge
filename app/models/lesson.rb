@@ -6,6 +6,9 @@ class Lesson < ApplicationRecord
   #validates :name, :description, :course, :row_order, presence: true
   #validates_uniqueness_of :row_order, scope: :course_id
 
+  include RankedModel
+  ranks :row_order, :with_same => :course_id
+
   def to_s
     name
   end

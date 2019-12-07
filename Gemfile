@@ -69,3 +69,4 @@ gem 'font-awesome-sass', '~> 5.11.2'
 gem 'friendly_id', '~> 5.2.4'
 gem "pundit"
 gem "rolify"
+gem 'ranked-model'

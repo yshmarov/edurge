@@ -176,6 +176,8 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (13.0.1)
+    ranked-model (0.4.4)
+      activerecord (>= 4.1.16)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -271,6 +273,7 @@ DEPENDENCIES
   puma (~> 3.11)
   pundit
   rails (~> 5.2.3)
+  ranked-model
   rolify
   sass-rails (~> 5.0)
   selenium-webdriver

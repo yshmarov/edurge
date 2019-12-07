@@ -19,6 +19,8 @@
       %th
         .fa.fa-dollar-sign
       %th
+        .fa.fa-spinner
+      %th
         .text-warning.fa.fa-clock
       %th
         .text-warning.fa.fa-star
@@ -35,6 +37,8 @@
         %td= subscription.user.email
         %td= link_to subscription.course, course_path(subscription.course)
         %td= number_to_currency(subscription.course.price)
+        %td= number_to_percentage(subscription.course.progress(subscription.user), precision: 0)
+
         %td
           - if subscription.rating.present?
             = subscription.updated_at.strftime('%d/%b/%Y')
