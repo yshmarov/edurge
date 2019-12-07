@@ -3,6 +3,7 @@ class Course < ApplicationRecord
   belongs_to :category, counter_cache: true
   has_many :lessons, dependent: :destroy
   has_many :subscriptions, dependent: :restrict_with_error
+  has_many :user_lessons, through: :lessons
 
   validates :name, :category, :short_description, :description, :language, :duration, :price, :user, presence: true
 
@@ -32,4 +33,7 @@ class Course < ApplicationRecord
     self.subscriptions.where(user_id: [user.id], course_id: [self.id]).empty?
   end
 
+  def progress(user)
+    user_lessons.where(user: user).count/lessons_count.to_f*100
+  end
 end
