@@ -126,6 +126,13 @@ Roles `[:admin, :teacher, :student]`
 
 *write tests! No tests have been written for the app*
 
+*lesson options*
+* acts_as_votable (like/dislike)
+* acts_as_commentable
+* belongs_to category
+* rich text editing (having many images inside 1 lesson)
+* quizzes
+
 ---
 
 # INSTALLATION
