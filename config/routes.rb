@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   resources :subscriptions do
     get :my, on: :collection
+    member do
+  		patch :remove_review
+    end
   end
 
   resources :users, only: [:show, :index]

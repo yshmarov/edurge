@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_subscription, only: [:show, :edit, :update, :destroy]
+  before_action :set_subscription, only: [:show, :edit, :update, :destroy, :remove_review]
   before_action :set_course, only: [:new, :create]
 
   def index
@@ -16,6 +16,13 @@ class SubscriptionsController < ApplicationController
   def pending_review
     @subscriptions = Subscription.all.pending_review.where(user: current_user).order(created_at: :desc)
     render 'index'
+  end
+
+  def remove_review
+    authorize @subscription, :edit?
+		@subscription.update_attributes(rating: nil, comment: nil)
+		@subscription.course.update_rating
+		redirect_to @subscription.course, alert: "Review removed"
   end
 
   def show

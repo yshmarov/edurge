@@ -9,7 +9,7 @@
     = f.input :short_description, input_html: { autocomplete: 'nope' }, :input_html => {:rows => 3}
     = f.input :description, input_html: { autocomplete: 'nope' }, :input_html => {:rows => 7}
     = f.input :language, priority: [ "English" ], collection: [ "English", "German", "French", "Russian", "Spanish", "Ukrainian", "Polish"], as: :radio_buttons
-    = f.input :duration
+    /= f.input :duration
     = f.input :price, priority: [ "9.99" ], collection: [ "0", "9.99", "19.99", "49.99", "99.99", "149.99", "199.99"], as: :radio_buttons
     = f.input :level, collection: [ "beginner", "intermediate", "advanced"], as: :radio_buttons
     = f.input :published

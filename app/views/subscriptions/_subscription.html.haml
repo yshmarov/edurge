@@ -18,6 +18,7 @@
     %small= subscription.comment
 
   - if current_user
-    - if policy(subscription).edit?
-      .card-footer
+    .card-footer
+      - if policy(subscription).edit?
         = link_to 'Edit', edit_subscription_path(subscription), class: 'btn btn-sm btn-primary'
+        = link_to 'Remove', remove_review_subscription_path(subscription), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'

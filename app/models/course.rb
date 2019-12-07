@@ -21,7 +21,7 @@ class Course < ApplicationRecord
   friendly_id :name, use: :slugged
 
   def update_rating
-    if subscriptions.any?
+    if subscriptions.any? && subscriptions.where.not(rating: nil).any?
       update_column :average_rating, (subscriptions.average(:rating).round(2).to_f)
     else
       update_column :average_rating, (0)
