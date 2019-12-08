@@ -7,25 +7,22 @@
       %th Name
       %th Description
       %th Video
-  %tbody#item{"data-model_name": "lesson.class.name.underscore", "data-update_url": "lesson_sort_path(lesson)"}
+  /%tbody#item{"data-model_name": "lesson.class.name.underscore", "data-update_url": "lesson_sort_path(lesson)"}
+  %tbody.lesson-sortable
     - @lessons.each do |lesson|
-      %tr
+      = content_tag "tr", id: "lesson-#{lesson.id}", data: { model_name: lesson.class.name.underscore, update_url: lesson_sort_path(lesson)} do
         %td= lesson.row_order
         %td= lesson.row_order_rank
         %td= lesson.name
         %td= lesson.description
         %td= lesson.video_url
-        /%td= link_to 'x', edit_lesson_path(lesson)
 
-/:javascript
-/  $( function() {
-/    $( "#sortable" ).sortable();
-/    $( "#sortable" ).disableSelection();
-/  } );
-/%ul#sortable
-/  %p 1111111111111111111
-/  %p 2222222222222222222
+      /%li{"data-update-url" => "#{lesson_sort_path(lesson)}"}
+      /  %b= lesson.name
 
-.lesson-sortable
-  - @lessons.each do |lesson|
-    = render("sortable_lesson", lesson: lesson)
+      /.lesson-sortable
+      /  - @lessons.each do |lesson|
+      /    = content_tag "div", id: "lesson-#{lesson.id}", data: { model_name: lesson.class.name.underscore, update_url: lesson_sort_path(lesson)} do
+      /      = lesson.id
+      /      = lesson.name
+

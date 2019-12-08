@@ -19,8 +19,6 @@ class LessonsController < ApplicationController
     #@lesson = Lesson.find(lesson_params[:lesson_id])
     #@lesson.row_order_position = lesson_params[:row_order_position]
     #@lesson.save
-
-    #render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
 
   def show
