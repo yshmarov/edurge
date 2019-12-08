@@ -1,9 +1,9 @@
 $(function(){
-  $('#item').sortable({
+  $('.lesson-sortable').sortable({
     update: function(e, ui){
-      var item = ui.item;
-      var item_data = item.data();
-      var params = {_method: 'put'};
+      let item = ui.item;
+      let item_data = item.data();
+      let params = {_method: 'put'};
       params[item_data.modelName] = { row_order_position: item.index() }
       $.ajax({
         type: 'POST',
@@ -11,6 +11,9 @@ $(function(){
         dataType: 'json',
         data: params
       });
+    },
+    stop: function(e, ui){
+      console.log("stop called when finishing sort of cards");
     }
   });
 });

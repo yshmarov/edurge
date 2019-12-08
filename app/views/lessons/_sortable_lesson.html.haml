@@ -1,0 +1,6 @@
+= content_tag "div", id: "lesson-#{lesson.id}", class: "lesson-container", data: { model_name: lesson.class.name.underscore, update_url: lesson_sort_path(lesson)} do
+  = link_to(edit_lesson_path(lesson.id), remote: true, class: "lesson-title-link") do
+    %h2.my-3.le-title
+      = lesson.id
+      = link_to lesson, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-sm btn-outline-secondary add-card-btn ml-1" do
+        = icon("fas", "trash")

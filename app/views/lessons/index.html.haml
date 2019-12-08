@@ -1,5 +1,5 @@
 %h1 lessons
-%table.table.text-white
+%table.text-white
   %thead
     %tr
       %th
@@ -25,3 +25,7 @@
 /%ul#sortable
 /  %p 1111111111111111111
 /  %p 2222222222222222222
+
+.lesson-sortable
+  - @lessons.each do |lesson|
+    = render("sortable_lesson", lesson: lesson)

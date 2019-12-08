@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
   end
 
   def sort
-    lesson = Lesson.find(params[:lesson_id])
+    lesson = Lesson.friendly.find(params[:lesson_id])
     lesson.update(lesson_params)
     #render nothing: true
     render body: nil #from rails5 tutorial
@@ -20,7 +20,7 @@ class LessonsController < ApplicationController
     #@lesson.row_order_position = lesson_params[:row_order_position]
     #@lesson.save
 
-    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+    #render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
 
   def show
