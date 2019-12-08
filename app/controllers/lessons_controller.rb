@@ -2,7 +2,25 @@ class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lessons = Lesson.all
+    if current_user.has_role?(:admin)
+      @lessons = Lesson.rank(:row_order)
+    else
+      redirect_to root_path, alert: 'You are not authorized to view the page.'
+    end
+  end
+
+  def sort
+    lesson = Lesson.find(params[:lesson_id])
+    lesson.update(lesson_params)
+    #render nothing: true
+    render body: nil #from rails5 tutorial
+
+    #@course = Course.friendly.find(params[:course_id])
+    #@lesson = Lesson.find(lesson_params[:lesson_id])
+    #@lesson.row_order_position = lesson_params[:row_order_position]
+    #@lesson.save
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
 
   def show
@@ -65,6 +83,6 @@ class LessonsController < ApplicationController
     end
 
     def lesson_params
-      params.require(:lesson).permit(:name, :description, :video_url, :row_order)
+      params.require(:lesson).permit(:name, :description, :video_url, :row_order_position)
     end
 end

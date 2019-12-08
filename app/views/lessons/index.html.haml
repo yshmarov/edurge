@@ -1,0 +1,27 @@
+%h1 lessons
+%table.table.text-white
+  %thead
+    %tr
+      %th
+      %th
+      %th Name
+      %th Description
+      %th Video
+  %tbody#item{"data-model_name": "lesson.class.name.underscore", "data-update_url": "lesson_sort_path(lesson)"}
+    - @lessons.each do |lesson|
+      %tr
+        %td= lesson.row_order
+        %td= lesson.row_order_rank
+        %td= lesson.name
+        %td= lesson.description
+        %td= lesson.video_url
+        /%td= link_to 'x', edit_lesson_path(lesson)
+
+/:javascript
+/  $( function() {
+/    $( "#sortable" ).sortable();
+/    $( "#sortable" ).disableSelection();
+/  } );
+/%ul#sortable
+/  %p 1111111111111111111
+/  %p 2222222222222222222

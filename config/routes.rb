@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   		patch :disapprove
     end
     resources :subscriptions, only: [:new, :create]
-    resources :lessons
+    resources :lessons do
+      put :sort
+    end
   end
 
   resources :subscriptions do
@@ -24,5 +26,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :index]
+
+  resources :lessons do
+    put :sort
+  end
 
 end

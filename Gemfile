@@ -70,3 +70,4 @@ gem 'friendly_id', '~> 5.2.4'
 gem "pundit"
 gem "rolify"
 gem 'ranked-model'
+gem 'jquery-ui-rails' #for drag-and-drop
