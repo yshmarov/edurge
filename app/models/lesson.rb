@@ -3,12 +3,9 @@ class Lesson < ApplicationRecord
   has_many :user_lessons, dependent: :nullify
 
   validates :name, :description, :course, presence: true
-  #validates :name, :description, :course, :row_order, presence: true
-  #validates_uniqueness_of :row_order, scope: :course_id
 
   include RankedModel
-  ranks :row_order
-  #ranks :row_order, :with_same => :course_id
+  ranks :row_order, :with_same => :course_id
 
   def to_s
     name

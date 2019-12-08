@@ -1,12 +1,12 @@
-%h1 lessons
 %table.text-white
   %thead
     %tr
-      %th
-      %th
+      %th row order
+      %th rank
       %th Name
       %th Description
       %th Video
+      %th course
   /%tbody#item{"data-model_name": "lesson.class.name.underscore", "data-update_url": "lesson_sort_path(lesson)"}
   %tbody.lesson-sortable
     - @lessons.each do |lesson|
@@ -16,6 +16,7 @@
         %td= lesson.name
         %td= lesson.description
         %td= lesson.video_url
+        %td= lesson.course
 
       /%li{"data-update-url" => "#{lesson_sort_path(lesson)}"}
       /  %b= lesson.name
@@ -26,3 +27,9 @@
       /      = lesson.id
       /      = lesson.name
 
+
+.list-group.lesson-sortable
+  - @lessons.each do |lesson|
+    - @course = lesson.course
+    = content_tag "div", id: "lesson-#{lesson.id}", data: { model_name: lesson.class.name.underscore, update_url: lesson_sort_path(lesson)} do
+      = render 'lessons/lesson_preview', lesson: lesson
