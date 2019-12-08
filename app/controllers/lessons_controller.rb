@@ -1,24 +1,11 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
-  def index
-    if current_user.has_role?(:admin)
-      @lessons = Lesson.rank(:row_order)
-    else
-      redirect_to root_path, alert: 'You are not authorized to view the page.'
-    end
-  end
-
   def sort
     lesson = Lesson.friendly.find(params[:lesson_id])
+    authorize lesson, :edit?
     lesson.update(lesson_params)
-    #render nothing: true
     render body: nil #from rails5 tutorial
-
-    #@course = Course.friendly.find(params[:course_id])
-    #@lesson = Lesson.find(lesson_params[:lesson_id])
-    #@lesson.row_order_position = lesson_params[:row_order_position]
-    #@lesson.save
   end
 
   def show
