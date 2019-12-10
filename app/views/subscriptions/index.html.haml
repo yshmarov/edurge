@@ -36,7 +36,7 @@
         %td= subscription.user.email
         %td= subscription.created_at.strftime('%d/%b/%Y')
         %td= link_to subscription.course, course_path(subscription.course)
-        %td= number_to_currency(subscription.course.price)
+        %td= number_to_currency(subscription.price)
         %td= number_to_percentage(subscription.course.progress(subscription.user), precision: 0)
 
         %td

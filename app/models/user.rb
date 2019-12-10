@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def buy_course(course)
-    self.subscriptions.create(course: course)
+    self.subscriptions.create(course: course, price: course.price)
   end
 
   def view_lesson(lesson)

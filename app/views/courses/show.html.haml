@@ -33,6 +33,9 @@
       = @course.duration 
       min
       .row
+      %b Price:
+      = number_to_currency(@course.price)
+      .row
       %b Description:
       %small= simple_format(@course.description)
 
