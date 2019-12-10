@@ -76,11 +76,7 @@ Roles `[:admin, :teacher, :student]`
 
 # TO DO
 
-*exception_notification gem*
-
 *integrate a payments provider to actually pay for courses*
-
-*home/index - do not show current_user courses that he has already subscribed to*
 
 *course duration*
 * use youtube api, or whatever the video provider is to fetch video duration
@@ -132,6 +128,10 @@ Roles `[:admin, :teacher, :student]`
 * belongs_to category
 * rich text editing (having many images inside 1 lesson)
 * quizzes
+
+*OTHER*
+* exception_notification gem
+* home/index - do not show current_user courses that he has already subscribed to
 
 ---
 
