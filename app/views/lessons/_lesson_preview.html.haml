@@ -2,7 +2,7 @@
   - if current_user && policy(lesson).show?
     = link_to course_lesson_path(@course, lesson) do
       %b
-        = lesson.row_order_rank
+        #{lesson.row_order_rank + 1}.
       = lesson.name
     .float-right
       - if lesson.viewed(current_user) == true
