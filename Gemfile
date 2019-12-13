@@ -71,3 +71,6 @@ gem "pundit"
 gem "rolify"
 gem 'ranked-model'
 gem 'jquery-ui-rails' #for drag-and-drop
+group :production do
+  gem 'exception_notification'                                                    #EMAIL ERRORS FOR PRODUCTION
+end

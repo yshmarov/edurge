@@ -88,6 +88,9 @@ GEM
       warden (~> 1.2.3)
     erubi (1.9.0)
     erubis (2.7.0)
+    exception_notification (4.4.0)
+      actionmailer (>= 4.0, < 7)
+      activesupport (>= 4.0, < 7)
     execjs (2.7.0)
     faker (2.8.1)
       i18n (>= 1.6, < 1.8)
@@ -265,6 +268,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  exception_notification
   faker
   font-awesome-sass (~> 5.11.2)
   friendly_id (~> 5.2.4)
