@@ -75,6 +75,8 @@ Roles `[:admin, :teacher, :student]`
 ---
 
 # TO DO
+*gem ranked-model*
+* order lessons inside course (seq_number)
 
 *integrate a payments provider to actually pay for courses*
 
@@ -86,9 +88,6 @@ Roles `[:admin, :teacher, :student]`
 * paginate lessons inside courses, mark lessons complete
 * paginate Course.all in CoursesController
 
-*gem ranked-model*
-* order lessons inside course (seq_number)
-
 *update to rails 6*
 
 *make it a PWA (with rails 6)*
@@ -96,11 +95,6 @@ Roles `[:admin, :teacher, :student]`
 *rich text editing for course/description (with rails 6)*
 
 *omniauth with google & facebook*
-
-*devise fixes (if no oauth)*
-* confirmable
-* sendgrid
-* recaptcha
 
 *teacher course analytics*
 * chartkick & groupdate
