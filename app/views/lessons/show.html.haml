@@ -12,17 +12,15 @@
     %p
   .col-lg-4
     .list-group
-      .list-group-item.list-group-item-dark
+      .list-group-item
         .fa.fa-graduation-cap
         = link_to @course.name, course_path(@course)
 
       - @lessons.each do |lesson|
         - if @lesson.present? && lesson == @lesson
           .list-group-item.list-group-item-success
-            .fa.fa-book
             = render 'lessons/lesson_preview', lesson: lesson
         - else
           .list-group-item
-            .fa.fa-book
             = render 'lessons/lesson_preview', lesson: lesson
 

@@ -75,6 +75,10 @@ Roles `[:admin, :teacher, :student]`
 ---
 
 # TO DO
+
+* show current_user progress in lesson/show
+* show current_user progress in purchased courses list?
+
 *gem ranked-model*
 * order lessons inside course (seq_number)
 

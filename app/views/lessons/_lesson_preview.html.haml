@@ -1,13 +1,13 @@
 - if current_user && policy(lesson).show?
+  - if lesson.viewed(current_user) == true
+    .text-danger.fa.fa-times
+  - else
+    .text-success.fa.fa-check
   = link_to course_lesson_path(@course, lesson) do
     %b
       #{lesson.row_order_rank + 1}.
     = lesson.name
   .float-right
-    - if lesson.viewed(current_user) == true
-      .text-danger.fa.fa-times
-    - else
-      .text-success.fa.fa-check
     - if policy(lesson).edit?
       = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
     - if policy(lesson).destroy?
@@ -16,7 +16,5 @@
 - else
   = link_to course_lesson_path(@course, lesson) do
     %b
-      #{lesson.row_order}:
+      #{lesson.row_order_rank + 1}.
     = lesson.name
-  .float-right
-    .text-danger.fa.fa-times
