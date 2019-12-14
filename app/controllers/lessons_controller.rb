@@ -13,6 +13,7 @@ class LessonsController < ApplicationController
     current_user.view_lesson(@lesson)
     #current_user.user_lessons.create(lesson: lesson)
     #current_user.user_lessons.create(@lesson)
+    @lessons = @course.lessons.rank(:row_order)
   end
 
   def new
