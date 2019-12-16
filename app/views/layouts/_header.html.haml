@@ -57,9 +57,9 @@
                 %b Created courses
                 .badge.badge-danger
                   = current_user.courses.count
-              = link_to my_subscriptions_path, class: "dropdown-item" do
+              = link_to my_students_subscriptions_path, class: "dropdown-item" do
                 .fa.fa-user
-                %b My subscribers
+                %b My students
                 .badge.badge-danger
                   = Subscription.joins(:course).where(courses: {user: current_user}).count
         - if current_user.has_role?(:admin)

@@ -9,7 +9,7 @@ Demo: https://edurge.herokuapp.com/
 ---
 
 Schema: 
-![alt text](https://imgur.com/PmwESin.png "Schema")
+![alt text](https://imgur.com/jnyWARu.png "Schema")
 
 ---
 
@@ -35,6 +35,11 @@ View lesson:
 
 Leave a review to a course:
 ![alt text](https://i.imgur.com/rUMqBDO.png "Leave a review to a course")
+
+---
+
+Admin can view all subscriptions, teacher can view subscriptions to his courses:
+![alt text](https://i.imgur.com/rUMqBDO.png "Admin can view all subscriptions, teacher can view subscriptions to his courses")
 
 ---
 

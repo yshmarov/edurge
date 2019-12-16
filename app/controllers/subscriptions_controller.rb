@@ -7,14 +7,9 @@ class SubscriptionsController < ApplicationController
     authorize @subscriptions
   end
   
-  def my
+  def my_students
     @subscriptions = Subscription.joins(:course).where(courses: {user: current_user}).order(created_at: :desc)
     #authorize @subscriptions, :mine?
-    render 'index'
-  end
-
-  def pending_review
-    @subscriptions = Subscription.all.pending_review.where(user: current_user).order(created_at: :desc)
     render 'index'
   end
 

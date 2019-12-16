@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :subscriptions do
-    get :my, on: :collection
+    get :my_students, on: :collection
     member do
   		patch :remove_review
     end

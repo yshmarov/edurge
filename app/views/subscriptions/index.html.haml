@@ -1,7 +1,7 @@
 .text-center.text-white
   %h3
     .fa.fa-lock-open
-    = action_name.humanize
+    = action_name.humanize + ":"
     = pluralize(@subscriptions.count, 'subscription')
 %p
 %table#table1
@@ -9,23 +9,32 @@
     %tr
       %th
         .fa.fa-user
+        user
       %th
         .fa.fa-envelope
+        email
       %th
         .fa.fa-clock
         .fa.fa-lock-open
+        bought
       %th
         .fa.fa-graduation-cap
+        course
       %th
         .fa.fa-dollar-sign
+        paid
       %th
         .fa.fa-spinner
+        progress
       %th
         .text-warning.fa.fa-clock
+        reviewed
       %th
         .text-warning.fa.fa-star
+        rating
       %th
         .text-warning.fa.fa-comment
+        feedback
       %th
       %th
 
