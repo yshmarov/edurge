@@ -15,6 +15,9 @@
       .list-group-item
         .fa.fa-graduation-cap
         = link_to @course.name, course_path(@course)
+        .float-rigt
+          .fa.fa-spinner
+          = number_to_percentage(@course.progress(current_user), precision: 0)
 
       - @lessons.each do |lesson|
         - if @lesson.present? && lesson == @lesson

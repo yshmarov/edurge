@@ -29,7 +29,7 @@ View course:
 ---
 
 View lesson:
-![alt text](https://i.imgur.com/hf01SnA.png "View lesson")
+![alt text](https://i.imgur.com/07pcKLV.png "View lesson")
 
 ---
 
@@ -44,12 +44,12 @@ Leave a review to a course:
 
 * Users can browse courses +
 * Users can subscribe to free courses +
-* Users can see the lesson content only of courses that they bought (subscribed to) +
+* Users can see the lesson content only of courses that they bought +
 * Users can review and rate courses that they bought +
 * Users can see their progress in a course +
 * Users can pay for courses (no payment system connected yet) -
 
-* Users-Teachers can create courses & lectures inside them +
+* Users-Teachers can create courses & lessons inside them +
 * Users-Teachers can see users that subscribed to their courses +
 * Users-Teachers can earn money on  their courses (no payment system connected yet) -
 
