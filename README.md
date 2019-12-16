@@ -39,7 +39,7 @@ Leave a review to a course:
 ---
 
 Admin can view all subscriptions, teacher can view subscriptions to his courses:
-![alt text](https://i.imgur.com/rUMqBDO.png "Admin can view all subscriptions, teacher can view subscriptions to his courses")
+![alt text](https://i.imgur.com/Hw87nOr.png "Admin can view all subscriptions, teacher can view subscriptions to his courses")
 
 ---
 
