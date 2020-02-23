@@ -81,23 +81,25 @@ Roles `[:admin, :teacher, :student]`
 
 # TO DO
 
-* show current_user progress in lesson/show
-* show current_user progress in purchased courses list?
+* show current_user progress in lesson/show - DONE
+* show current_user progress in purchased courses list? - DONE
 
 *gem ranked-model*
-* order lessons inside course (seq_number)
+* order lessons inside course (seq_number) - works only if page is reloaded because of turbolinks. Add a separate "edit order" page that works without turbolinks reload".
 
 *integrate a payments provider to actually pay for courses*
 
 *course duration*
 * use youtube api, or whatever the video provider is to fetch video duration
-* add_fields_to_lessons duration:integer
+* add_duration_to_lessons duration:integer
 
 *gem pagy*
 * paginate lessons inside courses, mark lessons complete
 * paginate Course.all in CoursesController
 
 *update to rails 6*
+
+*rename SUBSCRIPTION to ENROLLMENT model*
 
 *make it a PWA (with rails 6)*
 
