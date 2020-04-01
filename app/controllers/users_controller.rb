@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     #else
     #  redirect_to root_path, alert: 'You are not authorized to view the page.'
     #end
-    @users = User.all
+    @users = User.all.order(created_at: :desc)
     authorize @users, :index?
   end
 
