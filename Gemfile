@@ -46,3 +46,5 @@ gem 'jquery-ui-rails' #for drag-and-drop
 group :production do
   gem 'exception_notification'                                                    #EMAIL ERRORS FOR PRODUCTION
 end
+
+gem 'trix'

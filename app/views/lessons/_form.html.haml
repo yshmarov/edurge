@@ -5,9 +5,12 @@
 
   .form-inputs
     = f.input :name, input_html: { autocomplete: 'nope' }
-    = f.input :video_url, :input_html => {:rows => 1}
-    = f.input :description, :input_html => {:rows => 7}
+    /= f.input :video_url, :input_html => {:rows => 1}
+    /= f.input :description, :input_html => {:rows => 7}
     /= f.input :row_order
+    = f.text_area :description, id: :post_body, hidden: true
+    %trix-editor{:input => "post_body"}
+
 
   .form-actions
     = f.button :submit, class: 'btn btn-md btn-primary'

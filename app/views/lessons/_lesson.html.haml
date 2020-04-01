@@ -15,7 +15,7 @@
     .embed-responsive.embed-responsive-16by9
       %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "#{lesson.embed_url}", :width => "560"}
   .card-footer
-    = simple_format(lesson.description)
+    = sanitize simple_format(lesson.description)
   .card-footer
     .row
     - unless lesson.prev.nil?

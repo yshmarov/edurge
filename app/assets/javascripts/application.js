@@ -17,4 +17,5 @@
 //= require activestorage
 //= require jquery-ui/widgets/sortable
 //= require table_sort
+//= require trix
 //= require turbolinks
