@@ -9,6 +9,7 @@
     = lesson.name
   .float-right
     - if policy(lesson).edit?
+      .fa.fa-sort
       = link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning'
     - if policy(lesson).destroy?
       = link_to 'Destroy', [@course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
