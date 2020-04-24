@@ -81,44 +81,16 @@ Roles `[:admin, :teacher, :student]`
 
 # TO DO
 
-* show current_user progress in lesson/show - DONE
-* show current_user progress in purchased courses list? - DONE
-
-*gem ranked-model*
-* order lessons inside course (seq_number) - works only if page is reloaded because of turbolinks. Add a separate "edit order" page that works without turbolinks reload".
-
 *integrate a payments provider to actually pay for courses*
 
-*course duration*
+*lesson duration*
 * use youtube api, or whatever the video provider is to fetch video duration
-* add_duration_to_lessons duration:integer
-
-*gem pagy*
-* paginate lessons inside courses, mark lessons complete
-* paginate Course.all in CoursesController
-
-*update to rails 6*
-
-*rename SUBSCRIPTION to ENROLLMENT model*
 
 *make it a PWA (with rails 6)*
 
 *rich text editing for course/description (with rails 6)*
 
 *omniauth with google & facebook*
-
-*teacher course analytics*
-* chartkick & groupdate
-* course.subscriptions.count per time
-* course.subscriptions.rating per time
-* course.subscriptions.price.sum per time
-
-*admin analytics*
-* chartkick & groupdate
-* subscriptions.count per time
-* subscriptions.rating per time
-* users.created.count per time
-* subscriptions.price.sum per time
 
 *add TAGS to courses*
 * rails g migration tags name
@@ -129,14 +101,7 @@ Roles `[:admin, :teacher, :student]`
 
 *lesson options*
 * acts_as_votable (like/dislike)
-* acts_as_commentable
-* belongs_to category
-* rich text editing (having many images inside 1 lesson)
 * quizzes
-
-*OTHER*
-* exception_notification gem
-* home/index - do not show current_user courses that he has already subscribed to
 
 ---
 
